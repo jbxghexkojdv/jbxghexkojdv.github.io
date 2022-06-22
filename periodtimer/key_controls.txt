@@ -1,0 +1,11 @@
+6 - 6th grade schedule
+7 - 7th grade schedule
+8 - 8th grade schedule
+E - Removes background
+F - Cycles through fonts
+I - import background
+R - resets everything
+T - toggles the testing schedule
+U - Sets the background to the Ukrainian flag
+??? - ???
+Space - toggles dark mode
