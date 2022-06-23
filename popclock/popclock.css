@@ -1,0 +1,13 @@
+body {
+  background-color: black;
+}
+p {
+  font: 150px "Courier New";
+  color: white;
+  width: 99%;
+  text-align: center;
+  mix-blend-mode: difference;
+  z-index: 1000000;
+  position: absolute;
+  top: 20.5%;
+}
