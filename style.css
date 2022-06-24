@@ -11,6 +11,7 @@ button
   width: 33.333333333333333%;
   position: absolute;
   z-index: -90;
+  border: none;
 }
 
 .r1
