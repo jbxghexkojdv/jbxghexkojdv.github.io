@@ -3,3 +3,47 @@ a
   font-size: 30px;
   font-family: Helvetica;
 }
+
+button
+{
+  background-color: transparent;
+  height: 33.333333333333333%;
+  width: 33.333333333333333%;
+  position: absolute;
+  z-index: -90;
+}
+
+.r1
+{
+  top: 0;
+}
+
+.r2
+{
+  top: 33.3333333333333333333%;
+}
+
+.r3
+{
+  bottom: 0;
+}
+
+.c1
+{
+  left: 0;
+}
+
+.c2
+{
+  left: 33.333333333333333;
+}
+
+.c3
+{
+  right: 0;
+}
+
+#secret
+{
+  display: none;
+}
