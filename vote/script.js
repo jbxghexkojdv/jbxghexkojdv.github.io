@@ -1,16 +1,26 @@
+function createElem(tag = "p", parent = document.getElementsByTagName("body")[0])
+{
+  let elem = document.createElement(tag);
+  parent.appendChild(elem);
+  return elem;
+}
+
 function approval()
 {
-  
+  let message = createElem();
+  message.innerHTML = "Approval ballot here";
 }
 
 function rankedchoice()
 {
-  
+  let message = createElem();
+  message.innerHTML = "Ranked Choice ballot here";
 }
 
 function fptp()
 {
-  
+  let message = createElem();
+  message.innerHTML = "Dumbass ballot here";
 }
 
 function queryStringParser(url)
