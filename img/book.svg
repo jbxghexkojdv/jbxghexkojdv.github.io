@@ -1,8 +1,7 @@
 <?xml version="1.0" ?>
-<svg height="277" width="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image href="./Book_Icon.png" />
+<svg height="1197" width="1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image href="https://static.wikia.nocookie.net/battlefordreamisland/images/3/34/Book_Icon.png" />
   <path d="
     M 188, 0
-    C 188, 92 62, 185 62, 277
-  " stroke="#FF0000FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  " stroke="#FF0000FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="60"/>
 </svg>
