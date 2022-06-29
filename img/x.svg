@@ -1,0 +1,9 @@
+<?xml version="1.0" xmlns="https://jbxghexkojdv.github.io/" ?>
+<svg height="1024" width="1024">
+  <path d="
+    M 128, 128
+    L 896, 896
+    M 128, 896
+    L 896, 128
+  " stroke-width="128" />
+</svg>
