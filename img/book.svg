@@ -5,5 +5,11 @@
     M 640, 100
     C 640, 800 290, 470 290, 1170
   " stroke="#FF0000FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" fill="#00000000" />
+  <path d="
+    M 640, 100
+    Q 640, 460 465, 635
+    M 465, 635
+    Q 100, 810 100, 1170
+  " stroke="#0000FFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" fill="#00000000" />
   <!-- <circle cx="-195" cy="100" r="840" stroke="#00000000" fill="#0000FFFF" /> -->
 </svg>
