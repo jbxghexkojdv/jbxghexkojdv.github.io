@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<svg height="1024" width="1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="
+    M 128, 512
+    L 512, 128
+    L 896, 896
+  " stroke-width="256" stroke="#FF0000" stroke-linecap="round" />
+</svg>
