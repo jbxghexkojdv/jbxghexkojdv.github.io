@@ -5,5 +5,5 @@
     M 640, 100
     C 640, 650 290, 620 290, 1170
   " stroke="#FF0000FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" fill="#00000000" />
-  <circle cx="320" cy="100" r="320" stroke="#00000000" fill="#0000FF00" />
+  <circle cx="320" cy="100" r="320" stroke="#00000000" fill="#0000FFFF" />
 </svg>
