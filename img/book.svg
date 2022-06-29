@@ -2,7 +2,7 @@
 <svg height="277" width="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <image href="./Book_Icon.png" />
   <path d="
-    M 0, 0
-    L 100, 100
+    M 188, 0
+    C 188, 92 62, 185 62, 277
   " stroke="#FF0000FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
 </svg>
