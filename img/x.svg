@@ -5,5 +5,5 @@
     L 896, 896
     M 128, 896
     L 896, 128
-  " stroke-width="128" stroke="#FF0000" />
+  " stroke-width="256" stroke="#FF0000" stroke-linecap="round" />
 </svg>
