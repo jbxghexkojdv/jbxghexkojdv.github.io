@@ -7,8 +7,8 @@
   " stroke="#FF0000FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" fill="#00000000" />
   <path d="
     M 640, 100
-    Q 640, 460 465, 615
-    M 465, 615
+    Q 640, 460 465, 600
+    M 465, 600
     Q 290, 810 290, 1170
   " stroke="#0000FFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" fill="#00000000" />
   <!-- <circle cx="-195" cy="100" r="840" stroke="#00000000" fill="#0000FFFF" /> -->
