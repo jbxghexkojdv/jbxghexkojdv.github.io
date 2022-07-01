@@ -1,4 +1,4 @@
-export default cookieReader = () => 
+let cookieReader = () => 
 {
   let onKey = true;
   let kvalue = "";
