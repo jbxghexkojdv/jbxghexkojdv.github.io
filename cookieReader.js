@@ -44,4 +44,5 @@ export default cookieReader = () =>
       }
     }
   }
+  return retval;
 };
