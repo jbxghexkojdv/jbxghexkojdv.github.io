@@ -1,0 +1,9 @@
+#countdown
+{
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  font-size: 100px;
+  font-family: monospace;
+}
