@@ -20,18 +20,18 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
     {
       if(typeof values != "array")
       {
-        return;
+        return "not an array";
       }
       for(let i of array)
       {
         if(typeof i != "array")
         {
-          return;
+          return "not a two-dimensional array";
         }
       }
       if(values.length > this.rows.length || !values || (values && values[0].length > this.cells[0].length))
       {
-        return;
+        return "invalid 2d array";
       }
       for(let i in values)
       {
@@ -40,6 +40,7 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
           this.cells[i][j].innerHTML = values[i][j];
         }
       }
+      return this;
     }
   };
   for(let i = 0; i < rows; i++)
