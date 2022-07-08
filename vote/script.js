@@ -22,7 +22,7 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
       {
         return "not an array";
       }
-      for(let i of array)
+      for(let i of values)
       {
         if(typeof i != "object")
         {
