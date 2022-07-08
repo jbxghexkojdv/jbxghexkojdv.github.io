@@ -1,3 +1,5 @@
+let voteOptions = ["option 1", "option 2"];
+
 function createElem(tag = "p", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement(tag);
@@ -13,7 +15,32 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
   {
     table: table,
     rows: [],
-    cells: []
+    cells: [],
+    setText(values)
+    {
+      if(typeof values != "array")
+      {
+        return;
+      }
+      for(let i of array)
+      {
+        if(typeof i != "array")
+        {
+          return;
+        }
+      }
+      if(values.length > this.rows.length || !values || (values && values[0].length > this.cells[0].length))
+      {
+        return;
+      }
+      for(let i in values)
+      {
+        for(let j in values[i])
+        {
+          this.cells[i][j].innerHTML = values[i][j];
+        }
+      }
+    }
   };
   for(let i = 0; i < rows; i++)
   {
@@ -44,6 +71,8 @@ function rankedchoice()
 {
   let message = createElem();
   message.innerHTML = "Ranked Choice ballot here";
+  let test = createTable(voteOptions.length+1, voteOptions.length+1);
+  test.setText([["", "1", "2"], ["option 1", "", ""], ["option 2", "", ""]]);
 }
 
 function fptp()
@@ -108,4 +137,4 @@ switch(Number(optionsobj.time) % 6)
 }
 
 year = Math.floor((Number(optionsobj.time)-2)/6)+2022;
-title += " for the project of " + month + " " + year;
+title.innerHTML += " for the project of " + month + " " + year;
