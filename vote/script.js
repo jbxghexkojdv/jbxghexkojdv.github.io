@@ -18,13 +18,13 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
     cells: [],
     setText(values)
     {
-      if(typeof values != "array")
+      if(typeof values != "object")
       {
         return "not an array";
       }
       for(let i of array)
       {
-        if(typeof i != "array")
+        if(typeof i != "object")
         {
           return "not a two-dimensional array";
         }
