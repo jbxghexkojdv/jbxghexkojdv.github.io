@@ -1,5 +1,5 @@
 let voteOptions = ["option 1", "option 2"];
-
+//nothing
 function createElem(tag = "p", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement(tag);
