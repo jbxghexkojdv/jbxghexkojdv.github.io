@@ -88,6 +88,26 @@ function initBallot(options, system)
         vals.push([i]);
       }
       retval.setText(vals);
+      for(let i in retval.cells)
+      {
+        for(let j in retval.cells[i])
+        {
+          retval.cells[i][j].onclick = () => {
+
+            for(let k in retval.cells)
+            {
+              if(retval.cells[k][j].classList.contains("selected"))
+              {
+                for(let l in retval.cells[k])
+                {
+                  retval.cells[k][l].classList.remove("selected");
+                  retval.cells[k][l].classList.remove("not-selected");
+                }
+              }
+            }
+          };
+        }
+      }
   }
   return retval;
 }
