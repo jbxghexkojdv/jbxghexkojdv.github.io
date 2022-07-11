@@ -1,4 +1,12 @@
-let voteOptions = ["option 1", "option 2"];
+let voteOptions = ["Snowball", "Grassy", "Bell", "Robot Flower", "Basketball", "Foldy", "Eggy"];
+
+function ordinal(num)
+{
+  if(num % 10 == 1 && num != 11) return num + "st";
+  if(num % 10 == 2 && num != 12) return num + "nd";
+  if(num % 10 == 3 && num != 13) return num + "rd";
+  return num + "th";
+}
 
 function createElem(tag = "p", parent = document.getElementsByTagName("body")[0])
 {
@@ -73,7 +81,7 @@ function initBallot(options, system)
       let vals = [[""]];
       for(let i = 1; i <= options.length; i++)
       {
-        vals[0].push(i);
+        vals[0].push(ordinal(i) + "choice");
       }
       for(let i of options)
       {
