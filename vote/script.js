@@ -1,5 +1,5 @@
 let voteOptions = ["option 1", "option 2"];
-// NOTHING AGAIN
+
 function createElem(tag = "p", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement(tag);
@@ -58,6 +58,28 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
       datas.push(cell);
     }
     retval.cells.push(datas);
+  }
+  return retval;
+}
+
+function initBallot(options, system)
+{
+  let retval;
+  switch(system)
+  {
+    
+    default:
+      retval = createTable(options.length+1, options.length+1);
+      let vals = [[""]];
+      for(let i = 1; i <= options.length; i++)
+      {
+        vals[0].push(i);
+      }
+      for(let i of options)
+      {
+        vals.push([i]);
+      }
+      retval.setText(vals);
   }
   return retval;
 }
