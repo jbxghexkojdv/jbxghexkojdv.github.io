@@ -4,13 +4,13 @@ td
   color: black;
 }
 
-td.selected
+.selected
 {
   background-color: #00ff0080;
   color: #00ff00ff;
 }
 
-td.not-selected
+.not-selected
 {
   background-color: #ff000080;
   color: #ff0000ff;
