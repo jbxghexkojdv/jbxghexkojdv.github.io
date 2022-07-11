@@ -94,8 +94,9 @@ function rankedchoice()
 {
   let message = createElem();
   message.innerHTML = "Ranked Choice ballot here";
-  let test = createTable(voteOptions.length+1, voteOptions.length+1);
-  test.setText([["", "1", "2"], ["option 1", "", ""], ["option 2", "", ""]]);
+  // let test = createTable(voteOptions.length+1, voteOptions.length+1);
+  // test.setText([["", "1", "2"], ["option 1", "", ""], ["option 2", "", ""]]);
+  let test = initBallot(voteOptions, "rc");
 }
 
 function fptp()
