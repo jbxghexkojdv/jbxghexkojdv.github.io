@@ -171,7 +171,7 @@ switch(optionsobj.system)
     approval();
     break;
   case "rc":
-    try {rankedchoice();}catch(err){createElement().innerHTML = err.stack;}
+    try{rankedchoice();}catch(err){createElem().innerHTML = err.stack;}
     break;
   case "fptp":
     fptp();
