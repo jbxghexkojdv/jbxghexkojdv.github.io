@@ -92,18 +92,29 @@ function initBallot(options, system)
       {
         for(let j in retval.cells[i])
         {
-          retval.cells[i][j].onclick = () => {
-
+          retval.cells[i][j].onclick = () => 
+          {
             for(let k in retval.cells)
             {
-              if(retval.cells[k][j].classList.contains("selected"))
+              if(retval.cells[k][j].style.backgroundColor == "#80ff80")
               {
-                for(let l in retval.cells[k])
+                for(let l of retval.cells[k])
                 {
-                  retval.cells[k][l].classList.remove("selected");
-                  retval.cells[k][l].classList.remove("not-selected");
+                  l.style.backgroundColor = "#808080";
                 }
               }
+              retval.cells[k][j].style.backgroundColor = "#ff8080";
+            }
+            for(let k in retval.cells[i])
+            {
+              if(retval.cells[i][k].style.backgroundColor == "#80ff80")
+              {
+                for(let l in retval.cells)
+                {
+                  retval.cells[l][k].style.backgroundColor = "#808080";
+                }
+              }
+              retval.cells[i][k].style.backgroundColor = "#ff8080";
             }
           };
         }
