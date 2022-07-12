@@ -170,14 +170,11 @@ switch(optionsobj.system)
   case "approval":
     approval();
     break;
-  case "rc":
-    try{rankedchoice();}catch(err){createElem().innerHTML = err.stack;}
-    break;
   case "fptp":
     fptp();
     break;
   default:
-    rankedchoice();
+    try{rankedchoice();}catch(err){createElem().innerHTML = err.stack;}
 }
 
 let title = document.getElementsByTagName("title")[0];
