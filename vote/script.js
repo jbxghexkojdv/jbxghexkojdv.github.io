@@ -137,11 +137,11 @@ function approval()
 
 function rankedchoice()
 {
-  let message = createElem();
+  try{let message = createElem();
   message.innerHTML = "Ranked Choice ballot here";
   // let test = createTable(voteOptions.length+1, voteOptions.length+1);
   // test.setText([["", "1", "2"], ["option 1", "", ""], ["option 2", "", ""]]);
-  let test = initBallot(voteOptions, "rc");
+  let test = initBallot(voteOptions, "rc");}catch(err){createElem().innerHTML = err.stack;}
 }
 
 function fptp()
@@ -174,7 +174,7 @@ switch(optionsobj.system)
     fptp();
     break;
   default:
-    try{rankedchoice();}catch(err){createElem().innerHTML = err.stack;}
+    rankedchoice();
 }
 
 let title = document.getElementsByTagName("title")[0];
