@@ -75,7 +75,10 @@ function initBallot(options, system)
   let retval;
   switch(system)
   {
-    
+    case "fptp":
+      break;
+    case "approval":
+      break;
     default:
       retval = createTable(options.length+1, options.length+1);
       let vals = [[""]];
