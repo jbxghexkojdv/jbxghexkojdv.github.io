@@ -80,7 +80,7 @@ function initBallot(options, system)
     case "approval":
       break;
     default:
-      retval = createTable(options.length+1, options.length+1);
+      try{retval = createTable(options.length+1, options.length+1);
       let vals = [[""]];
       for(let i = 1; i <= options.length; i++)
       {
@@ -124,7 +124,7 @@ choice");
           };
           retval.cells[i][j].style.backgroundColor = "#808080";
         }
-      }
+      }   }catch(err){createElem().innerHTML = err.stack;}
   }
   return retval;
 }
@@ -137,11 +137,11 @@ function approval()
 
 function rankedchoice()
 {
-  try{let message = createElem();
+  let message = createElem();
   message.innerHTML = "Ranked Choice ballot here";
   // let test = createTable(voteOptions.length+1, voteOptions.length+1);
   // test.setText([["", "1", "2"], ["option 1", "", ""], ["option 2", "", ""]]);
-  let test = initBallot(voteOptions, "rc");}catch(err){createElem().innerHTML = err.stack;}
+  let test = initBallot(voteOptions, "rc");
 }
 
 function fptp()
