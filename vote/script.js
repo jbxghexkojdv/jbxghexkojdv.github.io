@@ -84,7 +84,8 @@ function initBallot(options, system)
       let vals = [[""]];
       for(let i = 1; i <= options.length; i++)
       {
-        vals[0].push(ordinal(i) + "choice");
+        vals[0].push(ordinal(i) + " 
+choice");
       }
       for(let i of options)
       {
@@ -121,6 +122,7 @@ function initBallot(options, system)
             }
             retval.cells[i][j].style.backgroundColor = "#80ff80";
           };
+          retval.cells[i][j].style.backgroundColor = "#808080";
         }
       }
   }
