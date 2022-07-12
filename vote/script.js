@@ -116,6 +116,7 @@ function initBallot(options, system)
               }
               retval.cells[i][k].style.backgroundColor = "#ff8080";
             }
+            retval.cells[i][j].style.backgroundColor = "#80ff80";
           };
         }
       }
