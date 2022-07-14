@@ -80,7 +80,7 @@ function initBallot(options, system)
     case "approval":
       break;
     default:
-      try{retval = createTable(options.length+1, options.length+1);
+      retval = createTable(options.length+1, options.length+1);
       let vals = [[""]];
       for(let i = 1; i <= options.length; i++)
       {
@@ -124,7 +124,7 @@ choice");
           };
           retval.cells[i][j].style.backgroundColor = "#808080";
         }
-      }   }catch(err){createElem().innerHTML = err.stack;}
+      }
   }
   return retval;
 }
