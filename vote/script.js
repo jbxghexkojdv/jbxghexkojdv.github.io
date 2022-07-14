@@ -1,5 +1,5 @@
 let voteOptions = ["Snowball", "Grassy", "Bell", "Robot Flower", "Basketball", "Foldy", "Eggy"];
-console.log ("voteOptions : object");
+
 function ordinal(num)
 {
   if(num % 10 == 1 && num != 11) return num + "st";
@@ -7,14 +7,14 @@ function ordinal(num)
   if(num % 10 == 3 && num != 13) return num + "rd";
   return num + "th";
 }
-console.log ("ordinal : function");
+
 function createElem(tag = "p", parent = document.getElementsByTagName("body")[0])
 {
   let elem = document.createElement(tag);
   parent.appendChild(elem);
   return elem;
 }
-console.log ("createElem : function");
+try {
 function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName("body")[0])
 {
   let table = createElem("table", parent);
@@ -68,7 +68,7 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
     retval.cells.push(datas);
   }
   return retval;
-}
+}    }catch (err){console.error(err.stack);}
 
 function initBallot(options, system)
 {
