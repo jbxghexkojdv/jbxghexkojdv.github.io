@@ -164,7 +164,7 @@ function queryStringParser(url)
 }
 
 const optionsobj = queryStringParser(window.location.href);
-
+try {
 switch(optionsobj.system)
 {
   case "approval":
@@ -175,7 +175,7 @@ switch(optionsobj.system)
     break;
   default:
     rankedchoice();
-}
+}   catch (err) {console.error(err.stack);}
 
 let title = document.getElementsByTagName("title")[0];
 
