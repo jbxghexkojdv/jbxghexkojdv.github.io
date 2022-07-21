@@ -10,11 +10,8 @@ export default {
             this.elem.style.left = x + "%";
             this.elem.style.bottom = y + "%";
 
-            this.location.getX = get(){  return Number(this.elem.style.left.slice(0, -1));  };
-            this.location.getY = get(){  return Number(this.elem.style.bottom.slice(0, -1));  };
-
-            this.location.setX = set(num){  this.elem.style.left = num + "%"; return num;  };
-            this.location.setY = set(num){  this.elem.style.bottom = num + "%"; return num;  };
+            this.location.x = x;
+            this.location.y = y;
 
             this.velocity.x = 0; // measured in distance per second
             this.velocity.y = 0;
@@ -50,11 +47,17 @@ export default {
                     case "collision":
                         // I will put code here in 1-2 days
                 }
-            }
+            };
+            this.updateLocation = () =>
+            {
+                this.elem.style.left = this.location.x + "%";
+                this.elem.style.bottom = this.location.y + "%";
+            };
             setInterval(() => 
             {
-                this.location.setX = this.location.getX + (this.velocity.x / 40);
-                this.location.setY = this.location.getY + (this.velocity.y / 40);
+                this.location.x += this.velocity.x / 40;
+                this.location.y += this.velocity.y / 40;
+                this.updateLocation();
                 this.velocity.x += this.acceleration.x / 40;
                 this.velocity.y += this.acceleration.y / 40;
             }, 25);
