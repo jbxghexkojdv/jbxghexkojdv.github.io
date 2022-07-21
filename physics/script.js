@@ -10,17 +10,13 @@ export default {
             this.elem.style.left = x + "%";
             this.elem.style.bottom = y + "%";
 
-            this.location.x = x;
-            this.location.y = y;
+            this.location = {x: x, y: y};
 
-            this.velocity.x = 0; // measured in distance per second
-            this.velocity.y = 0;
+            this.velocity = {x: 0, y: 0}; // measured in distance per second
 
-            this.acceleration.x = 0; // measured in speed gained per second
-            this.acceleration.y = 0;
+            this.acceleration = {x: 0, y: 0}; // measured in speed gained per second
 
-            this.hitbox.height = height;
-            this.hitbox.width = width;
+            this.hitbox = {height: height, width: width};
             this.start = (thing, ...args) =>
             {
                 switch(thing)
