@@ -1,5 +1,5 @@
 export default {
-    class Thing
+    Thing: class
     {
         constructor(elemIn, height, width, x, y)
         {
