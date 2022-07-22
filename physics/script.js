@@ -2,7 +2,7 @@
 export default {
     Thing: class
     {
-        constructor(elemIn, height, width, x, y)
+        constructor(elemIn, height, width, x, y, moving = true, collides = true)
         {
             this.elem = elemIn;
 
@@ -11,10 +11,11 @@ export default {
             this.elem.style.bottom = y + "%";
 
             this.location = {x: x, y: y};
-
             this.velocity = {x: 0, y: 0}; // measured in distance per second
-
             this.acceleration = {x: 0, y: 0}; // measured in speed gained per second
+
+            this.canMove = moving;
+            this.collision = collides;
 
             this.hitbox = {height: height, width: width};
             this.start = (thing, ...args) =>
@@ -41,7 +42,19 @@ export default {
                         }
                         break;
                     case "collision":
-                        // I will put code here in 1-2 days
+                        setInterval(() => 
+                        {
+                            for(const i in window)
+                            {
+                                if(velocity in window[i])
+                                {
+                                    if(window[i].collision = true && this.collision = true)
+                                    {
+                                        if(window[i].location.x)
+                                    }
+                                }
+                            }
+                       }
                 }
             };
             this.updateLocation = () =>
