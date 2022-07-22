@@ -2,7 +2,7 @@ function translate(elem, lang)
 {
   const langids = ["en", "es"];
   const notFounds = ["Translation not found", "Traducción no encontrado"];
-  const phrases = [["Contact me"], ["Me contactar", "El reloj de los períodos que es renombrado en todo de la escuela"]];
+  const phrases = [["Contact me", "The school-renowned Period Timer (v1.11.2)"], ["Me contactar", "El reloj de los períodos que es renombrado en todo de la escuela (v1.11.2)"]];
   lang = lang.slice(0, 2);
   if(lang == "en")
   {
