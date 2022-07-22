@@ -19,6 +19,7 @@ function translate(elem, lang)
     elem.innerHTML = notFounds[langids.indexOf(lang)];
     return;
   }
+  console.log(`phrases : ${typeof phrases} = ${phrases}\nphrases[langids.indexOf(lang)] : ${typeof phrases[langids.indexOf(lang)]} = ${phrases[langids.indexOf(lang)]}\nphrases[langids.indexOf(lang)][phrases[0].indexOf(elem.innerHTML)] : ${typeof phrases[langids.indexOf(lang)][phrases[0].indexOf(elem.innerHTML)]} = ${phrases[langids.indexOf(lang)][phrases[0].indexOf(elem.innerHTML)]}`)
   elem.innerHTML = phrases[langids.indexOf(lang)][phrases[0].indexOf(elem.innerHTML)];
 }
 function main()
