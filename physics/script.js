@@ -54,7 +54,7 @@ export default {
                                     }
                                 }
                             }
-                       }
+                        }, 25);
                 }
             };
             this.updateLocation = () =>
