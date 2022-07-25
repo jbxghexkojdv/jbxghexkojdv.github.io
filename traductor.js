@@ -14,7 +14,7 @@ function translate(elem, lang)
     elem.innerHTML = `Language ${lang} not supported`;
     return;
   }
-  if(!phrases.includes(elem.innerHTML))
+  if(!phrases[0].includes(elem.innerHTML))
   {
     elem.innerHTML = notFounds[langids.indexOf(lang)];
     return;
