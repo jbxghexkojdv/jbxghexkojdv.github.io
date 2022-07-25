@@ -9,12 +9,12 @@ function translate(elem, lang)
   {
     return;
   }
-  if(!(langids.includes(lang)))
+  if(!langids.includes(lang))
   {
     elem.innerHTML = `Language ${lang} not supported`;
     return;
   }
-  if(!(elem.innerHTML in phrases))
+  if(!phrases.includes(elem.innerHTML))
   {
     elem.innerHTML = notFounds[langids.indexOf(lang)];
     return;
