@@ -2,7 +2,9 @@
 <svg height="568" width="429" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="
         M 0, 0
-        L 100, 100" />
+        L 100, 100
+        L 0, 100
+        L 0, 0" />
     <path d="" />
     <path d="" />
     <path d="" />
