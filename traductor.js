@@ -9,7 +9,7 @@ function translate(elem, lang)
   {
     return;
   }
-  if(!(lang in langids))
+  if(!(langids.includes(lang)))
   {
     elem.innerHTML = `Language ${lang} not supported`;
     return;
