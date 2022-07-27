@@ -12,26 +12,10 @@
     " id="part" />
     </defs>
     <use href="#part" />
-    <path d="
-        M 51.174 284
-        l 32.773 -27.5
-        h 247.552
-        l 23.075 27.5
-        l -32.773 27.5
-        h -247.552
-        Z
-    " />
-    <path d="
-        M 3.83 540.5
-        l 32.773 -27.5
-        h 247.552
-        l 23.075 27.5
-        l -32.773 27.5
-        h -247.552
-        Z
-    " />
-    <path d="" />
-    <path d="" />
-    <path d="" />
-    <path d="" />
+    <use href="#part" transform="
+        translate(-33.6478 -256.5)
+    "/>
+    <use href="#part" transform="
+        translate(67.2956 -513)
+    "/>
 </svg>
