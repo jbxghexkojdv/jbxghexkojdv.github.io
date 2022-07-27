@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <svg height="568" width="429" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="
+    <defs>
+        <path d="
         M 98.5178 27.5
         l 32.773 -27.5
         h 247.552
@@ -8,7 +9,9 @@
         l -32.773 27.5
         h -247.552
         Z
-    " />
+    " id="part" />
+    </defs>
+    <use href="#part" />
     <path d="
         M 51.174 284
         l 32.773 -27.5
