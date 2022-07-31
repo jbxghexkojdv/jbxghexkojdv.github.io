@@ -13,9 +13,9 @@
     </defs>
     <use href="#part" />
     <use href="#part" transform="
-        translate(-33.6478 -256.5)
+        translate(-33.6478 256.5)
     " />
     <use href="#part" transform="
-        translate(-67.2956 -513)
+        translate(-67.2956 513)
     " />
 </svg>
