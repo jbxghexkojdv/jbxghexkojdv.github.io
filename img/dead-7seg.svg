@@ -9,7 +9,7 @@
         l -32.773 27.5
         h -247.552
         Z
-    " id="part" />
+    " id="part" fill="#ff000080" />
     </defs>
     <use href="#part" />
     <use href="#part" transform="
