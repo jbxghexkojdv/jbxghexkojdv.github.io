@@ -20,6 +20,7 @@
     " />
     <use href="#part" transform="
         rotate(280 250.2178 27.5)
+        matrix(1 0 0 -1 0 0)
     " />
     <use href="#part" transform="
         rotate(100 250.2178 27.5)
