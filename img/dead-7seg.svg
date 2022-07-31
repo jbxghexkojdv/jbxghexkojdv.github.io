@@ -19,8 +19,8 @@
         translate(-67.2956 513)
     " />
     <use href="#part" transform="
+        matrix(1 0 0 -1 0 55)
         rotate(280 250.2178 27.5)
-        matrix(1 0 0 -1 0 0)
     " />
     <use href="#part" transform="
         rotate(100 250.2178 27.5)
