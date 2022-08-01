@@ -2,14 +2,23 @@
 <svg viewBox="0 0 429 568" height="46.34032634" width="35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <path d="
-        m 98.5178 27.5
-        l 32.773 -27.5
-        h 247.552
-        l 23.075 27.5
-        l -32.773 27.5
-        h -247.552
-        Z
-    " id="part" fill="#ff000080" />
+            m 98.5178 27.5
+            l 32.773 -27.5
+            h 247.552
+            l 23.075 27.5
+            l -32.773 27.5
+            h -247.552
+            Z
+        " id="part" fill="#ff000080" />
+       <path d="
+            m 98.5178 27.5
+            l 32.773 -27.5
+            h 207.552
+            l 23.075 27.5
+            l -32.773 27.5
+            h -207.552
+            Z
+        " id="tall" fill="#ff000080" />
     </defs>
     <use href="#part" />
     <use href="#part" transform="
@@ -18,7 +27,7 @@
     <use href="#part" transform="
         translate(-67.2956 513)
     " />
-    <use href="#part" transform="
+    <use href="#tall" transform="
         matrix(1 0 0 -1 0 55)
         translate(-170 -100.75)
         rotate(80 250.2178 27.5)
