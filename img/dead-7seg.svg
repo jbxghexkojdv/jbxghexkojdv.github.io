@@ -29,7 +29,7 @@
     " />
     <use href="#tall" transform="
         matrix(1 0 0 -1 0 55)
-        translate(-170 -100.75)
+        translate(-160 -100.75)
         rotate(80 250.2178 27.5)
     " />
     <use href="#part" transform="
