@@ -20,8 +20,8 @@
     " />
     <use href="#part" transform="
         matrix(1 0 0 -1 0 55)
-        rotate(80 250.2178 27.5)
         translate(0 -100.75)
+        rotate(80 250.2178 27.5)
     " />
     <use href="#part" transform="
         rotate(100 250.2178 27.5)
