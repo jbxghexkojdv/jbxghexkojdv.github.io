@@ -514,7 +514,7 @@ function updateTimer(times, periods)
     pp.innerHTML = periods[20];
     tp.innerHTML = time_obj.fromMilliseconds(times[21]-now) + ending;
   }
-  else if ((now > (time_obj.ofDay(7, 45) && (now < time_obj.ofDay(7, 50)))
+  else if ((now > time_obj.ofDay(7, 45)) && (now < time_obj.ofDay(7, 50)))
   {
     pp.innerHTML = "Bre.-AB";
     tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofDay(07, 50))
