@@ -253,8 +253,69 @@ const times = {
               time_obj.ofDay(13, 18), time_obj.ofDay(14, 00), // P7 6
               time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 6
             ],
-            [time_obj.ofDay(7, 47, 1), time_obj.ofDay(8, 16, 1), time_obj.ofDay(8, 19, 1), time_obj.ofDay(9, 0, 1), time_obj.ofDay(9, 3, 1), time_obj.ofDay(9, 44, 1), time_obj.ofDay(9, 47, 1), time_obj.ofDay(10, 28, 1), time_obj.ofDay(10, 31, 1), time_obj.ofDay(11, 12, 1), time_obj.ofDay(11, 15, 1), time_obj.ofDay(11, 56, 1), time_obj.ofDay(11, 59, 1), time_obj.ofDay(12, 40, 1), time_obj.ofDay(12, 42, 1), time_obj.ofDay(13, 12, 1), time_obj.ofDay(13, 14, 1), time_obj.ofDay(13, 58, 1), time_obj.ofDay(14, 1, 1), time_obj.ofDay(14, 42, 1)], [time_obj.ofDay(7, 50, 1), time_obj.ofDay(8, 19, 1), time_obj.ofDay(8, 22, 1), time_obj.ofDay(9, 3, 1), time_obj.ofDay(9, 6, 1), time_obj.ofDay(9, 47, 1), time_obj.ofDay(9, 50, 1), time_obj.ofDay(10, 31, 1), time_obj.ofDay(10, 34, 1), time_obj.ofDay(11, 15, 1), time_obj.ofDay(11, 18, 1), time_obj.ofDay(11, 59, 1), time_obj.ofDay(12, 1, 1), time_obj.ofDay(12, 31, 1), time_obj.ofDay(12, 33, 1), time_obj.ofDay(13, 17, 1), time_obj.ofDay(13, 20, 1), time_obj.ofDay(14, 1, 1), time_obj.ofDay(14, 4, 1), time_obj.ofDay(14, 45, 1)]],
-  test:   [[time_obj.ofDay(7, 44, 1), time_obj.ofDay(9, 52, 1), time_obj.ofDay(9, 55, 1), time_obj.ofDay(10, 24, 1), time_obj.ofDay(10, 27, 1), time_obj.ofDay(10, 56, 1), time_obj.ofDay(10, 59, 1), time_obj.ofDay(11, 28, 1), time_obj.ofDay(11, 31, 1), time_obj.ofDay(12, 0, 1), time_obj.ofDay(12, 2, 1), time_obj.ofDay(12, 32, 1), time_obj.ofDay(12, 34, 1), time_obj.ofDay(13, 3, 1), time_obj.ofDay(13, 6, 1), time_obj.ofDay(13, 35, 1), time_obj.ofDay(13, 38, 1), time_obj.ofDay(14, 7, 1), time_obj.ofDay(14, 10, 1), time_obj.ofDay(14, 39, 1)], [time_obj.ofDay(7, 47, 1), time_obj.ofDay(9, 55, 1), time_obj.ofDay(9, 58, 1), time_obj.ofDay(10, 27, 1), time_obj.ofDay(10, 30, 1), time_obj.ofDay(10, 59, 1), time_obj.ofDay(11, 2, 1), time_obj.ofDay(11, 31, 1), time_obj.ofDay(11, 34, 1), time_obj.ofDay(12, 3, 1), time_obj.ofDay(12, 6, 1), time_obj.ofDay(12, 35, 1), time_obj.ofDay(12, 38, 1), time_obj.ofDay(13, 7, 1), time_obj.ofDay(13, 9, 1), time_obj.ofDay(13, 39, 1), time_obj.ofDay(13, 41, 1), time_obj.ofDay(14, 10, 1), time_obj.ofDay(14, 13, 1), time_obj.ofDay(14, 42, 1)], [time_obj.ofDay(7, 50, 1), time_obj.ofDay(9, 58, 1), time_obj.ofDay(10, 1, 1), time_obj.ofDay(10, 30, 1), time_obj.ofDay(10, 33, 1), time_obj.ofDay(11, 2, 1), time_obj.ofDay(11, 5, 1), time_obj.ofDay(11, 34, 1), time_obj.ofDay(11, 37, 1), time_obj.ofDay(12, 6, 1), time_obj.ofDay(12, 9, 1), time_obj.ofDay(12, 38, 1), time_obj.ofDay(12, 40, 1), time_obj.ofDay(13, 10, 1), time_obj.ofDay(13, 12, 1), time_obj.ofDay(13, 41, 1), time_obj.ofDay(13, 44, 1), time_obj.ofDay(14, 13, 1), time_obj.ofDay(14, 16, 1), time_obj.ofDay(14, 45, 1)]],
+            [   //         Start time               End time
+              time_obj.ofDay(07, 50), time_obj.ofDay(08, 15), // AB 7
+              time_obj.ofDay(08, 18), time_obj.ofDay(09, 00), // P1 7
+              time_obj.ofDay(09, 03), time_obj.ofDay(09, 45), // P2 7
+              time_obj.ofDay(09, 48), time_obj.ofDay(10, 30), // P3 7
+              time_obj.ofDay(10, 33), time_obj.ofDay(11, 15), // P4 7
+              time_obj.ofDay(11, 18), time_obj.ofDay(12, 00), // P5 7
+              /*  Teleport - 12:00  */time_obj.ofDay(12, 30), // Lu 7
+              time_obj.ofDay(12, 33), time_obj.ofDay(13, 15), // P6 7
+              time_obj.ofDay(13, 18), time_obj.ofDay(14, 00), // P7 7
+              time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 7
+            ],
+            [   //         Start time               End time
+              time_obj.ofDay(07, 50), time_obj.ofDay(08, 15), // AB 8
+              time_obj.ofDay(08, 18), time_obj.ofDay(09, 00), // P1 8
+              time_obj.ofDay(09, 03), time_obj.ofDay(09, 45), // P2 8
+              time_obj.ofDay(09, 48), time_obj.ofDay(10, 30), // P3 8
+              time_obj.ofDay(10, 33), time_obj.ofDay(11, 15), // P4 8
+              time_obj.ofDay(11, 18), time_obj.ofDay(12, 00), // P5 8
+              time_obj.ofDay(12, 03), time_obj.ofDay(12, 45), // P6 8
+              /*  Teleport - 12:45  */time_obj.ofDay(13, 15), // Lu 8
+              time_obj.ofDay(13, 18), time_obj.ofDay(14, 00), // P7 8
+              time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 8
+            ]
+          ],
+  test:   [     // NEEDS UPDATING AS SOON AS POSSIBLE
+            [   //         Start time               End time
+              time_obj.ofDay(07, 44), time_obj.ofDay(09, 52), // AB 6
+              time_obj.ofDay(09, 55), time_obj.ofDay(10, 24), // P1 6
+              time_obj.ofDay(10, 27), time_obj.ofDay(10, 56), // P2 6
+              time_obj.ofDay(10, 59), time_obj.ofDay(11, 28), // P3 6
+              time_obj.ofDay(11, 31), time_obj.ofDay(12, 00), // P4 6
+              time_obj.ofDay(12, 02), time_obj.ofDay(12, 32), // Lu 6
+              time_obj.ofDay(12, 34), time_obj.ofDay(13, 03), // P5 6
+              time_obj.ofDay(13, 06), time_obj.ofDay(13, 35), // P6 6
+              time_obj.ofDay(13, 38), time_obj.ofDay(14, 07), // P7 6
+              time_obj.ofDay(14, 10), time_obj.ofDay(14, 39), // P8 6
+            ],
+            [   //         Start time               End time
+              time_obj.ofDay(07, 47), time_obj.ofDay(09, 55), // AB 7
+              time_obj.ofDay(09, 58), time_obj.ofDay(10, 27), // P1 7
+              time_obj.ofDay(10, 30), time_obj.ofDay(10, 59), // P2 7
+              time_obj.ofDay(11, 02), time_obj.ofDay(11, 31), // P3 7
+              time_obj.ofDay(11, 34), time_obj.ofDay(12, 03), // P4 7
+              time_obj.ofDay(12, 06), time_obj.ofDay(12, 35), // P5 7
+              time_obj.ofDay(12, 38), time_obj.ofDay(13, 07), // P6 7
+              time_obj.ofDay(13, 09), time_obj.ofDay(13, 39), // Lu 7
+              time_obj.ofDay(13, 41), time_obj.ofDay(14, 10), // P7 7
+              time_obj.ofDay(14, 13), time_obj.ofDay(14, 42), // P8 7
+            ],
+            [   //         Start time               End time
+              time_obj.ofDay(07, 50), time_obj.ofDay(09, 58), // AB 8
+              time_obj.ofDay(10, 01), time_obj.ofDay(10, 30), // P1 8
+              time_obj.ofDay(10, 33), time_obj.ofDay(11, 02), // P2 8
+              time_obj.ofDay(11, 05), time_obj.ofDay(11, 34), // P3 8
+              time_obj.ofDay(11, 37), time_obj.ofDay(12, 06), // P4 8
+              time_obj.ofDay(12, 09), time_obj.ofDay(12, 38), // P5 8
+              time_obj.ofDay(12, 40), time_obj.ofDay(13, 10), // Lu 8
+              time_obj.ofDay(13, 12), time_obj.ofDay(13, 41), // P6 8
+              time_obj.ofDay(13, 44), time_obj.ofDay(14, 13), // P7 8
+              time_obj.ofDay(14, 16), time_obj.ofDay(14, 45), // P8 8
+            ]
+          ]
 };
 const stuff = [[["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-Lunch", "Lunch", "Lunch-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-Lunch", "Lunch", "Lunch-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-Lunch", "Lunch", "Lunch-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"]], [["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-Lunch", "Lunch", "Lunch-8", "8<sup>th</sup> hour", "8-Activity", "Activity"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-Lunch", "Lunch", "Lunch-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour", "8-Lunch", "Lunch", "Lu.-Act."]]];
 
@@ -358,87 +419,108 @@ function updateTimer(times, periods)
     pp.innerHTML = periods[1];
     tp.innerHTML = time_obj.fromMilliseconds(times[2]-now) + ending;
   }
-  else if ((now > times[2]) && (now < times[3])) {
+  else if ((now > times[2]) && (now < times[3]))
+ {
     pp.innerHTML = periods[2];
     tp.innerHTML = time_obj.fromMilliseconds(times[3]-now) + ending;
   }
-  else if ((now > times[3]) && (now < times[4])) {
+  else if ((now > times[3]) && (now < times[4]))
+  {
     pp.innerHTML = periods[3];
     tp.innerHTML = time_obj.fromMilliseconds(times[4]-now) + ending;
   }
-  else if ((now > times[4]) && (now < times[5])) {
+  else if ((now > times[4]) && (now < times[5]))
+  {
     pp.innerHTML = periods[4];
     tp.innerHTML = time_obj.fromMilliseconds(times[5]-now) + ending;
   }
-  else if ((now > times[5]) && (now < times[6])) {
+  else if ((now > times[5]) && (now < times[6]))
+  {
     pp.innerHTML = periods[5];
     tp.innerHTML = time_obj.fromMilliseconds(times[6]-now) + ending;
   }
-  else if ((now > times[6]) && (now < times[7])) {
+  else if ((now > times[6]) && (now < times[7]))
+  {
     pp.innerHTML = periods[6];
     tp.innerHTML = time_obj.fromMilliseconds(times[7]-now) + ending;
   }
-  else if ((now > times[7][7]) && (now < times[8])) {
+  else if ((now > times[7][7]) && (now < times[8]))
+  {
     pp.innerHTML = periods[0];
     tp.innerHTML = time_obj.fromMilliseconds(times[8]-now) + ending;
   }
-  else if ((now > times[8]) && (now < times[9])) {
+  else if ((now > times[8]) && (now < times[9]))
+  {
     pp.innerHTML = periods[8];
     tp.innerHTML = time_obj.fromMilliseconds(times[9]-now) + ending;
   }
-  else if ((now > times[9]) && (now < times[10])) {
+  else if ((now > times[9]) && (now < times[10]))
+ {
     pp.innerHTML = periods[9];
     tp.innerHTML = time_obj.fromMilliseconds(times[10]-now) + ending;
   }
-  else if ((now > times[10]) && (now < times[11])) {
+  else if ((now > times[10]) && (now < times[11]))
+  {
     pp.innerHTML = periods[10];
     tp.innerHTML = time_obj.fromMilliseconds(times[11]-now) + ending;
   }
-  else if ((now > times[11]) && (now < times[12])) {
+  else if ((now > times[11]) && (now < times[12]))
+  {
     pp.innerHTML = periods[11];
     tp.innerHTML = time_obj.fromMilliseconds(times[12]-now) + ending;
   }
-  else if ((now > times[12]) && (now < times[13])) {
+  else if ((now > times[12]) && (now < times[13]))
+  {
     pp.innerHTML = periods[12];
     tp.innerHTML = time_obj.fromMilliseconds(times[13]-now) + ending;
   }
-  else if ((now > times[13]) && (now < times[14])) {
+  else if ((now > times[13]) && (now < times[14]))
+  {
     pp.innerHTML = periods[13];
     tp.innerHTML = time_obj.fromMilliseconds(times[14]-now) + ending;
   }
-  else if ((now > times[14]) && (now < times[15])) {
+  else if ((now > times[14]) && (now < times[15]))
+  {
     pp.innerHTML = periods[14];
     tp.innerHTML = time_obj.fromMilliseconds(times[15]-now) + ending;
   }
-  else if ((now > times[15]) && (now < times[16])) {
+  else if ((now > times[15]) && (now < times[16]))
+  {
     pp.innerHTML = periods[15];
     tp.innerHTML = time_obj.fromMilliseconds(times[16]-now) + ending;
   }
-  else if ((now > times[16]) && (now < times[17])) {
+  else if ((now > times[16]) && (now < times[17]))
+  {
     pp.innerHTML = periods[16];
     tp.innerHTML = time_obj.fromMilliseconds(times[17]-now) + ending;
   }
-  else if ((now > times[17]) && (now < times[18])) {
+  else if ((now > times[17]) && (now < times[18]))
+  {
     pp.innerHTML = periods[17];
     tp.innerHTML = time_obj.fromMilliseconds(times[18]-now) + ending;
   }
-  else if ((now > times[18]) && (now < times[19])) {
+  else if ((times.length >= 19) && ((now > times[18]) && (now < times[19])))
+  {
     pp.innerHTML = periods[18];
     tp.innerHTML = time_obj.fromMilliseconds(times[19]-now) + ending;
   }
-  else if ((times.length == 22)&&((now > times[19]) && (now < times[20]))){
+  else if ((times.length >= 20) && ((now > times[19]) && (now < times[20])))
+  {
     pp.innerHTML = periods[19];
     tp.innerHTML = time_obj.fromMilliseconds(times[20]-now) + ending;
   }
-  else if((times.length == 22)&&((now > times[20]) && (now < times[21]))) {
+  else if((times.length >= 21) && ((now > times[20]) && (now < times[21])))
+  {
     pp.innerHTML = periods[20];
     tp.innerHTML = time_obj.fromMilliseconds(times[21]-now) + ending;
   }
-  else if ((now > (time_obj.ofDay(7, 45) && (now < time_obj.ofDay(7, 50))) {
+  else if ((now > (time_obj.ofDay(7, 45) && (now < time_obj.ofDay(7, 50)))
+  {
     pp.innerHTML = "Bre.-AB";
     tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofDay(07, 50))
   }
-  else {
+  else
+  {
     pp.innerHTML = "Learn't";
     tp.innerHTML = time_obj.fromMilliseconds(((time_obj.ofDay(7, 42, 1)+86400000+(settings.grade*180000))-now)%86400000) + " until school starts again";
     tp.style.top = "55%";
@@ -452,48 +534,75 @@ function updateTimer(times, periods)
 function think()
 {
   const yes = new Date();
-  const timeOfWeek = Date.now()%604800000;
-  const timeOfDay = Date.now()%86400000;
+  const timeOfWeek = Date.now() % 604800000;
+  const timeOfDay = Date.now() % 86400000;
   const isWeekend = ((time_obj.ofWeek(14, 38, 59, 1) < timeOfWeek) && (timeOfWeek < time_obj.ofWeek(7, 42, 1, 4)));
   let isSummer = ((yes.getMonth() >= 4) && (yes.getMonth() <= 7));
-  if ((yes.getMonth() == 7 && yes.getDate() >= 11) || (yes.getMonth() == 4 && yes.getDate() <= 23)) isSummer = false;
-  if ((yes.getMonth() == 4 && ((11 >= yes.getDate()) && (yes.getDate() >= 5))) && (yes.getDay() >= 3)) isSummer = false;
-  if (!isSummer) {
-    if (!isWeekend) {
+  if ((yes.getMonth() == 7 && yes.getDate() >= 11) || (yes.getMonth() == 4 && yes.getDate() <= 23))
+  {
+    isSummer = false;
+  }
+  if ((yes.getMonth() == 4 && ((11 >= yes.getDate()) && (yes.getDate() >= 5))) && (yes.getDay() >= 3))
+  {
+    isSummer = false;
+  }
+  if (!isSummer)
+  {
+    if (!isWeekend)
+    {
       tp.style.top = "48.5%";
-      if (settings.schedule === 0) {
+      if (settings.schedule === 0)
+      {
         updateTimer(times.test[settings.grade], stuff[0][settings.grade]);
-      } else if (settings.schedule === 1) {
-        updateTimer(times.normal[settings.grade], stuff[0][settings.grade]);
-      } else {
-        updateTimer(times.fieldDay[settings.grade], stuff[1][settings.grade]);
       }
-    } else {
+      else
+      {
+        updateTimer(times.normal[settings.grade], stuff[0][settings.grade]);
+      }
+    }
+    else
+    {
       pp.innerHTML = "Learn't";
       pp.style.top = "-35%";
       tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofWeek(7, 44, 0, 4)-timeOfWeek+(settings.grade*180000)) + " until school starts again";
       tp.style.top = "55%";
     }
-  } else {
+  }
+  else
+  {
     pp.innerHTML = "Summer!";
     pp.style.top = "-35%";
-    tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:48:00"))-Number(yes)) + " until school starts again";
+    const dayIfNecessary = settings.grade ? 86400000 : 0
+    tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:48:00")) - Number(yes) + dayIfNecessary) + " until school starts again";
     tp.style.top = "55%";
   }
   functions_general.update.darkMode();
 }
-setInterval(think, 1000/7);
-function tdm() {
-  if (!settings.shifting) settings.darkMode++;
-  if (settings.shifting) settings.darkMode--;
-  if (settings.darkMode < 0) settings.darkMode += 3;
+setInterval(think, 1000/8);
+function tdm()
+{
+  if (!settings.shifting)
+  {
+    settings.darkMode++;
+  }
+  else
+  {
+    settings.darkMode--;
+  }
+  if (settings.darkMode < 0)
+  {
+    settings.darkMode += 3;
+  }
   settings.darkMode %= 3;
   functions_general.update.darkMode();
 }
 document.addEventListener("keyup", () => {
+
   let evt = window.event;
   let code = evt.code;
-  switch (code) {
+
+  switch (code)
+  {
     case "Digit6":
       settings.grade = 0;
       break;
@@ -554,9 +663,11 @@ document.addEventListener("keyup", () => {
   functions_general.update.grade();
 });
 document.addEventListener("keydown", () => {
+
   let evt = window.event;
   let code = evt.code;
-  switch(code) {
+  switch(code)
+  {
     case "ShiftLeft":
       settings.shifting = true;
       break;
@@ -568,25 +679,35 @@ document.addEventListener("keydown", () => {
   }
 });
 window.addEventListener("resize", () => {
-  if (window.innerHeight == 617) {
+
+  if (window.innerHeight == 617)
+  {
     document.getElementById("fullscreen-prompt-img").style.display = "block";
-  } else {
+  }
+  else
+  {
     document.getElementById("fullscreen-prompt-img").style.display = "none";
   }
 });
-function handleImage(event) {
+function handleImage(event)
+{
   let output = document.getElementById("bgimg");
   output.src = URL.createObjectURL(event.target.files[0]);
 }
 think();
 functions_general.update.darkMode();
 console.log = (a) => {
+
   document.getElementById("debug-element").innerHTML += a + "<br />"
 }
 window.onload = () => {
-  if (window.innerHeight == 617) {
+
+  if (window.innerHeight == 617)
+  {
     document.getElementById("fullscreen-prompt-img").style.display = "block";
-  } else {
+  }
+  else
+  {
     document.getElementById("fullscreen-prompt-img").style.display = "none";
   }
 }
