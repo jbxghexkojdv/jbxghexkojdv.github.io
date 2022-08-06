@@ -21,7 +21,7 @@ body {
 }
 
 #pp {
-  top: 0;
+  top: 50%;
   font-size: 20px;
   color: white;
   mix-blend-mode: difference;
