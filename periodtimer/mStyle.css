@@ -21,7 +21,7 @@ body {
 }
 
 #pp {
-  top: 0;
+  top: -1in;
   font-size: 207px;
   color: white;
   mix-blend-mode: difference;
