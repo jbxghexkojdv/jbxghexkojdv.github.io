@@ -573,7 +573,7 @@ function think()
     pp.innerHTML = "Summer!";
     pp.style.top = "-35%";
     const dayIfNecessary = settings.grade ? 86400000 : 0
-    tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:48:00")) - Number(yes) + dayIfNecessary) + " until school starts again";
+    tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:50:00")) - Number(yes) + dayIfNecessary) + " until school starts again";
     tp.style.top = "55%";
   }
   functions_general.update.darkMode();
