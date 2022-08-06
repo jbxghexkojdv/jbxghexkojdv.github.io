@@ -542,7 +542,7 @@ function think()
   {
     isSummer = false;
   }
-  if ((yes.getMonth() == 4 && ((11 >= yes.getDate()) && (yes.getDate() >= 5))) && (yes.getDay() >= 3))
+  if ((yes.getMonth() == 7 && (((settings.grade ? 11 : 10) <= yes.getDate()) && (yes.getDate() <= (settings.grade ? 17 : 16)))) && (yes.getDay() >= (settings.grade ? 4 : 3)))
   {
     isSummer = false;
   }
