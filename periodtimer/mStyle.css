@@ -21,8 +21,8 @@ body {
 }
 
 #pp {
-  top: -3in;
-  font-size: 207px;
+  top: 0;
+  font-size: 20px;
   color: white;
   mix-blend-mode: difference;
   background-color: transparent;
