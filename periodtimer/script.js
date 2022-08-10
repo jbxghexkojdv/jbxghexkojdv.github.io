@@ -526,7 +526,7 @@ function updateTimer(times, periods)
     tp.style.top = "55%";
   }
   const supRegex = /<sup>/;
-  if (pp.innerHTML.match(supRegex))
+  if (pp.innerHTML.match(supRegex) && !window.window.window.window.window.window.mobileCheck())
   {
     pp.style.top = "-36%";
   }
@@ -550,7 +550,10 @@ function think()
   {
     if (!isWeekend)
     {
-      tp.style.top = "48.5%";
+      if(!window.window.window.window.window.window.mobileCheck())
+      {
+        tp.style.top = "48.5%";
+      }
       if (settings.schedule === 0)
       {
         updateTimer(times.test[settings.grade], stuff[0][settings.grade]);
@@ -563,7 +566,10 @@ function think()
     else
     {
       pp.innerHTML = "Learn't";
+      if(!window.window.window.window.window.window.mobileCheck())
+      {
       pp.style.top = "-35%";
+      }
       tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofWeek(7, 50, 0, 4)-timeOfWeek+(settings.grade*180000)) + " until school starts again";
       tp.style.top = "55%";
     }
@@ -571,7 +577,10 @@ function think()
   else
   {
     pp.innerHTML = "Summer!";
-    pp.style.top = "-35%";
+    if(!window.window.window.window.window.window.mobileCheck())
+    {
+      pp.style.top = "-35%";
+    }
     const dayIfNecessary = settings.grade ? 86400000 : 0
     tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:50:00")) - Number(yes) + dayIfNecessary) + " until school starts again";
     tp.style.top = "55%";
