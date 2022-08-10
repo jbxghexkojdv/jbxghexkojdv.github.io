@@ -22,7 +22,7 @@ body {
 
 #pp {
   top: 50%;
-  font-size: 50px;
+  font-size: 100px;
   color: white;
   mix-blend-mode: difference;
   background-color: transparent;
