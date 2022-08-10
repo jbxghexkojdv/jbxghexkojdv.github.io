@@ -522,7 +522,7 @@ function updateTimer(times, periods)
   else
   {
     pp.innerHTML = "Learn't";
-    tp.innerHTML = time_obj.fromMilliseconds(((time_obj.ofDay(7, 42, 1)+86400000+(settings.grade*180000))-now)%86400000) + " until school starts again";
+    tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + " until school starts again";
     tp.style.top = "55%";
   }
   const supRegex = /<sup>/;
@@ -564,7 +564,7 @@ function think()
     {
       pp.innerHTML = "Learn't";
       pp.style.top = "-35%";
-      tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofWeek(7, 44, 0, 4)-timeOfWeek+(settings.grade*180000)) + " until school starts again";
+      tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofWeek(7, 50, 0, 4)-timeOfWeek+(settings.grade*180000)) + " until school starts again";
       tp.style.top = "55%";
     }
   }
