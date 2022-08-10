@@ -197,9 +197,9 @@ const functions_general = {
       }
       else
       {
-        const isWeekend = ((time_obj.ofWeek(14, 38, 59, 1) < (Date.now()%604800000)) && ((Date.now()%604800000) < time_obj.ofWeek(7, 42, 1, 4)));
-        const timeUntilSchool = isWeekend ? (time_obj.ofWeek(7, 42, 1, 4)-(Date.now()%604800000)) : ((time_obj.ofDay(7, 42, 1)+86400000)-(Date.now()%86400000))%86400000;
-        const TUSFraction = (isWeekend)&&(timeUntilSchool>0) ? 1-((timeUntilSchool+230700000)/461400000) : 1-((timeUntilSchool/*+57900000*/)/115800000);
+        const isWeekend = ((time_obj.ofWeek(14, 44, 59, 1) < (Date.now()%604800000)) && ((Date.now()%604800000) < time_obj.ofWeek(7, 45, 1, 4)));
+        const timeUntilSchool = isWeekend ? (time_obj.ofWeek(7, 45, 1, 4)-(Date.now()%604800000)) : ((time_obj.ofDay(7, 45, 1)+86400000)-(Date.now()%86400000))%86400000;
+        const TUSFraction = isWeekend && (timeUntilSchool > 0) ? 1-((timeUntilSchool+230700000)/461400000) : 1-((timeUntilSchool/*+57900000*/)/115800000);
         const bgColor = color.toHue(color.decimalToColor(TUSFraction));
         document.getElementsByTagName("body")[0].style.backgroundColor = bgColor;
         darkModeButton.innerHTML = "COLORS";
@@ -392,7 +392,7 @@ function updateTimer(times, periods)
 {
   const now = Date.now() % 86400000;
 
-  const startOfDay = time_obj.ofDay(7, 42) + (settings.grade*180000);
+  const startOfDay = time_obj.ofDay(7, 45);
   const endOfDay = times[times.length - 1];
 
   const lengthOfDay = endOfDay - startOfDay;
@@ -405,7 +405,7 @@ function updateTimer(times, periods)
 
   let ending = ` remaining${percentageString}`;
 
-  if (!(((pp.innerHTML == "Learn't") || (pp.innerHTML == "Loading...")))&&(settings.darkMode == 0))
+  if (!(((pp.innerHTML == "Learn't") || (pp.innerHTML == "Loading..."))) && (settings.darkMode == 0))
   {
     document.getElementsByTagName("body")[0].style.backgroundColor = color.toHue(color.decimalToColor(percentageRaw/2));
   }
@@ -536,7 +536,7 @@ function think()
   const yes = new Date();
   const timeOfWeek = Date.now() % 604800000;
   const timeOfDay = Date.now() % 86400000;
-  const isWeekend = ((time_obj.ofWeek(14, 38, 59, 1) < timeOfWeek) && (timeOfWeek < time_obj.ofWeek(7, 42, 1, 4)));
+  const isWeekend = ((time_obj.ofWeek(14, 44, 59, 1) < timeOfWeek) && (timeOfWeek < time_obj.ofWeek(7, 45, 1, 4)));
   let isSummer = ((yes.getMonth() >= 4) && (yes.getMonth() <= 7));
   if ((yes.getMonth() == 7 && yes.getDate() >= 11) || (yes.getMonth() == 4 && yes.getDate() <= 23))
   {
