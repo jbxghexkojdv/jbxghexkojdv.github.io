@@ -770,7 +770,7 @@ window.onload = () => {
   }
   if(document.cookie)
   {
-    settings = JSON.parse(document.cookie.slice(2, -1);
+    settings = JSON.parse(document.cookie.slice(2, -1));
   }
 }
 
