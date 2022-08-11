@@ -1,4 +1,5 @@
-//Слава Україні!
+// Слава Україні!
+// amgos
 let pp = document.getElementById("pp");
 let tp = document.getElementById("tp");
 let non = document.getElementById("testing-toggle");
