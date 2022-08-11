@@ -95,6 +95,8 @@ body
   top: 80%;
   height: 20%;
   width: 100%;
+  background-color: white;
+  mix-blend-mode: difference;
 }
 
 img
