@@ -31,6 +31,7 @@ function range(num)
   }
   return arr;
 }
+
 const color = {
 
   toHue(color_code)
@@ -38,8 +39,8 @@ const color = {
     let r;
     let g;
     let b;
-    const stage = Math.floor(color_code/255);
-    const theWayThrough = color_code%255;
+    const stage = Math.floor(color_code / 255);
+    const theWayThrough = color_code % 255;
     switch(stage) {
       case 0:
         r = 255;
@@ -162,6 +163,7 @@ const time_obj = {
     }
   }
 };
+
 const functions_general = {
 
   update: {
@@ -204,21 +206,46 @@ const functions_general = {
         document.getElementsByTagName("body")[0].style.backgroundColor = bgColor;
         darkModeButton.innerHTML = "COLORS";
       }
-    }
+    },
+    cookies()
+    {
+      if(cookies.allowed)
+      {
+        document.cookie = "s=" + JSON.stringify(settings) + ";";
+      }
+    },
   },
   gradechange()
   {
-    if (!settings.shifting) settings.grade++;
-    if (settings.shifting) settings.grade--;
-    if (settings.grade < 0) settings.grade += 3;
-    settings.grade%=3;
+    if (!settings.shifting)
+    {
+      settings.grade++;
+    }
+    else
+    {
+      settings.grade--;
+    }
+    if (settings.grade < 0)
+    {
+      settings.grade += 3;
+    }
+    settings.grade %= 3;
     this.update.grade();
   },
   cycleFonts()
   {
-    if (!settings.shifting) font_num++;
-    if (settings.shifting) font_num--;
-    if (font_num < 0) font_num += fonts.length;
+    if (!settings.shifting)
+    {
+      font_num++;
+    }
+    else
+    {
+      font_num--;
+    }
+    if (font_num < 0)
+    {
+      font_num += fonts.length;
+    }
     font_num %= fonts.length;
     pp.style.fontFamily = fonts[font_num];
     tp.style.fontFamily = fonts[font_num];
@@ -228,6 +255,27 @@ const functions_general = {
     document.getElementById("sus").style.fontFamily = fonts[font_num];
   }
 };
+
+const cookies = {
+  
+  allowed: false,
+  accept()
+  {
+    functions_general.update.cookies();
+    document.getElementById("cookie").style.display = "none";
+  },
+
+  deny()
+  {
+    document.getElementById("cookie").style.display = "none";
+  },
+};
+
+if(document.cookie)
+{
+  cookies.allowed = true;
+  document.getElementById("cookie").style.display = "none";
+}
 
 function resetImage()
 {
@@ -586,6 +634,7 @@ function think()
     tp.style.top = "55%";
   }
   functions_general.update.darkMode();
+  functions_general.update.cookies();
 }
 setInterval(think, 1000/8);
 function tdm()
@@ -719,7 +768,13 @@ window.onload = () => {
   {
     document.getElementById("fullscreen-prompt-img").style.display = "none";
   }
+  if(document.cookie)
+  {
+    settings = JSON.parse(document.cookie.slice(2, -1);
+  }
 }
+
+
 /*i ⅱ ⅲ ⅳ v ⅵ ⅶ ⅷ x ⅺ ⅻ
 
 */
