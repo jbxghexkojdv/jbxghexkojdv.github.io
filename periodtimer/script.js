@@ -327,18 +327,18 @@ const times = {
               time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 8
             ]
           ],
-  test:   [     // NEEDS UPDATING AS SOON AS POSSIBLE
+  test:   [     // NEEDS UPDATING AS SOON AS POSSIBLE, CURRENTLY COMPLETELY GUESSING
             [   //         Start time               End time
-              time_obj.ofDay(07, 44), time_obj.ofDay(09, 52), // AB 6
-              time_obj.ofDay(09, 55), time_obj.ofDay(10, 24), // P1 6
-              time_obj.ofDay(10, 27), time_obj.ofDay(10, 56), // P2 6
-              time_obj.ofDay(10, 59), time_obj.ofDay(11, 28), // P3 6
-              time_obj.ofDay(11, 31), time_obj.ofDay(12, 00), // P4 6
-              time_obj.ofDay(12, 02), time_obj.ofDay(12, 32), // Lu 6
-              time_obj.ofDay(12, 34), time_obj.ofDay(13, 03), // P5 6
-              time_obj.ofDay(13, 06), time_obj.ofDay(13, 35), // P6 6
-              time_obj.ofDay(13, 38), time_obj.ofDay(14, 07), // P7 6
-              time_obj.ofDay(14, 10), time_obj.ofDay(14, 39), // P8 6
+              time_obj.ofDay(07, 50), time_obj.ofDay(09, 45), // AB 6
+              time_obj.ofDay(09, 48), time_obj.ofDay(10, 15), // P1 6
+              time_obj.ofDay(10, 18), time_obj.ofDay(10, 45), // P2 6
+              time_obj.ofDay(10, 48), time_obj.ofDay(11, 15), // P3 6
+              time_obj.ofDay(11, 31), time_obj.ofDay(11, 45), // P4 6
+              time_obj.ofDay(12, 02), time_obj.ofDay(12, 15), // Lu 6
+              time_obj.ofDay(12, 34), time_obj.ofDay(12, 45), // P5 6
+              time_obj.ofDay(13, 06), time_obj.ofDay(13, 15), // P6 6
+              time_obj.ofDay(13, 38), time_obj.ofDay(13, 45), // P7 6
+              time_obj.ofDay(14, 10), time_obj.ofDay(14, 15), // P8 6
             ],
             [   //         Start time               End time
               time_obj.ofDay(07, 47), time_obj.ofDay(09, 55), // AB 7
@@ -366,7 +366,70 @@ const times = {
             ]
           ]
 };
-const stuff = [[["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-Lunch", "Lunch", "Lunch-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-Lunch", "Lunch", "Lunch-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-Lunch", "Lunch", "Lunch-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"]], [["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-Lunch", "Lunch", "Lunch-8", "8<sup>th</sup> hour", "8-Activity", "Activity"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-Lunch", "Lunch", "Lunch-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour"], ["AB", "AB-1", "1<sup>st</sup> hour", "1-2", "2<sup>nd</sup> hour", "2-3", "3<sup>rd</sup> hour", "3-4", "4<sup>th</sup> hour", "4-5", "5<sup>th</sup> hour", "5-6", "6<sup>th</sup> hour", "6-7", "7<sup>th</sup> hour", "7-8", "8<sup>th</sup> hour", "8-Lunch", "Lunch", "Lu.-Act."]]];
+const stuff = [
+                [ // 6
+                  "AB",
+                  "AB-1",
+                  "1<sup>st</sup> hour",
+                  "1-2",
+                  "2<sup>nd</sup> hour",
+                  "2-3",
+                  "3<sup>rd</sup> hour",
+                  "3-4",
+                  "4<sup>th</sup> hour",
+                  "Lunch",
+                  "Lunch-5",
+                  "5<sup>th</sup> hour",
+                  "5-6",
+                  "6<sup>th</sup> hour",
+                  "6-7",
+                  "7<sup>th</sup> hour",
+                  "7-8",
+                  "8<sup>th</sup> hour"
+                ],
+
+                [ // 7
+                  "AB",
+                  "AB-1",
+                  "1<sup>st</sup> hour",
+                  "1-2",
+                  "2<sup>nd</sup> hour",
+                  "2-3",
+                  "3<sup>rd</sup> hour",
+                  "3-4",
+                  "4<sup>th</sup> hour",
+                  "4-5",
+                  "5<sup>th</sup> hour",
+                  "Lunch",
+                  "Lunch-6",
+                  "6<sup>th</sup> hour",
+                  "6-7",
+                  "7<sup>th</sup> hour",
+                  "7-8",
+                  "8<sup>th</sup> hour"
+                ],
+
+                [ // 8
+                  "AB",
+                  "AB-1",
+                  "1<sup>st</sup> hour",
+                  "1-2",
+                  "2<sup>nd</sup> hour",
+                  "2-3",
+                  "3<sup>rd</sup> hour",
+                  "3-4",
+                  "4<sup>th</sup> hour",
+                  "4-5",
+                  "5<sup>th</sup> hour",
+                  "5-6",
+                  "6<sup>th</sup> hour",
+                  "Lunch",
+                  "Lunch-7",
+                  "7<sup>th</sup> hour",
+                  "7-8",
+                  "8<sup>th</sup> hour"
+                ]
+              ];
 
 const fonts = ["Helvetica", "Georgia", "Cursive", "Verdana", "Courier New"];
 let font_num = 0;
