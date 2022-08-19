@@ -668,11 +668,11 @@ function think()
       }
       if (settings.schedule === 0)
       {
-        updateTimer(times.test[settings.grade], stuff[0][settings.grade]);
+        updateTimer(times.test[settings.grade], stuff[settings.grade]);
       }
       else
       {
-        updateTimer(times.normal[settings.grade], stuff[0][settings.grade]);
+        updateTimer(times.normal[settings.grade], stuff[settings.grade]);
       }
     }
     else
