@@ -904,6 +904,7 @@ window.onload = () => {
   }
 }
 
+console.error = console.log;
 
 /*i ⅱ ⅲ ⅳ v ⅵ ⅶ ⅷ x ⅺ ⅻ
 
