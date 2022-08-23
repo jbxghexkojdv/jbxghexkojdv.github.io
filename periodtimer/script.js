@@ -329,40 +329,40 @@ const times = {
           ],
   test:   [     // NEEDS UPDATING AS SOON AS POSSIBLE, CURRENTLY COMPLETELY GUESSING
             [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(09, 45), // AB 6
-              time_obj.ofDay(09, 48), time_obj.ofDay(10, 15), // P1 6
-              time_obj.ofDay(10, 18), time_obj.ofDay(10, 45), // P2 6
-              time_obj.ofDay(10, 48), time_obj.ofDay(11, 15), // P3 6
-              time_obj.ofDay(11, 31), time_obj.ofDay(11, 45), // P4 6
-              time_obj.ofDay(12, 02), time_obj.ofDay(12, 15), // Lu 6
-              time_obj.ofDay(12, 34), time_obj.ofDay(12, 45), // P5 6
-              time_obj.ofDay(13, 06), time_obj.ofDay(13, 15), // P6 6
-              time_obj.ofDay(13, 38), time_obj.ofDay(13, 45), // P7 6
-              time_obj.ofDay(14, 10), time_obj.ofDay(14, 15), // P8 6
+              time_obj.ofDay(07, 50), time_obj.ofDay(09, 35), // AB 6
+              time_obj.ofDay(09, 38), time_obj.ofDay(10, 10), // P1 6
+              time_obj.ofDay(10, 13), time_obj.ofDay(10, 45), // P2 6
+              time_obj.ofDay(10, 48), time_obj.ofDay(11, 20), // P3 6
+              time_obj.ofDay(11, 23), time_obj.ofDay(11, 55), // P4 6
+              /*  Teleport - 11:55  */time_obj.ofDay(12, 25), // Lu 6
+              time_obj.ofDay(12, 28), time_obj.ofDay(13, 00), // P5 6
+              time_obj.ofDay(13, 03), time_obj.ofDay(13, 35), // P6 6
+              time_obj.ofDay(13, 38), time_obj.ofDay(14, 10), // P7 6
+              time_obj.ofDay(14, 13), time_obj.ofDay(14, 45), // P8 6
             ],
             [   //         Start time               End time
-              time_obj.ofDay(07, 47), time_obj.ofDay(09, 55), // AB 7
-              time_obj.ofDay(09, 58), time_obj.ofDay(10, 27), // P1 7
-              time_obj.ofDay(10, 30), time_obj.ofDay(10, 59), // P2 7
-              time_obj.ofDay(11, 02), time_obj.ofDay(11, 31), // P3 7
-              time_obj.ofDay(11, 34), time_obj.ofDay(12, 03), // P4 7
-              time_obj.ofDay(12, 06), time_obj.ofDay(12, 35), // P5 7
-              time_obj.ofDay(12, 38), time_obj.ofDay(13, 07), // P6 7
-              time_obj.ofDay(13, 09), time_obj.ofDay(13, 39), // Lu 7
-              time_obj.ofDay(13, 41), time_obj.ofDay(14, 10), // P7 7
-              time_obj.ofDay(14, 13), time_obj.ofDay(14, 42), // P8 7
+              time_obj.ofDay(07, 50), time_obj.ofDay(09, 35), // AB 7
+              time_obj.ofDay(09, 38), time_obj.ofDay(10, 10), // P1 7
+              time_obj.ofDay(10, 13), time_obj.ofDay(10, 45), // P2 7
+              time_obj.ofDay(10, 48), time_obj.ofDay(11, 20), // P3 7
+              time_obj.ofDay(11, 23), time_obj.ofDay(11, 55), // P4 7
+              time_obj.ofDay(11, 58), time_obj.ofDay(12, 30), // P5 7
+              /*  Teleport - 12:30  */time_obj.ofDay(13, 00), // Lu 7
+              time_obj.ofDay(13, 03), time_obj.ofDay(13, 35), // P6 7
+              time_obj.ofDay(13, 38), time_obj.ofDay(14, 10), // P7 7
+              time_obj.ofDay(14, 13), time_obj.ofDay(14, 45), // P8 7
             ],
             [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(09, 58), // AB 8
-              time_obj.ofDay(10, 01), time_obj.ofDay(10, 30), // P1 8
-              time_obj.ofDay(10, 33), time_obj.ofDay(11, 02), // P2 8
-              time_obj.ofDay(11, 05), time_obj.ofDay(11, 34), // P3 8
-              time_obj.ofDay(11, 37), time_obj.ofDay(12, 06), // P4 8
-              time_obj.ofDay(12, 09), time_obj.ofDay(12, 38), // P5 8
-              time_obj.ofDay(12, 40), time_obj.ofDay(13, 10), // Lu 8
-              time_obj.ofDay(13, 12), time_obj.ofDay(13, 41), // P6 8
-              time_obj.ofDay(13, 44), time_obj.ofDay(14, 13), // P7 8
-              time_obj.ofDay(14, 16), time_obj.ofDay(14, 45), // P8 8
+              time_obj.ofDay(07, 50), time_obj.ofDay(09, 35), // AB 8
+              time_obj.ofDay(09, 38), time_obj.ofDay(10, 10), // P1 8
+              time_obj.ofDay(10, 13), time_obj.ofDay(10, 45), // P2 8
+              time_obj.ofDay(10, 48), time_obj.ofDay(11, 20), // P3 8
+              time_obj.ofDay(11, 23), time_obj.ofDay(11, 55), // P4 8
+              time_obj.ofDay(11, 58), time_obj.ofDay(12, 30), // P5 8
+              time_obj.ofDay(12, 33), time_obj.ofDay(13, 05), // P6 8
+              /*  Teleport - 13:05  */time_obj.ofDay(13, 35), // Lu 8
+              time_obj.ofDay(13, 38), time_obj.ofDay(14, 10), // P7 8
+              time_obj.ofDay(14, 13), time_obj.ofDay(14, 45), // P8 8
             ]
           ]
 };
