@@ -366,70 +366,136 @@ const times = {
             ]
           ]
 };
-const stuff = [
-                [ // 6
-                  "AB",
-                  "AB-1",
-                  "1<sup>st</sup> hour",
-                  "1-2",
-                  "2<sup>nd</sup> hour",
-                  "2-3",
-                  "3<sup>rd</sup> hour",
-                  "3-4",
-                  "4<sup>th</sup> hour",
-                  "Lunch",
-                  "Lunch-5",
-                  "5<sup>th</sup> hour",
-                  "5-6",
-                  "6<sup>th</sup> hour",
-                  "6-7",
-                  "7<sup>th</sup> hour",
-                  "7-8",
-                  "8<sup>th</sup> hour"
-                ],
+const stuff = {
+                normal: [
+                          [ // 6
+                          "AB",
+                          "AB-1",
+                          "1<sup>st</sup> hour",
+                          "1-2",
+                          "2<sup>nd</sup> hour",
+                          "2-3",
+                          "3<sup>rd</sup> hour",
+                          "3-4",
+                          "4<sup>th</sup> hour",
+                          "Lunch",
+                          "Lunch-5",
+                          "5<sup>th</sup> hour",
+                          "5-6",
+                          "6<sup>th</sup> hour",
+                          "6-7",
+                          "7<sup>th</sup> hour",
+                          "7-8",
+                          "8<sup>th</sup> hour"
+                        ],
 
-                [ // 7
-                  "AB",
-                  "AB-1",
-                  "1<sup>st</sup> hour",
-                  "1-2",
-                  "2<sup>nd</sup> hour",
-                  "2-3",
-                  "3<sup>rd</sup> hour",
-                  "3-4",
-                  "4<sup>th</sup> hour",
-                  "4-5",
-                  "5<sup>th</sup> hour",
-                  "Lunch",
-                  "Lunch-6",
-                  "6<sup>th</sup> hour",
-                  "6-7",
-                  "7<sup>th</sup> hour",
-                  "7-8",
-                  "8<sup>th</sup> hour"
-                ],
+                        [ // 7
+                          "AB",
+                          "AB-1",
+                          "1<sup>st</sup> hour",
+                          "1-2",
+                          "2<sup>nd</sup> hour",
+                          "2-3",
+                          "3<sup>rd</sup> hour",
+                          "3-4",
+                          "4<sup>th</sup> hour",
+                          "4-5",
+                          "5<sup>th</sup> hour",
+                          "Lunch",
+                          "Lunch-6",
+                          "6<sup>th</sup> hour",
+                          "6-7",
+                          "7<sup>th</sup> hour",
+                          "7-8",
+                          "8<sup>th</sup> hour"
+                        ],
 
-                [ // 8
-                  "AB",
-                  "AB-1",
-                  "1<sup>st</sup> hour",
-                  "1-2",
-                  "2<sup>nd</sup> hour",
-                  "2-3",
-                  "3<sup>rd</sup> hour",
-                  "3-4",
-                  "4<sup>th</sup> hour",
-                  "4-5",
-                  "5<sup>th</sup> hour",
-                  "5-6",
-                  "6<sup>th</sup> hour",
-                  "Lunch",
-                  "Lunch-7",
-                  "7<sup>th</sup> hour",
-                  "7-8",
-                  "8<sup>th</sup> hour"
-                ]
-              ];
+                        [ // 8
+                          "AB",
+                          "AB-1",
+                          "1<sup>st</sup> hour",
+                          "1-2",
+                          "2<sup>nd</sup> hour",
+                          "2-3",
+                          "3<sup>rd</sup> hour",
+                          "3-4",
+                          "4<sup>th</sup> hour",
+                          "4-5",
+                          "5<sup>th</sup> hour",
+                          "5-6",
+                          "6<sup>th</sup> hour",
+                          "Lunch",
+                          "Lunch-7",
+                          "7<sup>th</sup> hour",
+                          "7-8",
+                          "8<sup>th</sup> hour"
+                        ]
+                      ],
+              testing: [
+                          [ // 6
+                          "AB",
+                          "AB-1",
+                          "1<sup>st</sup> hour",
+                          "1-2",
+                          "2<sup>nd</sup> hour",
+                          "2-3",
+                          "3<sup>rd</sup> hour",
+                          "Lunch",
+                          "Lunch-4",
+                          "4<sup>th</sup> hour",
+                          "4-5",
+                          "5<sup>th</sup> hour",
+                          "5-6",
+                          "6<sup>th</sup> hour",
+                          "6-7",
+                          "7<sup>th</sup> hour",
+                          "7-8",
+                          "8<sup>th</sup> hour"
+                        ],
+
+                        [ // 7
+                          "AB",
+                          "AB-1",
+                          "1<sup>st</sup> hour",
+                          "1-2",
+                          "2<sup>nd</sup> hour",
+                          "2-3",
+                          "3<sup>rd</sup> hour",
+                          "3-4",
+                          "4<sup>th</sup> hour",
+                          "Lunch",
+                          "Lunch-5",
+                          "5<sup>th</sup> hour",
+                          "5-6",
+                          "6<sup>th</sup> hour",
+                          "6-7",
+                          "7<sup>th</sup> hour",
+                          "7-8",
+                          "8<sup>th</sup> hour"
+                        ],
+
+                        [ // 8
+                          "AB",
+                          "AB-1",
+                          "1<sup>st</sup> hour",
+                          "1-2",
+                          "2<sup>nd</sup> hour",
+                          "2-3",
+                          "3<sup>rd</sup> hour",
+                          "3-4",
+                          "4<sup>th</sup> hour",
+                          "4-5",
+                          "5<sup>th</sup> hour",
+                          "Lunch",
+                          "Lunch-6",
+                          "6<sup>th</sup> hour",
+                          "6-7",
+                          "7<sup>th</sup> hour",
+                          "7-8",
+                          "8<sup>th</sup> hour"
+                        ]
+                      ]
+};
 
 const fonts = ["Helvetica", "Georgia", "Cursive", "Verdana", "Courier New"];
 let font_num = 0;
