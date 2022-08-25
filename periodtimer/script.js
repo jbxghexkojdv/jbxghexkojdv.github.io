@@ -262,6 +262,7 @@ const cookies = {
   allowed: false,
   accept()
   {
+    this.allowed = true;
     functions_general.update.cookies();
     document.getElementById("cookie").style.display = "none";
   },
