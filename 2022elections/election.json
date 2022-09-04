@@ -8,17 +8,17 @@
     "bernie sanders":
     {
       "amount": 1,
-      "color": "#00C000"
+      "color": "#0000C0"
     },
     "angus king":
     {
       "amount": 1,
-      "color": "#00C000"
+      "color": "#0000C0"
     },
     "democrats":
     {
       "amount": 48,
-      "color": "#00C000"
+      "color": "#0000C0"
     },
     "republicans":
     {
@@ -36,7 +36,7 @@
     "democrats":
     {
       "amount": 222,
-      "color": "#00C000"
+      "color": "#0000C0"
     },
     "republicans":
     {
@@ -54,7 +54,7 @@
     "democrats":
     {
       "amount": 22,
-      "color": "#00C000"
+      "color": "#0000C0"
     },
     "republicans":
     {
