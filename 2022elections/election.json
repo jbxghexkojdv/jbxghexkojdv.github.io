@@ -1,0 +1,66 @@
+{
+  "senate":
+  {
+    "display":
+    [
+      "bernie sanders", "angus king", "democrats", "|", "republicans"
+    ],
+    "bernie sanders":
+    {
+      "amount": 1,
+      "color": "#00C000"
+    },
+    "angus king":
+    {
+      "amount": 1,
+      "color": "#00C000"
+    },
+    "democrats":
+    {
+      "amount": 48,
+      "color": "#00C000"
+    },
+    "republicans":
+    {
+      "amount": 50,
+      "color": "#C00000"
+    },
+    "total": 100
+  },
+  "house":
+  {
+    "display":
+    [
+      "democrats", "|", "republicans"
+    ],
+    "democrats":
+    {
+      "amount": 222,
+      "color": "#00C000"
+    },
+    "republicans":
+    {
+      "amount": 209,
+      "color": "#C00000"
+    },
+    "total": 435
+  },
+  "gov":
+  {
+    "display":
+    [
+      "democrats", "|", "republicans"
+    ],
+    "democrats":
+    {
+      "amount": 22,
+      "color": "#00C000"
+    },
+    "republicans":
+    {
+      "amount": 28,
+      "color": "#C00000"
+    },
+    "total": 50
+  }
+}
