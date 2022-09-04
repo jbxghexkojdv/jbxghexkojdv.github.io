@@ -1,0 +1,13 @@
+body {
+  background-color: #000;
+  overflow: hidden;
+}
+p {
+  position: absolute;
+  color: #fff;
+  font-family: Helvetica;
+  font-size: 225px;
+  width: 100%;
+  text-align: center;
+  top: 0%;
+}
