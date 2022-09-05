@@ -12,12 +12,12 @@
     },
     "democrats":
     {
-      "amount": 48,
+      "amount": 34,
       "color": "#0000C0"
     },
     "republicans":
     {
-      "amount": 50,
+      "amount": 29,
       "color": "#C00000"
     },
     "total": 100
@@ -30,12 +30,12 @@
     ],
     "democrats":
     {
-      "amount": 222,
+      "amount": 0,
       "color": "#0000C0"
     },
     "republicans":
     {
-      "amount": 209,
+      "amount": 0,
       "color": "#C00000"
     },
     "total": 435
@@ -48,12 +48,12 @@
     ],
     "democrats":
     {
-      "amount": 22,
+      "amount": 6,
       "color": "#0000C0"
     },
     "republicans":
     {
-      "amount": 28,
+      "amount": 8,
       "color": "#C00000"
     },
     "total": 50
