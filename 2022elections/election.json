@@ -3,17 +3,12 @@
   {
     "display":
     [
-      "bernie sanders", "angus king", "democrats", "|", "republicans"
+      "blue indy", "democrats", "|", "republicans"
     ],
-    "bernie sanders":
+    "blue indy":
     {
-      "amount": 1,
-      "color": "#0000C0"
-    },
-    "angus king":
-    {
-      "amount": 1,
-      "color": "#0000C0"
+      "amount": 2,
+      "color": "#0060C0"
     },
     "democrats":
     {
