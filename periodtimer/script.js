@@ -182,6 +182,9 @@ const functions_general = {
         case 2: 
           gradep.innerHTML = "8<sup>th</sup> grade schedule";
           break;
+        case 3:
+          gradep.innerHTML = "Paused";
+          break;
         default:
           gradep.innerHTML = "why you do dat";
       }
@@ -840,14 +843,15 @@ document.addEventListener("keyup", () => {
       document.getElementById("credits").classList.toggle("flip");
       document.getElementById("bgimg").classList.toggle("flip");
       break;
+    case "KeyP":
+      settings.grade = 3;
+      break;
     case "ShiftLeft":
       settings.shifting = false;
       break;
     case "ShiftRight":
       settings.shifting = false;
       break;
-    default:
-      settings.grade = "broken\naaaaaaaaaaaaaa";
   }
   functions_general.update.grade();
 });
