@@ -740,12 +740,12 @@ function think()
       {
         updateTimer(times.test[settings.grade], stuff.testing[settings.grade]);
       }
-      else
+      else if(settings.schedule !== 3)
       {
         updateTimer(times.normal[settings.grade], stuff.normal[settings.grade]);
       }
     }
-    else
+    else if(settings.schedule !== 3)
     {
       pp.innerHTML = "Learn't";
       if(!window.window.window.window.window.window.mobileCheck())
@@ -756,7 +756,7 @@ function think()
       tp.style.top = "55%";
     }
   }
-  else
+  else if(settings.schedule !== 3)
   {
     pp.innerHTML = "Summer!";
     if(!window.window.window.window.window.window.mobileCheck())
