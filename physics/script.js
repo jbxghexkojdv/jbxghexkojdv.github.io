@@ -1,9 +1,14 @@
 'use strict';
+function isOverlapping(ax, ay, bx, by)
+{
+    return (ay > bx) && (by > ax) && (ay > ax) && (by > bx);
+}
 export default {
     Thing: class
     {
         constructor(elemIn, height, width, x, y, moving = true, collides = true)
         {
+            window.objects = window.objects ? window.objects : [];
             this.elem = elemIn;
 
             this.elem.style.position = "absolute";
@@ -44,13 +49,14 @@ export default {
                     case "collision":
                         setInterval(() => 
                         {
-                            for(const i in window)
+                            for(const i in window.objects)
                             {
-                                if(velocity in window[i])
+                                if(window.objects[i].collision = true && this.collision = true && window.objects[i] != this)
                                 {
-                                    if(window[i].collision = true && this.collision = true)
+                                    // Vertical collision
+                                    if(isOverlapping(window.objects[i].location.x, window.objects[i].location.x + window.objects[i].hitbox.width, this.location.x, this.location.x + this.hitbox.width))
                                     {
-                                        if(window[i].location.x)
+                                        
                                     }
                                 }
                             }
@@ -64,12 +70,21 @@ export default {
             };
             setInterval(() => 
             {
+                if(!this.canMove)
+                {
+                    this.velocity.x = 0;// in mining simulator he was in a red van
+                    this.velocity.y = 0;
+                    this.acceleration.x = 0;
+                    this.acceleration.y = 0;
+                }
                 this.location.x += this.velocity.x / 40;
                 this.location.y += this.velocity.y / 40;
                 this.updateLocation();
                 this.velocity.x += this.acceleration.x / 40;
                 this.velocity.y += this.acceleration.y / 40;
             }, 25);
+            
+            window.objects.push(this);
         }
     
     }
