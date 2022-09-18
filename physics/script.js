@@ -6,19 +6,21 @@ function isOverlapping(ax, ay, bx, by)
 export default {
     Thing: class
     {
-        #gravity;
+        #id;
         
         constructor(elemIn, height, width, x, y, moving = true, collides = true)
         {
             window.objects = window.objects ? window.objects : [];
-            window.recentlyDeclaredThing = this;
+            this.#id = Math.random().toString();
+            const id = this.#id;
+            window[this.#id] = this;
             this.elem = elemIn;
 
             this.elem.style.position = "absolute";
             this.elem.style.left = x + "%";
             this.elem.style.bottom = y + "%";
 
-            this.location = {x: x, y: y, center: {x: function(){return this.x + (window.recentlyDeclaredThing.hitbox.width / 2)}, y: function(){this.y + (window.recentlyDeclaredThing.hitbox.height / 2)}}};
+            this.location = {x: x, y: y, center: {x: function(){return this.x + (window[id].hitbox.width / 2)}, y: function(){this.y + (window[id].hitbox.height / 2)}}};
             this.velocity = {x: 0, y: 0}; // measured in distance per second
             this.acceleration = {x: 0, y: 0}; // measured in speed gained per second
 
@@ -28,10 +30,10 @@ export default {
             this.hitbox = {
                            height: height, 
                            width: width, 
-                           leftEdge: function(){return window.recentlyDeclaredThing.location.x;}, 
-                           rightEdge: function(){return window.recentlyDeclaredThing.location.x + window.recentlyDeclaredThing.hitbox.width}, 
-                           topEdge: function(){return window.recentlyDeclaredThing.location.y + window.recentlyDeclaredThing.hitbox.height}, 
-                           bottomEdge: function(){return window.recentlyDeclaredThing.location.y}
+                           leftEdge: function(){return window[id].location.x;}, 
+                           rightEdge: function(){return window[id].location.x + window[id].hitbox.width}, 
+                           topEdge: function(){return window[id].location.y + window[id].hitbox.height}, 
+                           bottomEdge: function(){return window[id].location.y}
                           };
             this.start = (thing, ...args) =>
             {
