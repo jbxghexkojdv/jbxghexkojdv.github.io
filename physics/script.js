@@ -18,7 +18,7 @@ export default {
             this.elem = elemIn;
             
             this.#hitboxElem = document.createElement("div");
-            this.elem.parent.appendChild(this.#hitboxElem);
+            this.elem.parentElement.appendChild(this.#hitboxElem);
             
             this.elem.style.position = "absolute";
             this.elem.style.left = x + "%";
