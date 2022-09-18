@@ -7,18 +7,30 @@ export default {
     Thing: class
     {
         #id;
+        #hitboxElem;
         
-        constructor(elemIn, height, width, x, y, moving = true, bounce = 0)
+        constructor(elemIn, height, width, x, y, moving = true, showHitbox = false, bounce = 0)
         {
             window.objects = window.objects ? window.objects : [];
             this.#id = Math.random().toString();
             const id = this.#id;
             window[this.#id] = this;
             this.elem = elemIn;
-
+            
+            this.#hitboxElem = document.createElement("div");
+            this.elem.parent.appendChild(this.#hitboxElem);
+            
             this.elem.style.position = "absolute";
             this.elem.style.left = x + "%";
             this.elem.style.bottom = y + "%";
+            this.#hitboxElem.style.position = "absolute";
+            this.#hitboxElem.style.left = x + "%";
+            this.#hitboxElem.style.bottom = y + "%";
+            this.#hitboxElem.style.height = height + "%";
+            this.#hitboxElem.style.width = width + "%";
+            this.#hitboxElem.style.backgroundColor = "transparent";
+            this.#hitboxElem.style.border = "3px solid black";
+            this.#hitboxElem.style.display = showHitbox ? "block" : "none";
 
             this.location = {x: x, y: y, center: {x: function(){return this.x + (window[id].hitbox.width / 2)}, y: function(){this.y + (window[id].hitbox.height / 2)}}};
             this.velocity = {x: 0, y: 0}; // measured in distance per second
@@ -104,7 +116,9 @@ export default {
             this.updateLocation = () =>
             {
                 this.elem.style.left = this.location.x + "%";
+                this.#hitboxElem.style.left = this.location.x + "%";
                 this.elem.style.bottom = this.location.y + "%";
+                this.#hitboxElem.style.bottom = this.location.y + "%";
             };
             setInterval(() => 
             {
@@ -121,7 +135,6 @@ export default {
                 this.velocity.x += this.acceleration.x / 40;
                 this.velocity.y += this.acceleration.y / 40;
             }, 25);
-            
             window.objects.push(this);
         }
     }
