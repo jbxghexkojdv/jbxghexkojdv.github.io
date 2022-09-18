@@ -83,7 +83,7 @@ export default {
                                     if(isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()) && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                     {
                                         // This object is above the other
-                                        if(this.location.center.y() > window.objects[i].location.center.y())
+                                        if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge())
                                         {
                                             // Move it and make it bounce
                                             this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
@@ -91,21 +91,21 @@ export default {
                                             this.elem.innerHTML = "Up";
                                         }
                                         // This object is below the other
-                                        else
+                                        else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge())
                                         {
                                             this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML = "Down";
                                         }
                                         // This object is to the right of the other
-                                        if(this.location.center.x() > window.objects[i].location.center.x())
+                                        if(this.hitbox.leftEdge() < window.objects[i].hitbox.rightEdge())
                                         {
                                             this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML = "Right";
                                         }
                                         // This object is to the left of the other
-                                        else
+                                        else if(this.hitbox.rightEdge() > window.objects[i].hitbox.leftEdge())
                                         {
                                             this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
