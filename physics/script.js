@@ -66,7 +66,7 @@ export default {
                                 if(window.objects[i].collision == true && this.collision == true && window.objects[i] != this && this.canMove)
                                 {
                                     // Checks for collision
-                                    if(isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()) || isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
+                                    if(isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()) && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                     {
                                         // This object is above the other
                                         if(this.location.center.y() >= window.objects[i].location.center.y())
