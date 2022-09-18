@@ -8,7 +8,7 @@ export default {
     {
         #id;
         
-        constructor(elemIn, height, width, x, y, moving = true, collides = true)
+        constructor(elemIn, height, width, x, y, moving = true, bounce = 0)
         {
             window.objects = window.objects ? window.objects : [];
             this.#id = Math.random().toString();
@@ -25,7 +25,8 @@ export default {
             this.acceleration = {x: 0, y: 0}; // measured in speed gained per second
 
             this.canMove = moving;
-            this.collision = collides;
+            this.collision = false;
+            this.bounciness = bounce;
 
             this.hitbox = {
                            height: height, 
@@ -59,6 +60,7 @@ export default {
                         }
                         break;
                     case "collision":
+                        this.collision = true;
                         setInterval(() => 
                         {
                             for(const i in window.objects)
@@ -71,22 +73,27 @@ export default {
                                         // This object is above the other
                                         if(this.location.center.y() >= window.objects[i].location.center.y())
                                         {
+                                            // Move it and make it bounce
                                             this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
+                                            this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                         // This object is below the other
                                         else if(this.location.center.y() < window.objects[i].location.center.y())
                                         {
                                             this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
+                                            this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                         // This object is to the right of the other
                                         else if(this.location.center.x() >= window.objects[i].location.center.x())
                                         {
                                             this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
+                                            this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                         // This object is to the left of the other
                                         else if(this.location.center.x() < window.objects[i].location.center.x())
                                         {
                                             this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
+                                            this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                     }
                                 }
