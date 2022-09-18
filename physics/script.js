@@ -29,12 +29,12 @@ export default {
             this.bounciness = bounce;
 
             this.hitbox = {
-                           height: height, 
-                           width: width, 
-                           leftEdge: function(){return window[id].location.x;}, 
-                           rightEdge: function(){return window[id].location.x + window[id].hitbox.width}, 
-                           topEdge: function(){return window[id].location.y + window[id].hitbox.height}, 
-                           bottomEdge: function(){return window[id].location.y}
+                            height: height, 
+                            width: width, 
+                            leftEdge: function(){return window[id].location.x;}, 
+                            rightEdge: function(){return window[id].location.x + window[id].hitbox.width}, 
+                            topEdge: function(){return window[id].location.y + window[id].hitbox.height}, 
+                            bottomEdge: function(){return window[id].location.y}
                           };
             this.start = (thing, ...args) =>
             {
@@ -43,7 +43,7 @@ export default {
                     case "gravity":
                         switch(args[1])
                         {
-                            case "up":
+                           case "up":
                                 this.acceleration.y = args[0];
                                 break;
                             case "down":
@@ -53,7 +53,7 @@ export default {
                                 this.acceleration.x = args[0];
                                 break;
                             case "left":
-                                this.acceleration.y = -args[0];
+                                this.acceleration.x = -args[0];
                                 break;
                             default:
                                 console.error(`Invalid direction: ${args[1]}`);
@@ -78,19 +78,19 @@ export default {
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                         // This object is below the other
-                                        else if(this.location.center.y() < window.objects[i].location.center.y())
+                                        else
                                         {
                                             this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                         // This object is to the right of the other
-                                        else if(this.location.center.x() >= window.objects[i].location.center.x())
+                                        if(this.location.center.x() >= window.objects[i].location.center.x())
                                         {
                                             this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                         }
                                         // This object is to the left of the other
-                                        else if(this.location.center.x() < window.objects[i].location.center.x())
+                                        else
                                         {
                                             this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
@@ -124,6 +124,5 @@ export default {
             
             window.objects.push(this);
         }
-    
     }
 };
