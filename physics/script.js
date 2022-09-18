@@ -88,24 +88,28 @@ export default {
                                             // Move it and make it bounce
                                             this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
+                                            this.elem.innerHTML = "Up";
                                         }
                                         // This object is below the other
                                         else
                                         {
                                             this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
+                                            this.elem.innerHTML = "Down";
                                         }
                                         // This object is to the right of the other
                                         if(this.location.center.x() >= window.objects[i].location.center.x())
                                         {
                                             this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
+                                            this.elem.innerHTML = "Right";
                                         }
                                         // This object is to the left of the other
                                         else
                                         {
                                             this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
+                                            this.elem.innerHTML = "Left";
                                         }
                                     }
                                 }
