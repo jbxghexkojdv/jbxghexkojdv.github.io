@@ -1,13 +1,77 @@
+*
+{
+  overflow: hidden;
+}
+
 body {
   background-color: #000;
-  overflow: hidden;
 }
 p {
   position: absolute;
   color: #fff;
   font-family: Helvetica;
-  font-size: 225px;
+  font-size: 30px;
   width: 100%;
   text-align: center;
-  top: 0%;
+  top: 0;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+
+div
+{
+  position: absolute;
+  height: 16.66666666666666666666666666666666666666666666666666666666666666666666666666%;
+  width: 90%;
+  left: 5%;
+  text-align: center;
+  font-size: 100px;
+  display: none;
+  font-family: Helvetica;
+  background-color: #C0C0C0;
+}
+
+#senateBar
+{
+  top: 16.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666%;
+}
+
+#houseBar
+{
+  top: 50%;
+}
+
+#governorBar
+{
+  top: 83.33333333333333333333333333333333333333333333333333333333333333333333333333%;
+}
+
+#middleLine
+{
+  background-color: #000;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 49.875%;
+  height: 100%;
+  width: 0.25%;
+  z-index: 1;
+}
+
+#s
+{
+  top: -13%;
+  font-size: 100px;
+}
+
+#h
+{
+  top: 20.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333%;
+  font-size: 100px;
+}
+
+#g
+{
+  top: 53.666666666666666666666666666666666666666666666666666666666666666%;
+  font-size: 100px;
 }
