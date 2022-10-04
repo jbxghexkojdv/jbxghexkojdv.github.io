@@ -3,7 +3,7 @@
   {
     "display":
     [
-      "blue indy", "democrats", "dem likely" "|", "gop likely", "republicans"
+      "blue indy", "democrats", "dem likely", "|", "gop likely", "republicans"
     ],
     "blue indy":
     {
@@ -36,7 +36,7 @@
   {
     "display":
     [
-      "democrats", "dem likely" "|", "gop likely", "republicans"
+      "democrats", "dem likely", "|", "gop likely", "republicans"
     ],
     "democrats":
     {
@@ -64,7 +64,7 @@
   {
     "display":
     [
-      "democrats", "dem likely" "|", "gop likely", "republicans"
+      "democrats", "dem likely", "|", "gop likely", "republicans"
     ],
     "democrats":
     {
