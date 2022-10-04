@@ -3,7 +3,7 @@
   {
     "display":
     [
-      "blue indy", "democrats", "|", "republicans"
+      "blue indy", "democrats", "dem likely" "|", "gop likely", "republicans"
     ],
     "blue indy":
     {
@@ -20,13 +20,23 @@
       "amount": 29,
       "color": "#C00000"
     },
+    "dem likely":
+    {
+      "amount": 12,
+      "color": "#8080C0"
+    },
+    "gop likely":
+    {
+      "amount": 17,
+      "color": "#C08080"
+    }
     "total": 100
   },
   "house":
   {
     "display":
     [
-      "democrats", "|", "republicans"
+      "democrats", "dem likely" "|", "gop likely", "republicans"
     ],
     "democrats":
     {
@@ -38,13 +48,23 @@
       "amount": 0,
       "color": "#C00000"
     },
+    "dem likely":
+    {
+      "amount": 201,
+      "color": "#8080C0"
+    },
+    "gop likely":
+    {
+      "amount": 207,
+      "color": "#C08080"
+    }
     "total": 435
   },
   "gov":
   {
     "display":
     [
-      "democrats", "|", "republicans"
+      "democrats", "dem likely" "|", "gop likely", "republicans"
     ],
     "democrats":
     {
@@ -56,6 +76,16 @@
       "amount": 8,
       "color": "#C00000"
     },
+    "dem likely":
+    {
+      "amount": 14,
+      "color": "#8080C0"
+    },
+    "gop likely":
+    {
+      "amount": 17,
+      "color": "#C08080"
+    }
     "total": 50
   }
 }
