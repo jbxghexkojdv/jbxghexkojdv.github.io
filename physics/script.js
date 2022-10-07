@@ -9,7 +9,7 @@ export default {
         #id;
         #hitboxElem;
         
-        constructor(elemIn, height, width, x, y, moving = true, showHitbox = false, bounce = 0)
+        constructor(elemIn, height, width, x, y, moving = true, showHitbox = false, bounce = 0, framerate = 40)
         {
             window.objects = window.objects ? window.objects : [];
             this.#id = Math.random().toString();
@@ -86,35 +86,35 @@ export default {
                                         if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge() && isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()))
                                         {
                                             // Move it and make it bounce
-                                            this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
+                                            this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge() + 0.1;
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML = "Up";
                                         }
                                         // This object is below the other
                                         else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge() && isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()))
                                         {
-                                            this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
+                                            this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge() + 0.1;
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML = "Down";
                                         }
                                         // This object is to the right of the other
                                         if(this.hitbox.leftEdge() < window.objects[i].hitbox.rightEdge() && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                         {
-                                            this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
+                                            this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge() + 0.1;
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML = "Right";
                                         }
                                         // This object is to the left of the other
                                         else if(this.hitbox.rightEdge() > window.objects[i].hitbox.leftEdge() && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                         {
-                                            this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
+                                            this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge() + 0.1;
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML = "Left";
                                         }
                                     }
                                 }
                             }
-                        }, 10);
+                        }, 400/framerate);
                 }
             };
             this.updateLocation = () =>
@@ -138,7 +138,7 @@ export default {
                 this.updateLocation();
                 this.velocity.x += this.acceleration.x / 40;
                 this.velocity.y += this.acceleration.y / 40;
-            }, 25);
+            }, 1000/framerate);
             window.objects.push(this);
         }
     }
