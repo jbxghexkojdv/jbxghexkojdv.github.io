@@ -22,7 +22,7 @@
     },
     "dem likely":
     {
-      "amount": 13,
+      "amount": 10,
       "color": "#8080C0"
     },
     "gop likely":
@@ -50,12 +50,12 @@
     },
     "dem likely":
     {
-      "amount": 201,
+      "amount": 199,
       "color": "#8080C0"
     },
     "gop likely":
     {
-      "amount": 207,
+      "amount": 209,
       "color": "#C08080"
     },
     "total": 435
@@ -78,12 +78,12 @@
     },
     "dem likely":
     {
-      "amount": 14,
+      "amount": 16,
       "color": "#8080C0"
     },
     "gop likely":
     {
-      "amount": 17,
+      "amount": 15,
       "color": "#C08080"
     },
     "total": 50
