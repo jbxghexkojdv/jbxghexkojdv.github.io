@@ -86,35 +86,35 @@ export default {
                                         if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge() && isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()))
                                         {
                                             // Move it and make it bounce
-                                            this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge() - 0.1;
+                                            this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML += "<br />Up";
                                         }
                                         // This object is below the other
                                         else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge() && isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()))
                                         {
-                                            this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge() + 0.1;
+                                            this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML += "<br />Down";
                                         }
                                         // This object is to the right of the other
                                         if(this.hitbox.leftEdge() < window.objects[i].hitbox.rightEdge() && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                         {
-                                            this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge() - 0.1;
+                                            this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML += "<br />Right";
                                         }
                                         // This object is to the left of the other
                                         else if(this.hitbox.rightEdge() > window.objects[i].hitbox.leftEdge() && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                         {
-                                            this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge() + 0.1;
+                                            this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML += "<br />Left";
                                         }
                                     }
                                 }
                             }
-                        }, 400/framerate);
+                        }, 1000/framerate);
                 }
             };
             this.updateLocation = () =>
