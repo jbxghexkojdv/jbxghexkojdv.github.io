@@ -8,6 +8,7 @@ export default {
     {
         #id;
         #hitboxElem;
+        #gravity;
         
         constructor(elemIn, height, width, x, y, moving = true,
                      showHitbox = false, bounce = 0, framerate = 40)
@@ -83,15 +84,19 @@ export default {
                         {
                            case "up":
                                 this.acceleration.y = args[0];
+                                this.#gravity = 1;
                                 break;
                             case "down":
                                 this.acceleration.y = -args[0];
+                                this.#gravity = 2;
                                 break;
                             case "right":
                                 this.acceleration.x = args[0];
+                                this.#gravity = 3;
                                 break;
                             case "left":
                                 this.acceleration.x = -args[0];
+                                this.#gravity = 4;
                                 break;
                             default:
                                 console.error(`Invalid direction: ${args[1]}`);
