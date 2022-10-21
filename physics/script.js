@@ -1,3 +1,4 @@
+00000000010000000002000000000300000000040000000005000000000600000000070000000008
 'use strict';
 function isOverlapping(ax, ay, bx, by)
 {
@@ -9,7 +10,8 @@ export default {
         #id;
         #hitboxElem;
         
-        constructor(elemIn, height, width, x, y, moving = true, showHitbox = false, bounce = 0, framerate = 40)
+        constructor(elemIn, height, width, x, y, moving = true,
+                     showHitbox = false, bounce = 0, framerate = 40)
         {
             window.objects = window.objects ? window.objects : [];
             this.#id = Math.random().toString();
@@ -32,7 +34,20 @@ export default {
             this.#hitboxElem.style.border = "3px solid black";
             this.#hitboxElem.style.display = showHitbox ? "block" : "none";
 
-            this.location = {x: x, y: y, center: {x: function(){return this.x + (window[id].hitbox.width / 2)}, y: function(){this.y + (window[id].hitbox.height / 2)}}};
+            this.location = {
+                                 x: x, 
+                                 y: y, 
+                                 center: {
+                                     x: function()
+                                     {
+                                         return this.x + (window[id].hitbox.width / 2);
+                                     }, 
+                                     y: function()
+                                     {
+                                         this.y + (window[id].hitbox.height / 2);
+                                     }
+                                 }
+                             };
             this.velocity = {x: 0, y: 0}; // measured in distance per second
             this.acceleration = {x: 0, y: 0}; // measured in speed gained per second
 
@@ -43,10 +58,22 @@ export default {
             this.hitbox = {
                             height: height, 
                             width: width, 
-                            leftEdge: function(){return window[id].location.x;}, 
-                            rightEdge: function(){return window[id].location.x + window[id].hitbox.width}, 
-                            topEdge: function(){return window[id].location.y + window[id].hitbox.height}, 
-                            bottomEdge: function(){return window[id].location.y}
+                            leftEdge: function()
+                                      {
+                                          return window[id].location.x;
+                                      }, 
+                            rightEdge: function()
+                                      {
+                                          return window[id].location.x + window[id].hitbox.width;
+                                      }, 
+                            topEdge: function()
+                                      {
+                                          return window[id].location.y + window[id].hitbox.height;
+                                      }, 
+                            bottomEdge: function()
+                                      {
+                                          return window[id].location.y;
+                                      }
                           };
             this.start = (thing, ...args) =>
             {
@@ -80,10 +107,15 @@ export default {
                                 if(window.objects[i].collision == true && this.collision == true && window.objects[i] != this && this.canMove)
                                 {
                                     // Checks for collision
-                                    if(isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()) && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
+                                    if(isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
+                                                     this.hitbox.leftEdge(), this.hitbox.rightEdge()) && 
+                                       isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), 
+                                                     this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                     {
                                         // This object is above the other
-                                        if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge() && isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()))
+                                        if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge() && 
+                                           isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
+                                                         this.hitbox.leftEdge(), this.hitbox.rightEdge()))
                                         {
                                             // Move it and make it bounce
                                             this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
@@ -91,21 +123,27 @@ export default {
                                             this.elem.innerHTML += "<br />Up";
                                         }
                                         // This object is below the other
-                                        else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge() && isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), this.hitbox.leftEdge(), this.hitbox.rightEdge()))
+                                        else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge() &&
+                                                isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
+                                                              this.hitbox.leftEdge(), this.hitbox.rightEdge()))
                                         {
                                             this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
                                             this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML += "<br />Down";
                                         }
                                         // This object is to the right of the other
-                                        if(this.hitbox.leftEdge() < window.objects[i].hitbox.rightEdge() && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
+                                        if(this.hitbox.leftEdge() < window.objects[i].hitbox.rightEdge() && 
+                                           isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), 
+                                                         this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                         {
                                             this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
                                             this.elem.innerHTML += "<br />Right";
                                         }
                                         // This object is to the left of the other
-                                        else if(this.hitbox.rightEdge() > window.objects[i].hitbox.leftEdge() && isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), this.hitbox.bottomEdge(), this.hitbox.topEdge()))
+                                        else if(this.hitbox.rightEdge() > window.objects[i].hitbox.leftEdge() && 
+                                                isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(),
+                                                              this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                         {
                                             this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
                                             this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
