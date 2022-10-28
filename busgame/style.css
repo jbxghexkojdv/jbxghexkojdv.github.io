@@ -1,0 +1,21 @@
+*
+{
+  text-align: center;
+  width: 100%;
+  font-family: Arial;
+}
+
+body
+{
+  overflow: hidden;
+}
+
+#challenge-name
+{
+  font-size: 75px;
+}
+
+#challenge-desc
+{
+  font-size: 30px
+}
