@@ -71,45 +71,46 @@ function updateBars(data)
   
   return true;
 }
-
-const difference = new Date("Nov 8, 2022 17:00:00")-Date.now();
-const days = zeroify(Math.floor(difference/86400000));
-const hours = zeroify(Math.floor((difference%86400000)/3600000));
-const minutes = zeroify(Math.floor((difference%3600000)/60000));
-const seconds = zeroify(Math.floor((difference%60000)/1000));
-if(difference > 0)
-{
-  document.getElementById("g").style.display = "none";
-  document.getElementById("s").style.display = "none";
-  document.getElementById("h").style.display = "none";
-  document.getElementById("middleLine").style.display = "none";
-  document.getElementById("time").style.fontSize = `225px`;
-  document.getElementById("time").style.top = `${(0.5*screen.availHeight)-402.5}px`;
-  outputElement.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
-}
-else
-{
-  let req = new XMLHttpRequest();
-  req.onload = () => 
+setInterval(function(){
+  const difference = new Date("Nov 8, 2022 17:00:00")-Date.now();
+  const days = zeroify(Math.floor(difference/86400000));
+  const hours = zeroify(Math.floor((difference%86400000)/3600000));
+  const minutes = zeroify(Math.floor((difference%3600000)/60000));
+  const seconds = zeroify(Math.floor((difference%60000)/1000));
+  if(difference > 0)
   {
-    if(updateBars(JSON.parse(req.responseText)))
+    document.getElementById("g").style.display = "none";
+    document.getElementById("s").style.display = "none";
+    document.getElementById("h").style.display = "none";
+    document.getElementById("middleLine").style.display = "none";
+    document.getElementById("time").style.fontSize = `225px`;
+    document.getElementById("time").style.top = `${(0.5*screen.availHeight)-402.5}px`;
+    outputElement.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
+  }
+  else
+  {
+    let req = new XMLHttpRequest();
+    req.onload = () => 
     {
-      outputElement.style.fontSize = "10px";
-      outputElement.style.top = "0%";
-      outputElement.style.left = "0%";
-      outputElement.style.textAlign = "left";
-      document.getElementById("g").style.display = "block";
-      document.getElementById("s").style.display = "block";
-      document.getElementById("h").style.display = "block";
-      document.getElementById("middleLine").style.display = "block";
-      outputElement.innerHTML = new Date();
-    }
-  };
-  req.open("GET", "https://jbxghexkojdv.github.io/2022elections/election.json");
-  req.send();
-  setTimeout(
-  function(){
-    location.replace(location.href);
-  },
-  60000);
-}
+      if(updateBars(JSON.parse(req.responseText)))
+      {
+        outputElement.style.fontSize = "10px";
+        outputElement.style.top = "0%";
+        outputElement.style.left = "0%";
+        outputElement.style.textAlign = "left";
+        document.getElementById("g").style.display = "block";
+        document.getElementById("s").style.display = "block";
+        document.getElementById("h").style.display = "block";
+        document.getElementById("middleLine").style.display = "block";
+        outputElement.innerHTML = new Date();
+      }
+    };
+    req.open("GET", "https://jbxghexkojdv.github.io/2022elections/election.json");
+    req.send();
+    setTimeout(
+    function(){
+      location.replace(location.href);
+    },
+    60000);
+  }
+}, 1000);
