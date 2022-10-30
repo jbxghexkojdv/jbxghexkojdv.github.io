@@ -6,6 +6,7 @@
 body {
   background-color: #000;
 }
+
 p {
   position: absolute;
   color: #fff;
@@ -28,7 +29,7 @@ div
   font-size: 100px;
   display: none;
   font-family: Helvetica;
-  background-color: #C0C0C0;
+  background-color: #BFBFBF;
 }
 
 #senateBar
@@ -52,9 +53,9 @@ div
   position: absolute;
   display: block;
   top: 0;
-  left: 49.875%;
+  left: 49.89%;
   height: 100%;
-  width: 0.25%;
+  width: 0.22%;
   z-index: 1;
 }
 
