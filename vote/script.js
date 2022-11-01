@@ -1,4 +1,5 @@
 let voteOptions = ["Snowball", "Grassy", "Bell", "Robot Flower", "Basketball", "Foldy", "Eggy"];
+let ballot;
 
 function ordinal(num)
 {
@@ -14,7 +15,7 @@ function createElem(tag = "p", parent = document.getElementsByTagName("body")[0]
   parent.appendChild(elem);
   return elem;
 }
-try {
+
 function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName("body")[0])
 {
   let table = createElem("table", parent);
@@ -54,6 +55,7 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
   for(let i = 0; i < rows; i++)
   {
     // It is a woman's right to have an abortion
+    // istg if Moore v Harper means we won't have free and fair elections
     // Fuck the Supreme Court
     let roe = createElem("tr", table);
     retval.rows.push(roe);
@@ -68,9 +70,9 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
     retval.cells.push(datas);
   }
   return retval;
-}    }catch (err){createElem().innerHTML = err.stack;}
+}
 
-function initBallot(options, system)
+function initBallot(options, system = null)
 {
   let retval;
   switch(system)
@@ -136,11 +138,7 @@ function approval()
 
 function rankedchoice()
 {
-  let message = createElem();
-  message.innerHTML = "Ranked Choice ballot here";
-  // let test = createTable(voteOptions.length+1, voteOptions.length+1);
-  // test.setText([["", "1", "2"], ["option 1", "", ""], ["option 2", "", ""]]);
-  let test = initBallot(voteOptions, "rc");
+  ballot = initBallot(voteOptions);
 }
 
 function fptp()
@@ -199,6 +197,27 @@ switch(Number(optionsobj.time) % 6)
     break;
   case 5:
     month = "July";
+}
+
+function send()
+{
+  let choices = [];
+  switch(optionsobj.system)
+  {
+    case "approval":
+      break;
+    case "fptp":
+      break;
+    default:
+      for(let i of ballot.table.children)
+      {
+        for(let j in i.children)
+        {
+          
+        }
+      }
+  }
+  location.href = `mailto:jbxghexkojdv@gmail.com?subject=${title.innerHTML}&body=${choices.toString()}`;
 }
 
 year = Math.floor((Number(optionsobj.time)-2)/6)+2022;
