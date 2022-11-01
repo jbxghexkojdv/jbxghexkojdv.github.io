@@ -68,7 +68,7 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
     retval.cells.push(datas);
   }
   return retval;
-}    }catch (err){console.error(err.stack);}
+}    }catch (err){createElem().innerHTML = err.stack;}
 
 function initBallot(options, system)
 {
