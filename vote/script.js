@@ -80,6 +80,17 @@ function initBallot(options, system = null)
     case "fptp":
       break;
     case "approval":
+      retval = createTable(options.length, 1);
+      let vals = [[]];
+      for(let i if options)
+      {
+        vals[0].push(i);
+      }
+      retval.setText(vals);
+      for(let i in retval.cells[0])
+      {
+        retval.cells[0][i].onclick = () => {};
+      }
       break;
     default:
       retval = createTable(options.length+1, options.length+1);
