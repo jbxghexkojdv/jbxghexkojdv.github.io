@@ -27,7 +27,7 @@
     },
     "gop call":
     {
-      "amount": 16,
+      "amount": 17,
       "color": "#6A0D0D"
     },
     "dem likely":
@@ -37,7 +37,7 @@
     },
     "gop likely":
     {
-      "amount": 4,
+      "amount": 3,
       "color": "#8C2626"
     },
     "dem lean":
@@ -85,17 +85,17 @@
     },
     "gop call":
     {
-      "amount": 199,
+      "amount": 200,
       "color": "#6A0D0D"
     },
     "dem likely":
     {
-      "amount": 21,
+      "amount": 22,
       "color": "#26268C"
     },
     "gop likely":
     {
-      "amount": 16,
+      "amount": 14,
       "color": "#8C2626"
     },
     "dem lean":
@@ -105,7 +105,7 @@
     },
     "gop lean":
     {
-      "amount": 5,
+      "amount": 6,
       "color": "#854C4C"
     },
     "dem tilt":
@@ -115,7 +115,7 @@
     },
     "gop tilt":
     {
-      "amount": 4,
+      "amount": 2,
       "color": "#B67F7F"
     },
     "total": 435
