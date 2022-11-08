@@ -22,12 +22,12 @@
     },
     "dem call":
     {
-      "amount": 8,
+      "amount": 0,
       "color": "#0D0D6A"
     },
     "gop call":
     {
-      "amount": 17,
+      "amount": 0,
       "color": "#6A0D0D"
     },
     "dem likely":
@@ -80,12 +80,12 @@
     },
     "dem call":
     {
-      "amount": 167,
+      "amount": 0,
       "color": "#0D0D6A"
     },
     "gop call":
     {
-      "amount": 198,
+      "amount": 0,
       "color": "#6A0D0D"
     },
     "dem likely":
@@ -138,12 +138,12 @@
     },
     "dem call":
     {
-      "amount": 10,
+      "amount": 0,
       "color": "#0D0D6A"
     },
     "gop call":
     {
-      "amount": 14,
+      "amount": 0,
       "color": "#6A0D0D"
     },
     "dem likely":
