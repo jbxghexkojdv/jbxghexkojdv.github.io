@@ -32,7 +32,7 @@
     },
     "dem likely":
     {
-      "amount": 3,
+      "amount": 0,
       "color": "#26268C"
     },
     "gop likely":
@@ -90,12 +90,12 @@
     },
     "dem likely":
     {
-      "amount": 22,
+      "amount": 0,
       "color": "#26268C"
     },
     "gop likely":
     {
-      "amount": 16,
+      "amount": 0,
       "color": "#8C2626"
     },
     "dem lean":
@@ -148,12 +148,12 @@
     },
     "dem likely":
     {
-      "amount": 4,
+      "amount": 0,
       "color": "#26268C"
     },
     "gop likely":
     {
-      "amount": 3,
+      "amount": 0,
       "color": "#8C2626"
     },
     "dem lean":
