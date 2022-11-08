@@ -52,12 +52,12 @@
     },
     "dem tilt":
     {
-      "amount": 1,
+      "amount": 0,
       "color": "#7F7FB6"
     },
     "gop tilt":
     {
-      "amount": 2,
+      "amount": 0,
       "color": "#B67F7F"
     },
     "total": 100
@@ -110,12 +110,12 @@
     },
     "dem tilt":
     {
-      "amount": 8,
+      "amount": 0,
       "color": "#7F7FB6"
     },
     "gop tilt":
     {
-      "amount": 4,
+      "amount": 0,
       "color": "#B67F7F"
     },
     "total": 435
@@ -168,12 +168,12 @@
     },
     "dem tilt":
     {
-      "amount": 2,
+      "amount": 0,
       "color": "#7F7FB6"
     },
     "gop tilt":
     {
-      "amount": 1,
+      "amount": 0,
       "color": "#B67F7F"
     },
     "total": 50
