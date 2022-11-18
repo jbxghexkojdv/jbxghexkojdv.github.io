@@ -291,215 +291,26 @@ function resetImage()
   elem.id = "bgimg";
 }
 
-const times = {
-
-  normal: [
-            [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(08, 15), // AB 6
-              time_obj.ofDay(08, 18), time_obj.ofDay(09, 00), // P1 6
-              time_obj.ofDay(09, 03), time_obj.ofDay(09, 45), // P2 6
-              time_obj.ofDay(09, 48), time_obj.ofDay(10, 30), // P3 6
-              time_obj.ofDay(10, 33), time_obj.ofDay(11, 15), // P4 6
-              /*  Teleport - 11:15  */time_obj.ofDay(11, 45), // Lu 6
-              time_obj.ofDay(11, 48), time_obj.ofDay(12, 30), // P5 6
-              time_obj.ofDay(12, 33), time_obj.ofDay(13, 15), // P6 6
-              time_obj.ofDay(13, 18), time_obj.ofDay(14, 00), // P7 6
-              time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 6
-            ],
-            [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(08, 15), // AB 7
-              time_obj.ofDay(08, 18), time_obj.ofDay(09, 00), // P1 7
-              time_obj.ofDay(09, 03), time_obj.ofDay(09, 45), // P2 7
-              time_obj.ofDay(09, 48), time_obj.ofDay(10, 30), // P3 7
-              time_obj.ofDay(10, 33), time_obj.ofDay(11, 15), // P4 7
-              time_obj.ofDay(11, 18), time_obj.ofDay(12, 00), // P5 7
-              /*  Teleport - 12:00  */time_obj.ofDay(12, 30), // Lu 7
-              time_obj.ofDay(12, 33), time_obj.ofDay(13, 15), // P6 7
-              time_obj.ofDay(13, 18), time_obj.ofDay(14, 00), // P7 7
-              time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 7
-            ],
-            [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(08, 15), // AB 8
-              time_obj.ofDay(08, 18), time_obj.ofDay(09, 00), // P1 8
-              time_obj.ofDay(09, 03), time_obj.ofDay(09, 45), // P2 8
-              time_obj.ofDay(09, 48), time_obj.ofDay(10, 30), // P3 8
-              time_obj.ofDay(10, 33), time_obj.ofDay(11, 15), // P4 8
-              time_obj.ofDay(11, 18), time_obj.ofDay(12, 00), // P5 8
-              time_obj.ofDay(12, 03), time_obj.ofDay(12, 45), // P6 8
-              /*  Teleport - 12:45  */time_obj.ofDay(13, 15), // Lu 8
-              time_obj.ofDay(13, 18), time_obj.ofDay(14, 00), // P7 8
-              time_obj.ofDay(14, 03), time_obj.ofDay(14, 45), // P8 8
-            ]
-          ],
-  test:   [     // NEEDS UPDATING AS SOON AS POSSIBLE, CURRENTLY COMPLETELY GUESSING
-            [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(09, 35), // AB 6
-              time_obj.ofDay(09, 38), time_obj.ofDay(10, 10), // P1 6
-              time_obj.ofDay(10, 13), time_obj.ofDay(10, 45), // P2 6
-              time_obj.ofDay(10, 48), time_obj.ofDay(11, 20), // P3 6
-              time_obj.ofDay(11, 23), time_obj.ofDay(11, 55), // P4 6
-              /*  Teleport - 11:55  */time_obj.ofDay(12, 25), // Lu 6
-              time_obj.ofDay(12, 28), time_obj.ofDay(13, 00), // P5 6
-              time_obj.ofDay(13, 03), time_obj.ofDay(13, 35), // P6 6
-              time_obj.ofDay(13, 38), time_obj.ofDay(14, 10), // P7 6
-              time_obj.ofDay(14, 13), time_obj.ofDay(14, 45), // P8 6
-            ],
-            [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(09, 35), // AB 7
-              time_obj.ofDay(09, 38), time_obj.ofDay(10, 10), // P1 7
-              time_obj.ofDay(10, 13), time_obj.ofDay(10, 45), // P2 7
-              time_obj.ofDay(10, 48), time_obj.ofDay(11, 20), // P3 7
-              time_obj.ofDay(11, 23), time_obj.ofDay(11, 55), // P4 7
-              time_obj.ofDay(11, 58), time_obj.ofDay(12, 30), // P5 7
-              /*  Teleport - 12:30  */time_obj.ofDay(13, 00), // Lu 7
-              time_obj.ofDay(13, 03), time_obj.ofDay(13, 35), // P6 7
-              time_obj.ofDay(13, 38), time_obj.ofDay(14, 10), // P7 7
-              time_obj.ofDay(14, 13), time_obj.ofDay(14, 45), // P8 7
-            ],
-            [   //         Start time               End time
-              time_obj.ofDay(07, 50), time_obj.ofDay(09, 35), // AB 8
-              time_obj.ofDay(09, 38), time_obj.ofDay(10, 10), // P1 8
-              time_obj.ofDay(10, 13), time_obj.ofDay(10, 45), // P2 8
-              time_obj.ofDay(10, 48), time_obj.ofDay(11, 20), // P3 8
-              time_obj.ofDay(11, 23), time_obj.ofDay(11, 55), // P4 8
-              time_obj.ofDay(11, 58), time_obj.ofDay(12, 30), // P5 8
-              time_obj.ofDay(12, 33), time_obj.ofDay(13, 05), // P6 8
-              /*  Teleport - 13:05  */time_obj.ofDay(13, 35), // Lu 8
-              time_obj.ofDay(13, 38), time_obj.ofDay(14, 10), // P7 8
-              time_obj.ofDay(14, 13), time_obj.ofDay(14, 45), // P8 8
-            ]
-          ]
-};
-const stuff = {
-                normal: [
-                          [ // 6
-                          "AB",
-                          "AB-1",
-                          "1<sup>st</sup> hour",
-                          "1-2",
-                          "2<sup>nd</sup> hour",
-                          "2-3",
-                          "3<sup>rd</sup> hour",
-                          "3-4",
-                          "4<sup>th</sup> hour",
-                          "Lunch",
-                          "Lunch-5",
-                          "5<sup>th</sup> hour",
-                          "5-6",
-                          "6<sup>th</sup> hour",
-                          "6-7",
-                          "7<sup>th</sup> hour",
-                          "7-8",
-                          "8<sup>th</sup> hour"
-                        ],
-
-                        [ // 7
-                          "AB",
-                          "AB-1",
-                          "1<sup>st</sup> hour",
-                          "1-2",
-                          "2<sup>nd</sup> hour",
-                          "2-3",
-                          "3<sup>rd</sup> hour",
-                          "3-4",
-                          "4<sup>th</sup> hour",
-                          "4-5",
-                          "5<sup>th</sup> hour",
-                          "Lunch",
-                          "Lunch-6",
-                          "6<sup>th</sup> hour",
-                          "6-7",
-                          "7<sup>th</sup> hour",
-                          "7-8",
-                          "8<sup>th</sup> hour"
-                        ],
-
-                        [ // 8
-                          "AB",
-                          "AB-1",
-                          "1<sup>st</sup> hour",
-                          "1-2",
-                          "2<sup>nd</sup> hour",
-                          "2-3",
-                          "3<sup>rd</sup> hour",
-                          "3-4",
-                          "4<sup>th</sup> hour",
-                          "4-5",
-                          "5<sup>th</sup> hour",
-                          "5-6",
-                          "6<sup>th</sup> hour",
-                          "Lunch",
-                          "Lunch-7",
-                          "7<sup>th</sup> hour",
-                          "7-8",
-                          "8<sup>th</sup> hour"
-                        ]
-                      ],
-              testing: [
-                          [ // 6
-                          "AB",
-                          "AB-1",
-                          "1<sup>st</sup> hour",
-                          "1-2",
-                          "2<sup>nd</sup> hour",
-                          "2-3",
-                          "3<sup>rd</sup> hour",
-                          "Lunch",
-                          "Lunch-4",
-                          "4<sup>th</sup> hour",
-                          "4-5",
-                          "5<sup>th</sup> hour",
-                          "5-6",
-                          "6<sup>th</sup> hour",
-                          "6-7",
-                          "7<sup>th</sup> hour",
-                          "7-8",
-                          "8<sup>th</sup> hour"
-                        ],
-
-                        [ // 7
-                          "AB",
-                          "AB-1",
-                          "1<sup>st</sup> hour",
-                          "1-2",
-                          "2<sup>nd</sup> hour",
-                          "2-3",
-                          "3<sup>rd</sup> hour",
-                          "3-4",
-                          "4<sup>th</sup> hour",
-                          "Lunch",
-                          "Lunch-5",
-                          "5<sup>th</sup> hour",
-                          "5-6",
-                          "6<sup>th</sup> hour",
-                          "6-7",
-                          "7<sup>th</sup> hour",
-                          "7-8",
-                          "8<sup>th</sup> hour"
-                        ],
-
-                        [ // 8
-                          "AB",
-                          "AB-1",
-                          "1<sup>st</sup> hour",
-                          "1-2",
-                          "2<sup>nd</sup> hour",
-                          "2-3",
-                          "3<sup>rd</sup> hour",
-                          "3-4",
-                          "4<sup>th</sup> hour",
-                          "4-5",
-                          "5<sup>th</sup> hour",
-                          "Lunch",
-                          "Lunch-6",
-                          "6<sup>th</sup> hour",
-                          "6-7",
-                          "7<sup>th</sup> hour",
-                          "7-8",
-                          "8<sup>th</sup> hour"
-                        ]
-                      ]
-};
+const times = [
+             //         Start time               End time
+            time_obj.ofDay(15, 40), time_obj.ofDay(17, 20),
+            time_obj.ofDay(17, 40), time_obj.ofDay(17, 50),
+            time_obj.ofDay(18, 20), time_obj.ofDay(19, 10),
+            time_obj.ofDay(19, 50), time_obj.ofDay(20, 00),
+            time_obj.ofDay(20, 10), time_obj.ofDay(20, 20),
+          ];
+const stuff = [
+                         
+                          "Free time",
+                          "Homework",
+                          "Free time",
+                          "Homework",
+                          "Free time",
+                          "Homework",
+                          "Free time",
+                          "Homework",
+                          "Free time"
+                      ];
 
 const fonts = ["Helvetica", "Georgia", "Cursive", "Verdana", "Courier New"];
 let font_num = 0;
@@ -626,85 +437,10 @@ function updateTimer(times, periods)
     pp.innerHTML = periods[6];
     tp.innerHTML = time_obj.fromMilliseconds(times[7]-now) + ending;
   }
-  else if ((now > times[7][7]) && (now < times[8]))
-  {
-    pp.innerHTML = periods[0];
-    tp.innerHTML = time_obj.fromMilliseconds(times[8]-now) + ending;
-  }
-  else if ((now > times[8]) && (now < times[9]))
-  {
-    pp.innerHTML = periods[8];
-    tp.innerHTML = time_obj.fromMilliseconds(times[9]-now) + ending;
-  }
-  else if ((now > times[9]) && (now < times[10]))
- {
-    pp.innerHTML = periods[9];
-    tp.innerHTML = time_obj.fromMilliseconds(times[10]-now) + ending;
-  }
-  else if ((now > times[10]) && (now < times[11]))
-  {
-    pp.innerHTML = periods[10];
-    tp.innerHTML = time_obj.fromMilliseconds(times[11]-now) + ending;
-  }
-  else if ((now > times[11]) && (now < times[12]))
-  {
-    pp.innerHTML = periods[11];
-    tp.innerHTML = time_obj.fromMilliseconds(times[12]-now) + ending;
-  }
-  else if ((now > times[12]) && (now < times[13]))
-  {
-    pp.innerHTML = periods[12];
-    tp.innerHTML = time_obj.fromMilliseconds(times[13]-now) + ending;
-  }
-  else if ((now > times[13]) && (now < times[14]))
-  {
-    pp.innerHTML = periods[13];
-    tp.innerHTML = time_obj.fromMilliseconds(times[14]-now) + ending;
-  }
-  else if ((now > times[14]) && (now < times[15]))
-  {
-    pp.innerHTML = periods[14];
-    tp.innerHTML = time_obj.fromMilliseconds(times[15]-now) + ending;
-  }
-  else if ((now > times[15]) && (now < times[16]))
-  {
-    pp.innerHTML = periods[15];
-    tp.innerHTML = time_obj.fromMilliseconds(times[16]-now) + ending;
-  }
-  else if ((now > times[16]) && (now < times[17]))
-  {
-    pp.innerHTML = periods[16];
-    tp.innerHTML = time_obj.fromMilliseconds(times[17]-now) + ending;
-  }
-  else if ((now > times[17]) && (now < times[18]))
-  {
-    pp.innerHTML = periods[17];
-    tp.innerHTML = time_obj.fromMilliseconds(times[18]-now) + ending;
-  }
-  else if ((times.length >= 19) && ((now > times[18]) && (now < times[19])))
-  {
-    pp.innerHTML = periods[18];
-    tp.innerHTML = time_obj.fromMilliseconds(times[19]-now) + ending;
-  }
-  else if ((times.length >= 20) && ((now > times[19]) && (now < times[20])))
-  {
-    pp.innerHTML = periods[19];
-    tp.innerHTML = time_obj.fromMilliseconds(times[20]-now) + ending;
-  }
-  else if((times.length >= 21) && ((now > times[20]) && (now < times[21])))
-  {
-    pp.innerHTML = periods[20];
-    tp.innerHTML = time_obj.fromMilliseconds(times[21]-now) + ending;
-  }
-  else if ((now > time_obj.ofDay(7, 45)) && (now < time_obj.ofDay(7, 50)))
-  {
-    pp.innerHTML = "Bre.-AB";
-    tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofDay(07, 50))
-  }
   else
   {
-    pp.innerHTML = "Learn't";
-    tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + " until school starts again";
+    pp.innerHTML = "Afternoon't";
+    tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + " until afternoon starts again";
     tp.style.top = "55%";
   }
   const supRegex = /<sup>/;
@@ -736,14 +472,8 @@ function think()
       {
         tp.style.top = "48.5%";
       }
-      if (settings.schedule === 0)
-      {
-        updateTimer(times.test[settings.grade], stuff.testing[settings.grade]);
-      }
-      else if(settings.schedule !== 3)
-      {
-        updateTimer(times.normal[settings.grade], stuff.normal[settings.grade]);
-      }
+        updateTimer(times, stuff);
+      
     }
     else if(settings.schedule !== 3)
     {
