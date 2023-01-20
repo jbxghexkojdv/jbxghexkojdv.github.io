@@ -89,27 +89,6 @@ body
   top: 0;
 }
 
-#cookie
-{
-  position: absolute;
-  top: 80%;
-  height: 20%;
-  width: 100%;
-  background-color: white;
-  mix-blend-mode: difference;
-  z-index: 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
-}
-
-#cookie-yes
-{
-  left: 0;
-}
-
-#cookie-no
-{
-  right: 0;
-}
-
 img
 {
   position: absolute;
