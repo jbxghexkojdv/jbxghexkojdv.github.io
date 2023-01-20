@@ -260,28 +260,6 @@ const functions_general = {
   }
 };
 
-const cookies = {
-  
-  allowed: false,
-  accept()
-  {
-    this.allowed = true;
-    functions_general.update.cookies();
-    document.getElementById("cookie").style.display = "none";
-  },
-
-  deny()
-  {
-    document.getElementById("cookie").style.display = "none";
-  },
-};
-
-if(document.cookie)
-{
-  cookies.allowed = true;
-  document.getElementById("cookie").style.display = "none";
-}
-
 function resetImage()
 {
   document.getElementById("bgimg").remove();
