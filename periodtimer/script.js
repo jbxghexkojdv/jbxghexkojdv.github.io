@@ -563,17 +563,6 @@ document.addEventListener("keydown", () => {
       
   }
 });
-window.addEventListener("resize", () => {
-
-  if (window.innerHeight == 617)
-  {
-    document.getElementById("fullscreen-prompt-img").style.display = "block";
-  }
-  else
-  {
-    document.getElementById("fullscreen-prompt-img").style.display = "none";
-  }
-});
 function handleImage(event)
 {
   let output = document.getElementById("bgimg");
@@ -581,14 +570,3 @@ function handleImage(event)
 }
 think();
 functions_general.update.darkMode();
-window.onload = () => {
-
-  if (window.innerHeight == 617)
-  {
-    document.getElementById("fullscreen-prompt-img").style.display = "block";
-  }
-  else
-  {
-    document.getElementById("fullscreen-prompt-img").style.display = "none";
-  }
-}
