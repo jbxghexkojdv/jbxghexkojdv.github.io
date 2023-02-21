@@ -1,4 +1,4 @@
-const times = {
+window.times = {
 
     normal: [
               [   //         Start time               End time

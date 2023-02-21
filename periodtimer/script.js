@@ -4,7 +4,7 @@ let non = document.getElementById("testing-toggle");
 let gradep = document.getElementById("grade");
 let darkModeButton = document.getElementById("dark-mode-button");
 
-function addScriptFile(link)
+/*function addScriptFile(link)
 {
   if(typeof(link) != "string")
   {
@@ -16,7 +16,7 @@ function addScriptFile(link)
 }
 
 addScriptFile("./schedules.js");
-addScriptFile("./time.js");
+addScriptFile("./time.js");*/
 
 window.mobileCheck = function() 
 {
@@ -263,12 +263,12 @@ function clear()
 {
   document.getElementById("debug-element").innerHTML = "";
 }
-function updateTimer(times, periods)
+function updateTimer(timesIn, periodsIn)
 {
   const now = Date.now() % 86400000;
 
   const startOfDay = time_obj.ofDay(7, 45);
-  const endOfDay = times[times.length - 1];
+  const endOfDay = timesIn[timesIn.length - 1];
 
   const lengthOfDay = endOfDay - startOfDay;
 
@@ -284,6 +284,9 @@ function updateTimer(times, periods)
   {
     document.body.style.backgroundColor = color.toHue(color.decimalToColor(percentageRaw/2));
   }
+  pp.innerHTML = "Learn't";
+  tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + " until school starts again";
+  tp.style.top = "55%";
   if ((now > times[0]) && (now < times[1]))
   {
     pp.innerHTML = periods[0];
@@ -319,7 +322,7 @@ function updateTimer(times, periods)
     pp.innerHTML = periods[6];
     tp.innerHTML = time_obj.fromMilliseconds(times[7]-now) + ending;
   }
-  else if ((now > times[7][7]) && (now < times[8]))
+  else if ((now > times[7]) && (now < times[8]))
   {
     pp.innerHTML = periods[0];
     tp.innerHTML = time_obj.fromMilliseconds(times[8]-now) + ending;
@@ -389,17 +392,14 @@ function updateTimer(times, periods)
     pp.innerHTML = periods[20];
     tp.innerHTML = time_obj.fromMilliseconds(times[21]-now) + ending;
   }
-  else if ((now > time_obj.ofDay(7, 45)) && (now < time_obj.ofDay(7, 50)))
+  /*for(let i in timesIn)
   {
-    pp.innerHTML = "Bre.-AB";
-    tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofDay(07, 50))
-  }
-  else
-  {
-    pp.innerHTML = "Learn't";
-    tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + " until school starts again";
-    tp.style.top = "55%";
-  }
+    if((now > timesIn[i]) && (now < timesIn[i + 1]))
+    {
+      pp.innerHTML = periodsIn[i];
+      tp.innerHTML = time_obj.fromMilliseconds(timesIn[i + 1]-now) + ending;
+    }
+  }*/
   const supRegex = /<sup>/;
   if (pp.innerHTML.match(supRegex) && !window.window.window.window.window.window.mobileCheck())
   {
