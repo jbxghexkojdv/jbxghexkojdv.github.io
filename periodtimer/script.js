@@ -4,25 +4,9 @@ let non = document.getElementById("testing-toggle");
 let gradep = document.getElementById("grade");
 let darkModeButton = document.getElementById("dark-mode-button");
 
-/*function addScriptFile(link)
-{
-  if(typeof(link) != "string")
-  {
-    throw "lol not string";
-  }
-  let elem = document.createElement("script");
-  elem.src = link;
-  document.body.insertBefore(elem, document.getElementsByTagName("script")[0]);
-}
-
-addScriptFile("./schedules.js");
-addScriptFile("./time.js");*/
-
 window.mobileCheck = function() 
 {
-  let check = false;
-  (function(){if(screen.width < screen.height) check = true;})();
-  return check;
+  return screen.width < screen.height;
 };
 if (window.mobileCheck())
 {
@@ -35,6 +19,7 @@ let settings = {
   grade: 0,
   flipped: false,
   shifting: false,
+  lang: 0
 };
 function range(num)
 {
@@ -106,16 +91,16 @@ const functions_general = {
       switch(settings.grade)
       {
         case 0:
-          gradep.innerHTML = "6<sup>th</sup> grade schedule";
+          gradep.innerHTML = lang[settings.lang].gr6sched;
           break;
         case 1:
-          gradep.innerHTML = "7<sup>th</sup> grade schedule";
+          gradep.innerHTML = lang[settings.lang].gr7sched;
           break;
         case 2: 
-          gradep.innerHTML = "8<sup>th</sup> grade schedule";
+          gradep.innerHTML = lang[settings.lang].gr8sched;
           break;
         case 3:
-          gradep.innerHTML = "Paused";
+          gradep.innerHTML = lang[settings.lang].paused;
           break;
         default:
           gradep.innerHTML = "why you do dat";
@@ -126,12 +111,12 @@ const functions_general = {
       if (settings.darkMode == 1)
       {
         document.body.style.backgroundColor = "#000000";
-        darkModeButton.innerHTML = "Dark Mode";
+        darkModeButton.innerHTML = lang[settings.lang].dark;
       }
       else if (settings.darkMode == 2)
       {
         document.body.style.backgroundColor = "#FFFFFF";
-        darkModeButton.innerHTML = "Light Mode";
+        darkModeButton.innerHTML = lang[settings.lang].light;
       }
       else
       {
@@ -140,7 +125,7 @@ const functions_general = {
         const TUSFraction = isWeekend && (timeUntilSchool > 0) ? 1-((timeUntilSchool+230700000)/461400000) : 1-((timeUntilSchool/*+57900000*/)/115800000);
         const bgColor = color.toHue(color.decimalToColor(TUSFraction));
         document.body.style.backgroundColor = bgColor;
-        darkModeButton.innerHTML = "COLORS";
+        darkModeButton.innerHTML = lang[settings.lang].colors;
       }
     },
   },
@@ -160,6 +145,22 @@ const functions_general = {
     }
     settings.grade %= 3;
     this.update.grade();
+  },
+  langchange()
+  {
+    if (!settings.shifting)
+    {
+      settings.lang++;
+    }
+    else
+    {
+      settings.lang--;
+    }
+    if (settings.lang < 0)
+    {
+      settings.lang += 3;
+    }
+    settings.lang %= 3;
   },
   cycleFonts()
   {
@@ -246,11 +247,11 @@ function testt()
   settings.schedule %= 2;
   if (settings.schedule === 0)
   {
-    document.getElementById("testing-toggle").innerHTML = "Currently Testing";
+    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ytest;
   }
   else
   {
-    document.getElementById("testing-toggle").innerHTML = "Not Testing";
+    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ntest;
   }
 
   think();
@@ -276,121 +277,121 @@ function updateTimer(timesIn, periodsIn)
   const percentageRaw = thePartThatHasAlreadyPassed/lengthOfDay;
 
   const percentageRefined = Math.round(percentageRaw*1000)/10;
-  const percentageString = `<br />${percentageRefined}% done with the day`;
+  const percentageString = `<br />${percentageRefined}${lang[settings.lang].dwtd}`;
 
-  let ending = ` remaining${percentageString}`;
+  let ending = ` ${settings.lang === 0 ? "remaining" : settings.lang === 1 ? "restante" : "restant"}${percentageString}`;
 
-  if (!(((pp.innerHTML == "Learn't") || (pp.innerHTML == "Loading..."))) && (settings.darkMode == 0))
+  if (!(((pp.innerHTML == lang[settings.lang].learnt) || (pp.innerHTML == lang[settings.lang].loading))) && (settings.darkMode == 0))
   {
     document.body.style.backgroundColor = color.toHue(color.decimalToColor(percentageRaw/2));
   }
-  pp.innerHTML = "Learn't";
-  tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + " until school starts again";
+  pp.innerHTML = lang[settings.lang].learnt;
+  tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + lang[settings.lang].ussa;
   tp.style.top = "55%";
-  if ((now > times[0]) && (now < times[1]))
+  if ((now > timesIn[0]) && (now < timesIn[1]))
   {
-    pp.innerHTML = periods[0];
-    tp.innerHTML = time_obj.fromMilliseconds(Math.round(times[1]-now)) + ending;
+    pp.innerHTML = periodsIn[0][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(Math.round(timesIn[1]-now)) + ending;
   }
-  else if ((now > times[1]) && (now < times[2]))
+  else if ((now > timesIn[1]) && (now < timesIn[2]))
   {
-    pp.innerHTML = periods[1];
-    tp.innerHTML = time_obj.fromMilliseconds(times[2]-now) + ending;
+    pp.innerHTML = periodsIn[1][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[2]-now) + ending;
   }
-  else if ((now > times[2]) && (now < times[3]))
+  else if ((now > timesIn[2]) && (now < timesIn[3]))
   {
-    pp.innerHTML = periods[2];
-    tp.innerHTML = time_obj.fromMilliseconds(times[3]-now) + ending;
+    pp.innerHTML = periodsIn[2][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[3]-now) + ending;
   }
-  else if ((now > times[3]) && (now < times[4]))
+  else if ((now > timesIn[3]) && (now < timesIn[4]))
   {
-    pp.innerHTML = periods[3];
-    tp.innerHTML = time_obj.fromMilliseconds(times[4]-now) + ending;
+    pp.innerHTML = periodsIn[3][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[4]-now) + ending;
   }
-  else if ((now > times[4]) && (now < times[5]))
+  else if ((now > timesIn[4]) && (now < timesIn[5]))
   {
-    pp.innerHTML = periods[4];
-    tp.innerHTML = time_obj.fromMilliseconds(times[5]-now) + ending;
+    pp.innerHTML = periodsIn[4][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[5]-now) + ending;
   }
-  else if ((now > times[5]) && (now < times[6]))
+  else if ((now > timesIn[5]) && (now < timesIn[6]))
   {
-    pp.innerHTML = periods[5];
-    tp.innerHTML = time_obj.fromMilliseconds(times[6]-now) + ending;
+    pp.innerHTML = periodsIn[5][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[6]-now) + ending;
   }
-  else if ((now > times[6]) && (now < times[7]))
+  else if ((now > timesIn[6]) && (now < timesIn[7]))
   {
-    pp.innerHTML = periods[6];
-    tp.innerHTML = time_obj.fromMilliseconds(times[7]-now) + ending;
+    pp.innerHTML = periodsIn[6][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[7]-now) + ending;
   }
-  else if ((now > times[7]) && (now < times[8]))
+  else if ((now > timesIn[7]) && (now < timesIn[8]))
   {
-    pp.innerHTML = periods[0];
-    tp.innerHTML = time_obj.fromMilliseconds(times[8]-now) + ending;
+    pp.innerHTML = periodsIn[7][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[8]-now) + ending;
   }
-  else if ((now > times[8]) && (now < times[9]))
+  else if ((now > timesIn[8]) && (now < timesIn[9]))
   {
-    pp.innerHTML = periods[8];
-    tp.innerHTML = time_obj.fromMilliseconds(times[9]-now) + ending;
+    pp.innerHTML = periodsIn[8][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[9]-now) + ending;
   }
-  else if ((now > times[9]) && (now < times[10]))
+  else if ((now > timesIn[9]) && (now < timesIn[10]))
  {
-    pp.innerHTML = periods[9];
-    tp.innerHTML = time_obj.fromMilliseconds(times[10]-now) + ending;
+    pp.innerHTML = periodsIn[9][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[10]-now) + ending;
   }
-  else if ((now > times[10]) && (now < times[11]))
+  else if ((now > timesIn[10]) && (now < timesIn[11]))
   {
-    pp.innerHTML = periods[10];
-    tp.innerHTML = time_obj.fromMilliseconds(times[11]-now) + ending;
+    pp.innerHTML = periodsIn[10][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[11]-now) + ending;
   }
-  else if ((now > times[11]) && (now < times[12]))
+  else if ((now > timesIn[11]) && (now < timesIn[12]))
   {
-    pp.innerHTML = periods[11];
-    tp.innerHTML = time_obj.fromMilliseconds(times[12]-now) + ending;
+    pp.innerHTML = periodsIn[11][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[12]-now) + ending;
   }
-  else if ((now > times[12]) && (now < times[13]))
+  else if ((now > timesIn[12]) && (now < timesIn[13]))
   {
-    pp.innerHTML = periods[12];
-    tp.innerHTML = time_obj.fromMilliseconds(times[13]-now) + ending;
+    pp.innerHTML = periodsIn[12][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[13]-now) + ending;
   }
-  else if ((now > times[13]) && (now < times[14]))
+  else if ((now > timesIn[13]) && (now < timesIn[14]))
   {
-    pp.innerHTML = periods[13];
-    tp.innerHTML = time_obj.fromMilliseconds(times[14]-now) + ending;
+    pp.innerHTML = periodsIn[13][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[14]-now) + ending;
   }
-  else if ((now > times[14]) && (now < times[15]))
+  else if ((now > timesIn[14]) && (now < timesIn[15]))
   {
-    pp.innerHTML = periods[14];
-    tp.innerHTML = time_obj.fromMilliseconds(times[15]-now) + ending;
+    pp.innerHTML = periodsIn[14][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[15]-now) + ending;
   }
-  else if ((now > times[15]) && (now < times[16]))
+  else if ((now > timesIn[15]) && (now < timesIn[16]))
   {
-    pp.innerHTML = periods[15];
-    tp.innerHTML = time_obj.fromMilliseconds(times[16]-now) + ending;
+    pp.innerHTML = periodsIn[15][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[16]-now) + ending;
   }
-  else if ((now > times[16]) && (now < times[17]))
+  else if ((now > timesIn[16]) && (now < timesIn[17]))
   {
-    pp.innerHTML = periods[16];
-    tp.innerHTML = time_obj.fromMilliseconds(times[17]-now) + ending;
+    pp.innerHTML = periodsIn[16][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[17]-now) + ending;
   }
-  else if ((now > times[17]) && (now < times[18]))
+  else if ((now > timesIn[17]) && (now < timesIn[18]))
   {
-    pp.innerHTML = periods[17];
-    tp.innerHTML = time_obj.fromMilliseconds(times[18]-now) + ending;
+    pp.innerHTML = periodsIn[17][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[18]-now) + ending;
   }
-  else if ((times.length >= 19) && ((now > times[18]) && (now < times[19])))
+  else if ((timesIn.length >= 19) && ((now > timesIn[18]) && (now < timesIn[19])))
   {
-    pp.innerHTML = periods[18];
-    tp.innerHTML = time_obj.fromMilliseconds(times[19]-now) + ending;
+    pp.innerHTML = periodsIn[18][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[19]-now) + ending;
   }
-  else if ((times.length >= 20) && ((now > times[19]) && (now < times[20])))
+  else if ((timesIn.length >= 20) && ((now > timesIn[19]) && (now < timesIn[20])))
   {
-    pp.innerHTML = periods[19];
-    tp.innerHTML = time_obj.fromMilliseconds(times[20]-now) + ending;
+    pp.innerHTML = periodsIn[19][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[20]-now) + ending;
   }
-  else if((times.length >= 21) && ((now > times[20]) && (now < times[21])))
+  else if((timesIn.length >= 21) && ((now > timesIn[20]) && (now < timesIn[21])))
   {
-    pp.innerHTML = periods[20];
-    tp.innerHTML = time_obj.fromMilliseconds(times[21]-now) + ending;
+    pp.innerHTML = periodsIn[20][settings.lang];
+    tp.innerHTML = time_obj.fromMilliseconds(timesIn[21]-now) + ending;
   }
   /*for(let i in timesIn)
   {
@@ -440,24 +441,24 @@ function think()
     }
     else if(settings.schedule !== 3)
     {
-      pp.innerHTML = "Learn't";
+      pp.innerHTML = lang[settings.lang].learnt;
       if(!window.window.window.window.window.window.mobileCheck())
       {
       pp.style.top = "-35%";
       }
-      tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofWeek(7, 50, 0, 4)-timeOfWeek+(settings.grade*180000)) + " until school starts again";
+      tp.innerHTML = time_obj.fromMilliseconds(time_obj.ofWeek(7, 50, 0, 4)-timeOfWeek+(settings.grade*180000)) + lang[settings.lang].ussa;
       tp.style.top = "55%";
     }
   }
   else if(settings.schedule !== 3)
   {
-    pp.innerHTML = "Summer!";
+    pp.innerHTML = lang[settings.lang].summer;
     if(!window.window.window.window.window.window.mobileCheck())
     {
       pp.style.top = "-35%";
     }
     const dayIfNecessary = settings.grade ? 86400000 : 0
-    tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:50:00")) - Number(yes) + dayIfNecessary) + " until school starts again";
+    tp.innerHTML = time_obj.fromMilliseconds(Number(new Date("Aug 10, 2022 07:50:00")) - Number(yes) + dayIfNecessary) + lang[settings.lang].ussa;
     tp.style.top = "55%";
   }
   functions_general.update.darkMode();
@@ -487,46 +488,47 @@ document.addEventListener("keyup", () => {
 
   switch (code)
   {
-    case "Digit6":
+    case "Digit6": // set to 6th grade schedule
       settings.grade = 0;
       break;
-    case "Digit7":
+    case "Digit7": // set to 7th grade schedule
       settings.grade = 1;
       break;
-    case "Digit8":
+    case "Digit8": // set to 8th grade schedule
       settings.grade = 2;
       break;
-    case "KeyT":
+    case "KeyT": // toggle testing schedule
       testt();
       break;
-    case "Space":
+    case "Space": // change background color
       tdm();
       break;
-    case "KeyI":
+    case "KeyI": // open image for background
       document.getElementsByTagName("input")[0].click();
-      darkModeButton.innerHTML = "Image";
+      darkModeButton.innerHTML = "Image" + lang[settings.lang] == 1 ? "n" : "";
       break;
-    case "KeyR":
+    case "KeyR": // reset settings
       settings = {
         schedule: 1,
         darkMode: 1,
         grade: 0,
         flipped: false,
+        lang: 0
       };
       resetImage();
       break;
-    case "KeyE":
+    case "KeyE": // remove background image
       resetImage();
       break;
-    case "KeyU":
+    case "KeyU": // ukrainian mode
       document.getElementById("bgimg").src = "a2.png";
       functions_general.update.darkMode();
-      darkModeButton.innerHTML = "Image";
+      darkModeButton.innerHTML = "Image" + lang[settings.lang] == 1 ? "n" : "";
       break;
-    case "KeyF":
+    case "KeyF": // change font
       functions_general.cycleFonts();
       break;
-    case "KeyA":
+    case "KeyA": // australian mode
       pp.classList.toggle("flip");
       tp.classList.toggle("flip");
       non.classList.toggle("flip");
@@ -535,10 +537,23 @@ document.addEventListener("keyup", () => {
       document.getElementById("credits").classList.toggle("flip");
       document.getElementById("bgimg").classList.toggle("flip");
       break;
-    case "KeyP":
+    case "KeyP": // pause
       settings.grade = 3;
       break;
-    case "ShiftLeft":
+    case "KeyL": // language change
+      functions_general.langchange();
+      if (settings.schedule === 0)
+      {
+        document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ytest;
+      }
+      else
+      {
+        document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ntest;
+      }
+      document.getElementsByTagName("html")[0].lang = settings.lang == 0 ? "en" : settings.lang == 1 ? "es" : "fr";
+      document.getElementById("credits").innerHTML = settings.lang == 0 ? "By Benjamin Harris" : settings.lang == 1 ? "Por Benjamin Harris" : "Par Benjamin Harris"
+      break;
+    case "ShiftLeft": // 
       settings.shifting = false;
       break;
     case "ShiftRight":
