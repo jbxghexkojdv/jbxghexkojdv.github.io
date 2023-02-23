@@ -35,6 +35,7 @@ const color = {
 
   toHue(color_code)
   {
+    color_code = Math.round(color_code);
     let r;
     let g;
     let b;
@@ -118,7 +119,7 @@ const functions_general = {
         document.body.style.backgroundColor = "#FFFFFF";
         darkModeButton.innerHTML = lang[settings.lang].light;
       }
-      else
+      else if(pp.innerHTML == lang[settings.lang].learnt || pp.innerHTML == lang[settings.lang].summer)
       {
         const isWeekend = ((time_obj.ofWeek(14, 44, 59, 1) < (Date.now()%604800000)) && ((Date.now()%604800000) < time_obj.ofWeek(7, 45, 1, 4)));
         const timeUntilSchool = isWeekend ? (time_obj.ofWeek(7, 45, 1, 4)-(Date.now()%604800000)) : ((time_obj.ofDay(7, 45, 1)+86400000)-(Date.now()%86400000))%86400000;
@@ -193,6 +194,8 @@ function resetImage()
   elem = document.createElement("img"));
   functions_general.update.darkMode();
   elem.id = "bgimg";
+  elem.style.display = "none";
+  elem.alt = "background image"
 }
 
 const fonts = ["Helvetica", "Georgia", "Cursive", "Verdana", "Courier New"];
@@ -505,6 +508,7 @@ document.addEventListener("keyup", () => {
       break;
     case "KeyI": // open image for background
       document.getElementsByTagName("input")[0].click();
+      document.getElementById("bgimg").style.display = "block";
       darkModeButton.innerHTML = "Image" + lang[settings.lang] == 1 ? "n" : "";
       break;
     case "KeyR": // reset settings
