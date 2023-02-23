@@ -27,7 +27,7 @@ const lang = [
         ntest: "No evaluando",
         learnt: "No escuela",
         loading: "Cargando...",
-        ussa: " hasta la escuela empieza",
+        ussa: " hasta que la escuela empiece",
         summer: "¡Verano!",
         dwtd: "% del día ha pasado"
     },
