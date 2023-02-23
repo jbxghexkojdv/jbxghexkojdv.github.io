@@ -22,11 +22,11 @@ p {
 div
 {
   position: absolute;
-  height: 16.66666666666666666666666666666666666666666666666666666666666666666666666666%;
+  height: 12.5%;
   width: 90%;
   left: 5%;
   text-align: center;
-  font-size: 100px;
+  font-size: 75px;
   display: none;
   font-family: Helvetica;
   background-color: #BFBFBF;
@@ -34,17 +34,22 @@ div
 
 #senateBar
 {
-  top: 16.6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666%;
+  top: 12.5%;
 }
 
 #houseBar
 {
-  top: 50%;
+  top: 37.5%;
 }
 
 #governorBar
 {
-  top: 83.33333333333333333333333333333333333333333333333333333333333333333333333333%;
+  top: 62.5%;
+}
+
+#presBar
+{
+  top: 87.5%;
 }
 
 #middleLine

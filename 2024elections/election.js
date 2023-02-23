@@ -68,11 +68,12 @@ function updateBars(data)
   updateOne(data.senate, document.getElementById("senateBar"));
   updateOne(data.house, document.getElementById("houseBar"));
   updateOne(data.gov, document.getElementById("governorBar"));
+  updateOne(data.pres, document.getElementById("presBar"));
   
   return true;
 }
 setInterval(function(){
-  const difference = new Date("Nov 8, 2022 17:00:00")-Date.now();
+  const difference = new Date("Nov 5, 2024 17:00:00")-Date.now();
   const days = zeroify(Math.floor(difference/86400000));
   const hours = zeroify(Math.floor((difference%86400000)/3600000));
   const minutes = zeroify(Math.floor((difference%3600000)/60000));
