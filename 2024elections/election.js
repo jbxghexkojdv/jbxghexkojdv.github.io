@@ -106,7 +106,7 @@ setInterval(function(){
         outputElement.innerHTML = new Date();
       }
     };
-    req.open("GET", "https://jbxghexkojdv.github.io/2022elections/election.json");
+    req.open("GET", "https://jbxghexkojdv.github.io/2024elections/election.json");
     req.send();
     setTimeout(
     function(){

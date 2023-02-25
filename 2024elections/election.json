@@ -7,17 +7,17 @@
     ],
     "blue indy":
     {
-      "amount": 2,
+      "amount": 0,
       "color": "#004040"
     },
     "democrats":
     {
-      "amount": 34,
+      "amount": 28,
       "color": "#000040"
     },
     "republicans":
     {
-      "amount": 29,
+      "amount": 38,
       "color": "#400000"
     },
     "dem call":
