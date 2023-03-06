@@ -10,67 +10,78 @@ function zeroify(num, digits = 2)
   return nums;
 }
 
-function updateBars(data)
+function updateBars()
 {
   function updateOne(dataInner, elem)
   {
     let displayObj = {};
-    let afterPipe = false;
     let percentage = 0;
-    for(let i = 0; i == i; i = i)
+    let total;
+    switch(dataInner.__office__)
     {
-      if(dataInner.display[i] != "|")
-      {
-        displayObj[dataInner.display[i]] = document.createElement('div');
-        elem.appendChild(displayObj[dataInner.display[i]]);
-        elem.style.display = "block";
-        displayObj[dataInner.display[i]].style.position = "absolute";
-        displayObj[dataInner.display[i]].style.height = "100%";
-        displayObj[dataInner.display[i]].style.width = `${dataInner[dataInner.display[i]].amount*100/dataInner.total}%`;
-        displayObj[dataInner.display[i]].style.backgroundColor = dataInner[dataInner.display[i]].color;
-        displayObj[dataInner.display[i]].style.color = 
-        ((parseInt(dataInner[dataInner.display[i]].color[1] + dataInner[dataInner.display[i]].color[2], 16) * 0.2126) +
-        (parseInt(dataInner[dataInner.display[i]].color[3] + dataInner[dataInner.display[i]].color[4], 16) * 0.7152) + 
-        (parseInt(dataInner[dataInner.display[i]].color[5] + dataInner[dataInner.display[i]].color[6], 16) * 0.0722))
-         > 127.5 ? "#000000" : "#FFFFFF";
-        displayObj[dataInner.display[i]].style.display = "block";
-        displayObj[dataInner.display[i]].innerHTML = dataInner[dataInner.display[i]].amount;
-        if(afterPipe)
-        {
-          displayObj[dataInner.display[i]].style.left = `${100-percentage-dataInner[dataInner.display[i]].amount*100/dataInner.total}%`;
-        }
-        else
-        {
-          displayObj[dataInner.display[i]].style.left = `${percentage}%`;
-        }
-        percentage += dataInner[dataInner.display[i]].amount*100/dataInner.total;
-      }
-      else
-      {
-        if(afterPipe)
-        {
-          break;
-        }
-        afterPipe = true;
-        percentage = 0;
-        i = dataInner.display.length;
-      }
-      if(!afterPipe)
-      {
-        i++;
-      }
-      else
-      {
-        i--;
-      }
+      case "p":
+        total = 538;
+        break;
+      case "s":
+        total = 100;
+        break;
+      case "h":
+        total = 435;
+        break;
+      default:
+        total = 50;
+    }
+    for(let i of elem.children)
+    {
+      elem.removeChild(i);
+    }
+    for(let i = 0; i < electionDeeta.display.left.length; i++)
+    {
+      dataInner[electionDeeta.display.left[i][0]] = dataInner[electionDeeta.display.left[i][0]] ? dataInner[electionDeeta.display.left[i][0]] : 0;
+      displayObj[dataInner[electionDeeta.display.left[i][0]]] = document.createElement('div');
+      elem.appendChild(displayObj[dataInner[electionDeeta.display.left[i][0]]]);
+      elem.style.display = "block";
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.position = "absolute";
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.height = "100%";
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.width = `${dataInner[electionDeeta.display.left[i][0]]*100/total}%`;
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.backgroundColor = electionDeeta.display.left[i][2];
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.color = 
+      ((parseInt(electionDeeta.display.left[i][2][1] + electionDeeta.display.left[i][2][2], 16) * 0.2126) + //we start at 1 because of the # in the color code, dumbass
+      (parseInt(electionDeeta.display.left[i][2][3] + electionDeeta.display.left[i][2][4], 16) * 0.7152) + 
+      (parseInt(electionDeeta.display.left[i][2][5] + electionDeeta.display.left[i][2][6], 16) * 0.0722))
+      > 127.5 ? "#000000" : "#FFFFFF";
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.display = "block";
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].innerHTML = dataInner[electionDeeta.display.left[i][0]];
+      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.left = `${percentage}%`;
+      percentage += dataInner[electionDeeta.display.left[i][0]]*100/total;
+    }
+    percentage = 0; 
+    for(let i = 0; i < electionDeeta.display.right.length; i++)
+    {
+      dataInner[electionDeeta.display.right[i][0]] = dataInner[electionDeeta.display.right[i][0]] ? dataInner[electionDeeta.display.right[i][0]] : 0;
+      displayObj[dataInner[electionDeeta.display.right[i][0]]] = document.createElement('div');
+      elem.appendChild(displayObj[dataInner[electionDeeta.display.right[i][0]]]);
+      elem.style.display = "block";
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.position = "absolute";
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.height = "100%";
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.width = `${dataInner[electionDeeta.display.right[i][0]]*100/total}%`;
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.backgroundColor = electionDeeta.display.right[i][2];
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.color = 
+      ((parseInt(electionDeeta.display.right[i][2][0] + electionDeeta.display.right[i][2][1], 16) * 0.2126) +
+      (parseInt(electionDeeta.display.right[i][2][2] + electionDeeta.display.right[i][2][3], 16) * 0.7152) + 
+      (parseInt(electionDeeta.display.right[i][2][4] + electionDeeta.display.right[i][2][5], 16) * 0.0722))
+        > 127.5 ? "#000000" : "#FFFFFF";
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.display = "block";
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].innerHTML = dataInner[electionDeeta.display.right[i][0]];
+      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.left = `${(100-percentage)-(dataInner[electionDeeta.display.right[i][0]]*100/total)}%`;
+      percentage += dataInner[electionDeeta.display.right[i][0]]*100/total;
     }
   }
-  updateOne(data.senate, document.getElementById("senateBar"));
-  updateOne(data.house, document.getElementById("houseBar"));
-  updateOne(data.gov, document.getElementById("governorBar"));
-  updateOne(data.pres, document.getElementById("presBar"));
-  
-  return true;
+  updateOne(getSenateResults(), document.getElementById("senateBar"));
+  updateOne(getHouseResults(), document.getElementById("houseBar"));
+  updateOne(getGovResults(), document.getElementById("governorBar"));
+  updateOne(getPresResults(), document.getElementById("presBar"));
+  outputElement.style.display = "none";
 }
 setInterval(function(){
   const difference = new Date("Nov 5, 2024 17:00:00")-Date.now();
@@ -83,6 +94,7 @@ setInterval(function(){
     document.getElementById("g").style.display = "none";
     document.getElementById("s").style.display = "none";
     document.getElementById("h").style.display = "none";
+    document.getElementById("p").style.display = "none";
     document.getElementById("middleLine").style.display = "none";
     document.getElementById("time").style.fontSize = `225px`;
     document.getElementById("time").style.top = `${(0.5*screen.availHeight)-402.5}px`;
@@ -90,28 +102,11 @@ setInterval(function(){
   }
   else
   {
-    let req = new XMLHttpRequest();
-    req.onload = () => 
-    {
-      if(updateBars(JSON.parse(req.responseText)))
-      {
-        outputElement.style.fontSize = "10px";
-        outputElement.style.top = "0%";
-        outputElement.style.left = "0%";
-        outputElement.style.textAlign = "left";
-        document.getElementById("g").style.display = "block";
-        document.getElementById("s").style.display = "block";
-        document.getElementById("h").style.display = "block";
-        document.getElementById("middleLine").style.display = "block";
-        outputElement.innerHTML = new Date();
-      }
-    };
-    req.open("GET", "https://jbxghexkojdv.github.io/2024elections/election.json");
-    req.send();
-    setTimeout(
-    function(){
-      location.replace(location.href);
-    },
-    60000);
+    updateBars();
   }
 }, 1000);
+setTimeout(
+  function(){
+    location.replace(location.href);
+  },
+60000);
