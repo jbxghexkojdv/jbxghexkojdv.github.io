@@ -19,7 +19,10 @@ p {
   mix-blend-mode: difference;
 }
 
-div
+#governorBar,
+#senateBar,
+#houseBar,
+#presBar
 {
   position: absolute;
   height: 12.5%;
@@ -30,6 +33,17 @@ div
   display: none;
   font-family: Helvetica;
   background-color: #BFBFBF;
+}
+
+iframe
+{
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 12.5%;
+  border: 0px solid salmon;
 }
 
 #senateBar

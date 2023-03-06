@@ -110,3 +110,77 @@ setTimeout(
     location.replace(location.href);
   },
 60000);
+function setSlide(num)
+{
+  if(num == 0)
+  {
+    document.getElementById("time").style.display = "block";
+    document.getElementById("gclickMap").style.display = "none";
+    document.getElementById("sclickMap").style.display = "none";
+    document.getElementById("hclickMap").style.display = "none";
+    document.getElementById("pclickMap").style.display = "none";
+    document.getElementById("middleLine").style.display = "none";
+    document.getElementById("statesMap").style.display = "none";
+    document.getElementById("districtsMap").style.display = "none";
+  }
+  else if(num == 1)
+  {
+    document.getElementById("time").style.display = "none";
+    document.getElementById("gclickMap").style.display = "block";
+    document.getElementById("sclickMap").style.display = "block";
+    document.getElementById("hclickMap").style.display = "block";
+    document.getElementById("pclickMap").style.display = "block";
+    document.getElementById("middleLine").style.display = "block";
+    document.getElementById("statesMap").style.display = "none";
+    document.getElementById("districtsMap").style.display = "none";
+  }
+  else if(num == 2)
+  {
+    document.getElementById("time").style.display = "none";
+    document.getElementById("gclickMap").style.display = "none";
+    document.getElementById("sclickMap").style.display = "none";
+    document.getElementById("hclickMap").style.display = "none";
+    document.getElementById("pclickMap").style.display = "none";
+    document.getElementById("middleLine").style.display = "none";
+    document.getElementById("statesMap").style.display = "block";
+    document.getElementById("districtsMap").style.display = "none";
+  }
+  else if(num == 3)
+  {
+    document.getElementById("time").style.display = "none";
+    document.getElementById("gclickMap").style.display = "none";
+    document.getElementById("sclickMap").style.display = "none";
+    document.getElementById("hclickMap").style.display = "none";
+    document.getElementById("pclickMap").style.display = "none";
+    document.getElementById("middleLine").style.display = "none";
+    document.getElementById("statesMap").style.display = "none";
+    document.getElementById("districtsMap").style.display = "block";
+  }
+}
+
+function fillMap(num)
+{
+  if(num != 2)
+  {
+    for(let i of states)
+    {
+      switch(num)
+      {
+        case 0:
+          document.getElementById("statesMap").contentDocument.getElementById(i.toUpperCase()).style.fill = getColor(electionDeeta[i].governor);
+      }
+    }
+  }
+}
+
+document.getElementById("statesMap").addEventListener("load", () => {
+  fillMap(0);
+});
+
+document.addEventListener("keyup", () => {
+switch(window.event.code)
+{
+  case "Space":
+    setSlide(1);
+}
+});

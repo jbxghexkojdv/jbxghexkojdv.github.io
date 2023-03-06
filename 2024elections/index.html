@@ -6,14 +6,24 @@
   </head>
   <body>
     <p id="time">000:00:00:00</p>
-    <p id="g">Governors</p>
-    <div id="governorBar"></div>
-    <p id="s">Senate</p>
-    <div id="senateBar"></div>
-    <p id="h">House</p>
-    <div id="houseBar"></div>
-    <p id="p">President</p>
-    <div id="presBar"></div>
+    <div id="gclickMap" onclick="setSlide(2);"> 
+      <p id="g">Governors</p>
+      <div id="governorBar"></div>
+    </div>
+    <div id="sclickMap" onclick="setSlide(2);">
+      <p id="s">Senate</p>
+      <div id="senateBar"></div>
+    </div>
+    <div id="hclickMap" onclick="setSlide(3);">
+      <p id="h">House</p>
+      <div id="houseBar"></div>
+    </div>
+    <div id="pclickMap" onclick="setSlide(2);">
+      <p id="p">President</p>
+      <div id="presBar"></div>
+    </div>
+    <object src="states.svg" id="statesMap" title="eee"></object>
+    <object src="districts.svg" id="districtsMap" title="eee"></object>
     <div id="middleLine"></div>
     <script src="./electionData.js?s=wlfjk" type="text/javascript"></script>
     <script src="./election.js?d=sjdhb" type="text/javascript"></script>

@@ -549,6 +549,31 @@ function getValue(binNum, elemSize, index, sizeInBits)
   return (BigInt(binNum) >> BigInt(BigInt(sizeInBits)-BigInt(elemSize * index))) % BigInt(2 ** elemSize);
 }
 
+function getColor(num)
+{
+  if(num & 0b1000n)
+  {
+    for(let i of electionDeeta.display.right)
+    {
+      if(num == i[1])
+      {
+        return i[2];
+      }
+    }
+  }
+  else
+  {
+    for(let i of electionDeeta.display.left)
+    {
+      if(num == i[1])
+      {
+        return i[2];
+      }
+    }
+  }
+  return "#bfbfbf";
+}
+
 function candidate(num)
 {
   if(num & 0b1000n)
