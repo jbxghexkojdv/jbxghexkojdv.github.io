@@ -83,7 +83,7 @@ function updateBars()
   updateOne(getPresResults(), document.getElementById("presBar"));
   outputElement.style.display = "none";
 }
-setInterval(function(){
+let int = setInterval(function(){
   const difference = new Date("Nov 5, 2024 17:00:00")-Date.now();
   const days = zeroify(Math.floor(difference/86400000));
   const hours = zeroify(Math.floor((difference%86400000)/3600000));
@@ -91,11 +91,7 @@ setInterval(function(){
   const seconds = zeroify(Math.floor((difference%60000)/1000));
   if(difference > 0)
   {
-    document.getElementById("g").style.display = "none";
-    document.getElementById("s").style.display = "none";
-    document.getElementById("h").style.display = "none";
-    document.getElementById("p").style.display = "none";
-    document.getElementById("middleLine").style.display = "none";
+    setSlide(0);
     document.getElementById("time").style.fontSize = `225px`;
     document.getElementById("time").style.top = `${(0.5*screen.availHeight)-402.5}px`;
     outputElement.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
@@ -156,6 +152,7 @@ function setSlide(num)
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "block";
   }
+  clearInterval(int)
 }
 
 function fillMap(num)
