@@ -129,6 +129,7 @@ function setSlide(num)
     document.getElementById("middleLine").style.display = "block";
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "none";
+    clearInterval(int);
   }
   else if(num == 2)
   {
@@ -140,6 +141,7 @@ function setSlide(num)
     document.getElementById("middleLine").style.display = "none";
     document.getElementById("statesMap").style.display = "block";
     document.getElementById("districtsMap").style.display = "none";
+    clearInterval(int);
   }
   else if(num == 3)
   {
@@ -151,8 +153,8 @@ function setSlide(num)
     document.getElementById("middleLine").style.display = "none";
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "block";
+    clearInterval(int);
   }
-  clearInterval(int)
 }
 
 function fillMap(num)

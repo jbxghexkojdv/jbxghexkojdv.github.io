@@ -551,7 +551,7 @@ function getValue(binNum, elemSize, index, sizeInBits)
 
 function getColor(num)
 {
-  if(num & 0b1000n)
+  if(BigInt(num) & 0b1000n)
   {
     for(let i of electionDeeta.display.right)
     {
