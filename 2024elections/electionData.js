@@ -36,7 +36,7 @@ const electionDeeta =
     "house": 0b1111111111111111111111111111,
     //             ElectorsCandidate
     "president": 0b000010011111,
-    "governor": 0b1111
+    "governor": 0b1100
   },
   "ar":
   {//              ||
@@ -360,7 +360,7 @@ const electionDeeta =
     "house": 0b1111111111111111111111111111,
     //             ElectorsCandidate
     "president": 0b000010011111,
-    "governor": 0b1111
+    "governor": 0b1100
   },
   "sd":
   {//              ||
@@ -450,7 +450,7 @@ const electionDeeta =
     "house": 0b1111,
     //             ElectorsCandidate
     "president": 0b000000111111,
-    "governor": 0b0001
+    "governor": 0b1100
   },
   "ne":
   {//              ||

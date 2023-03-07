@@ -159,15 +159,15 @@ function setSlide(num)
 
 function fillMap(num)
 {
-  if(num != 2)
+  for(let i of states)
   {
-    for(let i of states)
+    switch(num)
     {
-      switch(num)
-      {
-        case 0:
-          document.getElementById("statesMap").contentDocument.getElementById(i.toUpperCase()).style.fill = getColor(electionDeeta[i].governor);
-      }
+      case 0: // Governors
+        document.getElementById("statesMap").contentDocument.getElementById(i.toUpperCase()).style.fill = getColor(electionDeeta[i].governor);
+        break;
+      case 1: // Senate
+        document.getElementById("statesMap").contentDocument.getElementById(i.toUpperCase()).style.fill = getColor(getValue(electionDeeta[i].senate, 4, 2, 8));
     }
   }
 }
