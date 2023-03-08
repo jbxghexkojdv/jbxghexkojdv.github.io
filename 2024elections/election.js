@@ -189,7 +189,7 @@ function fillMap(num)
           (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b0001) || 
           (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b1000) || 
           (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b0000) ? 
-          getColor(getValue(electionDeeta[i].senate, 4, 2, 8)) : "#000000";
+          "#000000" : getColor(getValue(electionDeeta[i].senate, 4, 2, 8));
         break;
       case 2: // House
         for(let j = 0; j < getValue(electionDeeta[i].president, 8, 1,
