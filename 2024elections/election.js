@@ -187,7 +187,7 @@ function fillMap(num)
         document.getElementById("statesMap").contentDocument.
           getElementById(i.toUpperCase()).style.fill = 
           (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b0001) || 
-          (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b1000) || 
+          (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b1100) || 
           (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b0000) ? 
           "#000000" : getColor(getValue(electionDeeta[i].senate, 4, 2, 8));
         break;
