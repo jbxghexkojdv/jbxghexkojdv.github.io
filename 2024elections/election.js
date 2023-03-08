@@ -37,44 +37,57 @@ function updateBars()
     }
     for(let i = 0; i < electionDeeta.display.left.length; i++)
     {
-      dataInner[electionDeeta.display.left[i][0]] = dataInner[electionDeeta.display.left[i][0]] ? dataInner[electionDeeta.display.left[i][0]] : 0;
-      displayObj[dataInner[electionDeeta.display.left[i][0]]] = document.createElement('div');
-      elem.appendChild(displayObj[dataInner[electionDeeta.display.left[i][0]]]);
+      const candDeets = electionDeeta.display.left[i];
+      dataInner[candDeets[0]] = dataInner[candDeets[0]] ? 
+        dataInner[candDeets[0]] : 0;
+        
+      displayObj[dataInner[candDeets[0]]] = document.createElement('div');
+      elem.appendChild(displayObj[dataInner[candDeets[0]]]);
       elem.style.display = "block";
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.position = "absolute";
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.height = "100%";
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.width = `${dataInner[electionDeeta.display.left[i][0]]*100/total}%`;
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.backgroundColor = electionDeeta.display.left[i][2];
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.color = 
-      ((parseInt(electionDeeta.display.left[i][2][1] + electionDeeta.display.left[i][2][2], 16) * 0.2126) + //we start at 1 because of the # in the color code, dumbass
-      (parseInt(electionDeeta.display.left[i][2][3] + electionDeeta.display.left[i][2][4], 16) * 0.7152) + 
-      (parseInt(electionDeeta.display.left[i][2][5] + electionDeeta.display.left[i][2][6], 16) * 0.0722))
-      > 127.5 ? "#000000" : "#FFFFFF";
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.display = "block";
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].innerHTML = dataInner[electionDeeta.display.left[i][0]];
-      displayObj[dataInner[electionDeeta.display.left[i][0]]].style.left = `${percentage}%`;
-      percentage += dataInner[electionDeeta.display.left[i][0]]*100/total;
+      displayObj[dataInner[candDeets[0]]].style.position = "absolute";
+      displayObj[dataInner[candDeets[0]]].style.height = "100%";
+      displayObj[dataInner[candDeets[0]]].style.width = 
+        `${dataInner[candDeets[0]]*100/total}%`;
+
+      displayObj[dataInner[candDeets[0]]].style.backgroundColor = candDeets[2];
+      displayObj[dataInner[candDeets[0]]].style.color = 
+       ((parseInt(candDeets[2][1] + candDeets[2][2], 16) * 0.2126) + //we start at 1 because of the # in the color code, dumbass
+        (parseInt(candDeets[2][3] + candDeets[2][4], 16) * 0.7152) + 
+        (parseInt(candDeets[2][5] + candDeets[2][6], 16) * 0.0722))
+        > 127.5 ? "#000000" : "#FFFFFF";
+      displayObj[dataInner[candDeets[0]]].style.display = "block";
+      displayObj[dataInner[candDeets[0]]].innerHTML = dataInner[candDeets[0]];
+      displayObj[dataInner[candDeets[0]]].style.left = `${percentage}%`;
+      percentage += dataInner[candDeets[0]]*100/total;
     }
     percentage = 0; 
     for(let i = 0; i < electionDeeta.display.right.length; i++)
     {
-      dataInner[electionDeeta.display.right[i][0]] = dataInner[electionDeeta.display.right[i][0]] ? dataInner[electionDeeta.display.right[i][0]] : 0;
-      displayObj[dataInner[electionDeeta.display.right[i][0]]] = document.createElement('div');
-      elem.appendChild(displayObj[dataInner[electionDeeta.display.right[i][0]]]);
+      const candDeets = electionDeeta.display.right[i];
+      dataInner[candDeets[0]] = dataInner[candDeets[0]] ? 
+        dataInner[candDeets[0]] : 0;
+      displayObj[dataInner[candDeets[0]]] = document.createElement('div');
+      elem.appendChild(displayObj[dataInner[candDeets[0]]]);
       elem.style.display = "block";
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.position = "absolute";
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.height = "100%";
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.width = `${dataInner[electionDeeta.display.right[i][0]]*100/total}%`;
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.backgroundColor = electionDeeta.display.right[i][2];
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.color = 
-      ((parseInt(electionDeeta.display.right[i][2][0] + electionDeeta.display.right[i][2][1], 16) * 0.2126) +
-      (parseInt(electionDeeta.display.right[i][2][2] + electionDeeta.display.right[i][2][3], 16) * 0.7152) + 
-      (parseInt(electionDeeta.display.right[i][2][4] + electionDeeta.display.right[i][2][5], 16) * 0.0722))
+      displayObj[dataInner[candDeets[0]]].style.position = "absolute";
+      displayObj[dataInner[candDeets[0]]].style.height = "100%";
+      displayObj[dataInner[candDeets[0]]].style.width = 
+        `${dataInner[candDeets[0]]*100/total}%`;
+
+      displayObj[dataInner[candDeets[0]]].style.backgroundColor = candDeets[2];
+
+      displayObj[dataInner[candDeets[0]]].style.color = 
+       ((parseInt(candDeets[2][0] + candDeets[2][1], 16) * 0.2126) +
+        (parseInt(candDeets[2][2] + candDeets[2][3], 16) * 0.7152) + 
+        (parseInt(candDeets[2][4] + candDeets[2][5], 16) * 0.0722))
         > 127.5 ? "#000000" : "#FFFFFF";
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.display = "block";
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].innerHTML = dataInner[electionDeeta.display.right[i][0]];
-      displayObj[dataInner[electionDeeta.display.right[i][0]]].style.left = `${(100-percentage)-(dataInner[electionDeeta.display.right[i][0]]*100/total)}%`;
-      percentage += dataInner[electionDeeta.display.right[i][0]]*100/total;
+
+      displayObj[dataInner[candDeets[0]]].style.display = "block";
+      displayObj[dataInner[candDeets[0]]].innerHTML = dataInner[candDeets[0]];
+      displayObj[dataInner[candDeets[0]]].style.left =
+        `${(100-percentage)-(dataInner[candDeets[0]]*100/total)}%`;
+
+      percentage += dataInner[candDeets[0]]*100/total;
     }
   }
   updateOne(getSenateResults(), document.getElementById("senateBar"));
@@ -93,7 +106,9 @@ let int = setInterval(function(){
   {
     setSlide(0);
     document.getElementById("time").style.fontSize = `225px`;
-    document.getElementById("time").style.top = `${(0.5*screen.availHeight)-402.5}px`;
+    document.getElementById("time").style.top = 
+      `${(0.5*screen.availHeight)-402.5}px`;
+
     outputElement.innerHTML = `${days}:${hours}:${minutes}:${seconds}`;
   }
   else
@@ -164,10 +179,30 @@ function fillMap(num)
     switch(num)
     {
       case 0: // Governors
-        document.getElementById("statesMap").contentDocument.getElementById(i.toUpperCase()).style.fill = getColor(electionDeeta[i].governor);
+        document.getElementById("statesMap").contentDocument
+          .getElementById(i.toUpperCase()).style.fill = 
+          getColor(electionDeeta[i].governor);
         break;
       case 1: // Senate
-        document.getElementById("statesMap").contentDocument.getElementById(i.toUpperCase()).style.fill = getColor(getValue(electionDeeta[i].senate, 4, 2, 8));
+        document.getElementById("statesMap").contentDocument.
+          getElementById(i.toUpperCase()).style.fill = 
+          (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b0001) || 
+          (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b1000) || 
+          (getValue(electionDeeta[i].senate, 4, 2, 8) == 0b0000) ? 
+          getColor(getValue(electionDeeta[i].senate, 4, 2, 8)) : "#000000";
+        break;
+      case 2: // House
+        for(let j = 0; j < getValue(electionDeeta[i].president, 8, 1,
+          i == "ne" ? 24 : i == "me" ? 20 : 12) - 2n; j++)
+        {
+          document.getElementById("statesMap").contentDocument
+            .getElementById(i.toUpperCase() + "-" + (j + 1)).style.fill = 
+            getColor(getValue(electionDeeta[i].house, 4, j + 1, 
+            4 * getValue(electionDeeta[i].president, 8, 1, 
+            i == "ne" ? 24 : i == "me" ? 20 : 12)));
+        }
+        break;
+      
     }
   }
 }
