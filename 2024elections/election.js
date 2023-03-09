@@ -99,7 +99,9 @@ function updateBars()
   updateOne(getPresResults(), document.getElementById("presBar"));
   outputElement.style.display = "none";
 }
-let int = setInterval(function(){
+
+function thingThatGoesInInterval()
+{
   const difference = new Date("Nov 5, 2024 17:00:00")-Date.now();
   const days = zeroify(Math.floor(difference/86400000));
   const hours = zeroify(Math.floor((difference%86400000)/3600000));
@@ -117,13 +119,15 @@ let int = setInterval(function(){
   else
   {
     updateBars();
+    setTimeout(
+      function(){
+        location.replace(`${location.origin}${location.pathname}?slide=${slide}`);
+      },
+    60000);
   }
-}, 1000);
-setTimeout(
-  function(){
-    location.replace(`${location.origin}${location.pathname}?slide=${slide}`);
-  },
-60000);
+}
+thingThatGoesInInterval();
+let int = setInterval(thingThatGoesInInterval, 1000);
 function setSlide(num)
 {
   if(num == 0)
@@ -203,7 +207,7 @@ function fillMap(num)
           document.getElementById("districtsMap").contentDocument
             .getElementById(i.toUpperCase() + "-" + (j + 1)).style.fill = 
             getColor(getValue(electionDeeta[i].house, 4, j + 1, 
-            4 * (getValue(electionDeeta[i].president, 8, 1, 
+            4n * (getValue(electionDeeta[i].president, 8, 1, 
             i == "ne" ? 24 : i == "me" ? 20 : 12) - 8n)));
         }
         break;
