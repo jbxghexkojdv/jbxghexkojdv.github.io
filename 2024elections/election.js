@@ -1,4 +1,7 @@
 let outputElement = document.getElementById("time");
+
+let slide = 0;
+
 function zeroify(num, digits = 2)
 {
   let nums = num.toString(10);
@@ -118,7 +121,7 @@ let int = setInterval(function(){
 }, 1000);
 setTimeout(
   function(){
-    location.replace(location.href);
+    location.replace(`${location.origin}${location.pathname}?slide=${slide}`);
   },
 60000);
 function setSlide(num)
@@ -145,6 +148,7 @@ function setSlide(num)
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "none";
     clearInterval(int);
+    updateBars();
   }
   else if(num == 2)
   {
@@ -170,6 +174,7 @@ function setSlide(num)
     document.getElementById("districtsMap").style.display = "block";
     clearInterval(int);
   }
+  slide = num;
 }
 
 function fillMap(num)
@@ -195,14 +200,18 @@ function fillMap(num)
         for(let j = 0; j < getValue(electionDeeta[i].president, 8, 1,
           i == "ne" ? 24 : i == "me" ? 20 : 12) - 2n; j++)
         {
-          document.getElementById("statesMap").contentDocument
+          document.getElementById("districtsMap").contentDocument
             .getElementById(i.toUpperCase() + "-" + (j + 1)).style.fill = 
             getColor(getValue(electionDeeta[i].house, 4, j + 1, 
-            4 * getValue(electionDeeta[i].president, 8, 1, 
-            i == "ne" ? 24 : i == "me" ? 20 : 12)));
+            4 * (getValue(electionDeeta[i].president, 8, 1, 
+            i == "ne" ? 24 : i == "me" ? 20 : 12) - 8n)));
         }
         break;
-      
+      case 3: // President
+        document.getElementById("statesMap").contentDocument
+          .getElementById(i.toUpperCase()).style.fill = 
+          getColor(getValue(electionDeeta[i].president, 4, 3,
+          i == "ne" ? 24 : i == "me" ? 20 : 12));
     }
   }
 }
@@ -218,3 +227,8 @@ switch(window.event.code)
     setSlide(1);
 }
 });
+
+window.onload = () =>
+{
+  setSlide(location.search ? Number(location.search[7]) : 0);
+};
