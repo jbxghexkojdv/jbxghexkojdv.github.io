@@ -207,8 +207,8 @@ function fillMap(num)
           document.getElementById("districtsMap").contentDocument
             .getElementById(i.toUpperCase() + "-" + (j + 1)).style.fill = 
             getColor(getValue(electionDeeta[i].house, 4, j + 1, 
-            4n * (getValue(electionDeeta[i].president, 8, 1, 
-            i == "ne" ? 24 : i == "me" ? 20 : 12) - 8n)));
+            (4n * getValue(electionDeeta[i].president, 8, 1, 
+            i == "ne" ? 24 : i == "me" ? 20 : 12)) - 8n));
         }
         break;
       case 3: // President
