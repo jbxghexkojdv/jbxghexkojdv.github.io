@@ -1,4 +1,4 @@
-const electionDeeta =
+window.electionDeeta =
 {
   "display":
   {
@@ -470,9 +470,9 @@ const electionDeeta =
     "president": 0b00000100111111111111,
     "governor": 0b0001
   }
-}
+};
 
-const states = [
+window.states = [
   "ak",
   "al",
   "ar",
@@ -523,7 +523,7 @@ const states = [
   "wi",
   "wv",
   "wy"
-]
+];
 
 function noNegativeModulo(a, b)
 {

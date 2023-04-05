@@ -6,26 +6,26 @@
   </head>
   <body>
     <p id="time">000:00:00:00</p>
-    <div id="gclickMap" onclick="setSlide(2); fillMap(0);"> 
+    <div id="gclickMap" onclick="setSlide(2); mapId = 0; fillMap();"> 
       <p id="g">Governors</p>
       <div id="governorBar"></div>
     </div>
-    <div id="sclickMap" onclick="setSlide(2); fillMap(1);">
+    <div id="sclickMap" onclick="setSlide(2); mapId = 1; fillMap();">
       <p id="s">Senate</p>
       <div id="senateBar"></div>
     </div>
-    <div id="hclickMap" onclick="setSlide(3); fillMap(2);">
+    <div id="hclickMap" onclick="setSlide(3); mapId = 2; fillMap();">
       <p id="h">House</p>
       <div id="houseBar"></div>
     </div>
-    <div id="pclickMap" onclick="setSlide(2); fillMap(3);">
+    <div id="pclickMap" onclick="setSlide(2); mapId = 3; fillMap();">
       <p id="p">President</p>
       <div id="presBar"></div>
     </div>
     <iframe src="states.svg" id="statesMap"></iframe>
     <iframe src="districts.svg" id="districtsMap"></iframe>
     <div id="middleLine"></div>
-    <script src="./electionData.js?s=wlfjk" type="text/javascript"></script>
+    <!-- <script src="./electionData.js?s=wlfjk" type="text/javascript"></script> -->
     <script src="./election.js?d=sjdhb" type="text/javascript"></script>
   </body>
 </html>

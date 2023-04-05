@@ -1,6 +1,7 @@
 let outputElement = document.getElementById("time");
 
 let slide = 0;
+let mapId = 0;
 
 function zeroify(num, digits = 2)
 {
@@ -15,6 +16,10 @@ function zeroify(num, digits = 2)
 
 function updateBars()
 {
+  fetch("./electionData.js", {cache: "no-cache"})
+    .then((response) => response.text())
+    .then((code) => {
+  eval?.(code);
   function updateOne(dataInner, elem)
   {
     let displayObj = {};
@@ -98,16 +103,17 @@ function updateBars()
   updateOne(getGovResults(), document.getElementById("governorBar"));
   updateOne(getPresResults(), document.getElementById("presBar"));
   outputElement.style.display = "none";
+  });
 }
 
-function thingThatGoesInInterval()
+function thingThatGoesInInterval(timer)
 {
   const difference = new Date("Nov 5, 2024 17:00:00")-Date.now();
   const days = zeroify(Math.floor(difference/86400000));
   const hours = zeroify(Math.floor((difference%86400000)/3600000));
   const minutes = zeroify(Math.floor((difference%3600000)/60000));
   const seconds = zeroify(Math.floor((difference%60000)/1000));
-  if(difference > 0)
+  if(difference > 0 && timer)
   {
     setSlide(0);
     document.getElementById("time").style.fontSize = `225px`;
@@ -119,6 +125,7 @@ function thingThatGoesInInterval()
   else
   {
     updateBars();
+    fillMap();
     setTimeout(
       function(){
         location.replace(`${location.origin}${location.pathname}?slide=${slide}`);
@@ -127,7 +134,7 @@ function thingThatGoesInInterval()
   }
 }
 thingThatGoesInInterval();
-let int = setInterval(thingThatGoesInInterval, 1000);
+let int = setInterval(thingThatGoesInInterval, 1000, true);
 function setSlide(num)
 {
   if(num == 0)
@@ -151,7 +158,8 @@ function setSlide(num)
     document.getElementById("middleLine").style.display = "block";
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "none";
-    clearInterval(int);
+    if (int != undefined) clearInterval(int);
+    let int2 = setInterval(thingThatGoesInInterval, 1000, false);
     updateBars();
   }
   else if(num == 2)
@@ -164,7 +172,8 @@ function setSlide(num)
     document.getElementById("middleLine").style.display = "none";
     document.getElementById("statesMap").style.display = "block";
     document.getElementById("districtsMap").style.display = "none";
-    clearInterval(int);
+    if (int != undefined) clearInterval(int);
+    let int2 = setInterval(thingThatGoesInInterval, 1000, false);
   }
   else if(num == 3)
   {
@@ -176,16 +185,17 @@ function setSlide(num)
     document.getElementById("middleLine").style.display = "none";
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "block";
-    clearInterval(int);
+    if (int != undefined) clearInterval(int);
+    let int2 = setInterval(thingThatGoesInInterval, 1000, false);
   }
   slide = num;
 }
 
-function fillMap(num)
+function fillMap()
 {
   for(let i of states)
   {
-    switch(num)
+    switch(mapId)
     {
       case 0: // Governors
         document.getElementById("statesMap").contentDocument
