@@ -3,7 +3,18 @@ const time_obj = {
 
     ofDay(h, m, s = 0)
     {
-      return ((((((h+(new Date().getTimezoneOffset()/60)-testOffset)*60)+m)*60)+s)*1000)%86400000;
+      let retval = ((((((h+(new Date().getTimezoneOffset()/60)-testOffset)*60)+m)*60)+s)*1000)%86400000;
+      for(;;)
+      {
+        if(retval >= 0)
+        {
+          return retval;
+        }
+        else
+        {
+          retval += 86400000;
+        }
+      }
     },
     ofWeek(h, m, s = 0, d = 0)
     {
@@ -16,7 +27,18 @@ const time_obj = {
       Tue:5
       Wed:6
       */
-      return ((((((((h+(new Date().getTimezoneOffset()/60)-testOffset)*60)+m)*60)+s)*1000)+(d*86400000))%604800000);
+      let retval =  ((((((((h+(new Date().getTimezoneOffset()/60)-testOffset)*60)+m)*60)+s)*1000)+(d*86400000))%604800000);
+      for(;;)
+      {
+        if(retval >= 0)
+        {
+          return retval;
+        }
+        else
+        {
+          retval += 604800000;
+        }
+      }
     },
     fromSeconds(seconds, unit = "auto")
     {

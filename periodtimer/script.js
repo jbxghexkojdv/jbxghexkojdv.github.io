@@ -247,34 +247,31 @@ function testt()
   {
     settings.schedule += 3;
   }
-  settings.schedule %= 2;
+  settings.schedule %= 3;
   if (settings.schedule === 0)
   {
     document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ytest;
   }
-  else
+  else if(settings.schedule === 1)
   {
     document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ntest;
+  }
+  else
+  {
+    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].assembly;
   }
 
   think();
 }
-function print(thing, end = "<br />")
-{
-  document.getElementById("debug-element").innerHTML += thing + end;
-}
-function clear()
-{
-  document.getElementById("debug-element").innerHTML = "";
-}
+
 function updateTimer(timesIn, periodsIn)
 {
   const now = Date.now() % 86400000;
 
-  const startOfDay = time_obj.ofDay(7, 45);
+  const startOfDay = time_obj.ofDay(7, 50);
   const endOfDay = timesIn[timesIn.length - 1];
 
-  const lengthOfDay = endOfDay - startOfDay;
+  const lengthOfDay = endOfDay - startOfDay >= 0 ? endOfDay - startOfDay : endOfDay - startOfDay + 86400000;
 
   const thePartThatHasAlreadyPassed = now - startOfDay;
   const percentageRaw = thePartThatHasAlreadyPassed/lengthOfDay;
@@ -289,7 +286,7 @@ function updateTimer(timesIn, periodsIn)
     document.body.style.backgroundColor = color.toHue(color.decimalToColor(percentageRaw/2));
   }
   pp.innerHTML = lang[settings.lang].learnt;
-  tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 45)+86400000-now)%86400000) + lang[settings.lang].ussa;
+  tp.innerHTML = time_obj.fromMilliseconds((time_obj.ofDay(7, 50)+86400000-now)%86400000) + lang[settings.lang].ussa;
   tp.style.top = "55%";
   if ((now > timesIn[0]) && (now < timesIn[1]))
   {
@@ -396,7 +393,7 @@ function updateTimer(timesIn, periodsIn)
     pp.innerHTML = periodsIn[20][settings.lang];
     tp.innerHTML = time_obj.fromMilliseconds(timesIn[21]-now) + ending;
   }
-  /*for(let i in timesIn)
+  /*for(let i  = 0; i + 1 < timesIn.length; i++)
   {
     if((now > timesIn[i]) && (now < timesIn[i + 1]))
     {
@@ -405,7 +402,7 @@ function updateTimer(timesIn, periodsIn)
     }
   }*/
   const supRegex = /<sup>/;
-  if (pp.innerHTML.match(supRegex) && !window.window.window.window.window.window.mobileCheck())
+  if (pp.innerHTML.match(supRegex) && !window.window.window.window.window.window.mobileCheck()) // why can you do this
   {
     pp.style.top = "-36%";
   }
@@ -429,7 +426,7 @@ function think()
   {
     if (!isWeekend)
     {
-      if(!window.window.window.window.window.window.mobileCheck())
+      if(!window.mobileCheck())
       {
         tp.style.top = "48.5%";
       }
@@ -437,9 +434,13 @@ function think()
       {
         updateTimer(times.test[settings.grade], stuff.testing[settings.grade]);
       }
-      else if(settings.schedule !== 3)
+      else if(settings.schedule === 1)
       {
         updateTimer(times.normal[settings.grade], stuff.normal[settings.grade]);
+      }
+      else if(settings.schedule !== 3)
+      {
+        updateTimer(times.assembly[settings.grade], stuff.assembly[settings.grade]);
       }
     }
     else if(settings.schedule !== 3)
@@ -512,7 +513,8 @@ document.addEventListener("keyup", () => {
       darkModeButton.innerHTML = "Image" + lang[settings.lang] == 1 ? "n" : "";
       break;
     case "KeyR": // reset settings
-      settings = {
+      settings =
+      {
         schedule: 1,
         darkMode: 1,
         grade: 0,

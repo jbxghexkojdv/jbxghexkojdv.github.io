@@ -13,7 +13,8 @@ const lang = [
         loading: "Loading...",
         ussa: " until school starts again",
         summer: "Summer!",
-        dwtd: "% done with the day"
+        dwtd: "% done with the day",
+        assembly: "Assembly",
     },
     {//Spanish
         gr6sched: "Programa del 6<sup>o</sup> grado",
@@ -29,7 +30,8 @@ const lang = [
         loading: "Cargando...",
         ussa: " hasta que la escuela empiece",
         summer: "¡Verano!",
-        dwtd: "% del día ha pasado"
+        dwtd: "% del día ha pasado",
+        assembly: "Reunión",
     },
     {//French
         gr6sched: "Programme de la 6<sup>e</sup>",
@@ -45,6 +47,7 @@ const lang = [
         loading: "En chargeant...",
         ussa: " jusqu'à ce que l'école commence",
         summer: "Été !",
-        dwtd: " % du jour a passé"
+        dwtd: " % du jour a passé",
+        assembly: "Réunion",
     }
 ]
