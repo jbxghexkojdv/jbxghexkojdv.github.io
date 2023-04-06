@@ -97,7 +97,7 @@ assembly: [
               time_obj.ofDay(10, 58), time_obj.ofDay(11, 35), // P4 7
               time_obj.ofDay(11, 38), time_obj.ofDay(12, 15), // P5 7
               /*  Teleport - 12:15  */time_obj.ofDay(12, 45), // Lu 7
-              time_obj.ofDay(13, 48), time_obj.ofDay(13, 25), // P6 7
+              time_obj.ofDay(12, 48), time_obj.ofDay(13, 25), // P6 7
               time_obj.ofDay(13, 28), time_obj.ofDay(14,  5), // P7 7
               time_obj.ofDay(14,  8), time_obj.ofDay(14, 45), // P8 7
             ],
