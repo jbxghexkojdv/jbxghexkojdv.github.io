@@ -250,7 +250,7 @@ function testt()
   settings.schedule %= 3;
   if (settings.schedule === 0)
   {
-    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ytest;
+    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].assembly;
   }
   else if(settings.schedule === 1)
   {
@@ -258,7 +258,7 @@ function testt()
   }
   else
   {
-    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].assembly;
+    document.getElementById("testing-toggle").innerHTML = lang[settings.lang].ytest;
   }
 
   think();
@@ -432,7 +432,7 @@ function think()
       }
       if (settings.schedule === 0)
       {
-        updateTimer(times.test[settings.grade], stuff.testing[settings.grade]);
+        updateTimer(times.assembly[settings.grade], stuff.assembly[settings.grade]);
       }
       else if(settings.schedule === 1)
       {
@@ -440,7 +440,7 @@ function think()
       }
       else if(settings.schedule !== 3)
       {
-        updateTimer(times.assembly[settings.grade], stuff.assembly[settings.grade]);
+        updateTimer(times.test[settings.grade], stuff.test[settings.grade]);
       }
     }
     else if(settings.schedule !== 3)
