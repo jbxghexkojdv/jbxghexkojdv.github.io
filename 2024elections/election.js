@@ -133,7 +133,7 @@ function thingThatGoesInInterval(timer)
     60000);
   }
 }
-thingThatGoesInInterval();
+thingThatGoesInInterval(true);
 let int = setInterval(thingThatGoesInInterval, 1000, true);
 function setSlide(num)
 {
