@@ -1,0 +1,16 @@
+p,
+input
+{
+  width: 100%;
+  text-align: center;
+  font: 100px "Courier New";
+  height: 33%;
+  color: white;
+}
+
+body,
+input
+{
+  overflow: hidden;
+  background-color: black;
+}
