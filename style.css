@@ -1,50 +1,48 @@
-a 
+body
 {
-  font-size: 30px;
-  font-family: Helvetica;
+  background-color: #000;
 }
 
-button
+a 
 {
-  background-color: transparent;
-  height: 33.333333333333333%;
-  width: 33.333333333333333%;
+  background-color: #333;
+  font: 30px "Courier New";
+  color: white;
+  text-decoration: none;
+  height: 48%;
+  width: 24%;
+  display: block;
   position: absolute;
-  z-index: -90;
-  border: none;
+  text-align: center;
+  border-radius: 5%;
 }
 
 .r1
 {
-  top: 0;
+  top: 1%;
 }
 
 .r2
 {
-  top: 33.3333333333333333333%;
-}
-
-.r3
-{
-  bottom: 0;
+  top: 51%;
 }
 
 .c1
 {
-  left: 0;
+  left: 0.5%;
 }
 
 .c2
 {
-  left: 33.333333333333333;
+  left: 25.5%;
 }
 
 .c3
 {
-  right: 0;
+  left: 50.5%;
 }
 
-#secret
+.c4
 {
-  display: none;
+  left: 75.5%;
 }
