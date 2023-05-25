@@ -10,8 +10,20 @@ export default {
         #hitboxElem;
         #gravity;
         
+        /**
+         * Creates a Thing to do some cool physics on
+         * @param {HTMLElement} elemIn element to use
+         * @param {number} height height of the hitbox
+         * @param {number} width width of the hitbox
+         * @param {number} x location of left edge, in % of the screen from the screen's left edge
+         * @param {number} y location of bottom, in % of the screen from the screen's bottom edge
+         * @param {boolean} moving Does the thing move?
+         * @param {boolean} showHitbox We showing hitboxes here?
+         * @param {number} bounce number between 0 and 1 (ideally) specifying how much to bounce on collision
+         * @param {number} framerate framerate for animation in FPS
+         */
         constructor(elemIn, height, width, x, y, moving = true,
-                     showHitbox = false, bounce = 0, framerate = 40)
+                    showHitbox = false, bounce = 0, framerate = 40)
         {
             window.objects = window.objects ? window.objects : [];
             this.#id = Math.random().toString();
@@ -35,19 +47,19 @@ export default {
             this.#hitboxElem.style.display = showHitbox ? "block" : "none";
 
             this.location = {
-                                 x: x, 
-                                 y: y, 
-                                 center: {
-                                     x: function()
-                                     {
-                                         return this.x + (window[id].hitbox.width / 2);
-                                     }, 
-                                     y: function()
-                                     {
-                                         this.y + (window[id].hitbox.height / 2);
-                                     }
-                                 }
-                             };
+                                x: x, 
+                                y: y, 
+                                center: {
+                                    x: function()
+                                    {
+                                        return this.x + (window[id].hitbox.width / 2);
+                                    }, 
+                                    y: function()
+                                    {
+                                        this.y + (window[id].hitbox.height / 2);
+                                    }
+                                }
+                            };
             this.velocity = {x: 0, y: 0}; // measured in distance per second
             this.acceleration = {x: 0, y: 0}; // measured in speed gained per second
 
@@ -75,6 +87,12 @@ export default {
                                           return window[id].location.y;
                                       }
                           };
+            /**
+             * Starts the actual physics
+             * @param {"gravity" | "collision"} thing thing to start
+             * @param  {[number, string] | void} args if gravity, acceleration in % of screen/sec/sec, and direction of gravity
+             * @returns {void}
+             */
             this.start = (thing, ...args) =>
             {
                 switch(thing)
@@ -116,65 +134,35 @@ export default {
                                        isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), 
                                                      this.hitbox.bottomEdge(), this.hitbox.topEdge()))
                                     {
-                                        // This object is above the other
-                                        if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge() && 
-                                           isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
-                                                         this.hitbox.leftEdge(), this.hitbox.rightEdge()) &&
-                                          (this.#gravity == 1 || this.#gravity == 2))
+                                        const direction = 
+                                        Math.abs(this.velocity.x) < 
+                                        Math.abs(this.velocity.y) ? // True if vertical
+                                        (this.velocity.y < 0 ? "up" : "down") :
+                                        (this.velocity.x < 0 ? "left" : "right");
+                                        console.log(direction);
+                                        switch(direction)
                                         {
-                                            // Move it and make it bounce
-                                            this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
-                                            this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
-                                            this.elem.innerHTML += "<br />Up";
+                                            case "up":
+                                                this.location.y += (this.velocity.y) * ((window.objects[i].hitbox.topEdge()-this.hitbox.bottomEdge())/(this.velocity.y));
+                                                this.location.x += (this.velocity.x) * ((window.objects[i].hitbox.topEdge()-this.hitbox.bottomEdge())/(this.velocity.y));
+                                                break;
+                                            case "down":
+                                                this.location.y += (this.velocity.y) * ((window.objects[i].hitbox.bottomEdge()-this.hitbox.topEdge())/(this.velocity.y));
+                                                this.location.x += (this.velocity.x) * ((window.objects[i].hitbox.bottomEdge()-this.hitbox.topEdge())/(this.velocity.y));
+                                                break;
+                                            case "right":
+                                                this.location.y += (this.velocity.y) * ((window.objects[i].hitbox.leftEdge()-this.hitbox.rightEdge())/(this.velocity.x));
+                                                this.location.x += (this.velocity.x) * ((window.objects[i].hitbox.leftEdge()-this.hitbox.rightEdge())/(this.velocity.x));
+                                                break;
+                                            case "left":
+                                                this.location.y += (this.velocity.y) * ((window.objects[i].hitbox.rightEdge()-this.hitbox.leftEdge())/(this.velocity.x));
+                                                this.location.x += (this.velocity.x) * ((window.objects[i].hitbox.rightEdge()-this.hitbox.leftEdge())/(this.velocity.x));
+                                                break;
+                                            default:
+                                                console.log("wtf");
                                         }
-                                        // This object is below the other
-                                        else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge() &&
-                                                isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
-                                                              this.hitbox.leftEdge(), this.hitbox.rightEdge()) &&
-                                               (this.#gravity == 1 || this.#gravity == 2))
-                                        {
-                                            this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
-                                            this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
-                                            this.elem.innerHTML += "<br />Down";
-                                        }
-                                        
-                                        // This object is to the right of the other
-                                        if(this.hitbox.leftEdge() < window.objects[i].hitbox.rightEdge() && 
-                                           isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(), 
-                                                         this.hitbox.bottomEdge(), this.hitbox.topEdge()))
-                                        {
-                                            this.location.x += this.hitbox.leftEdge() - window.objects[i].hitbox.rightEdge();
-                                            this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
-                                            this.elem.innerHTML += "<br />Right";
-                                        }
-                                        // This object is to the left of the other
-                                        else if(this.hitbox.rightEdge() > window.objects[i].hitbox.leftEdge() && 
-                                                isOverlapping(window.objects[i].hitbox.bottomEdge(), window.objects[i].hitbox.topEdge(),
-                                                              this.hitbox.bottomEdge(), this.hitbox.topEdge()))
-                                        {
-                                            this.location.x += this.hitbox.rightEdge() - window.objects[i].hitbox.leftEdge();
-                                            this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
-                                            this.elem.innerHTML += "<br />Left";
-                                        }
-                                        // This object is above the other
-                                        if(this.hitbox.bottomEdge() < window.objects[i].hitbox.topEdge() && 
-                                           isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
-                                                         this.hitbox.leftEdge(), this.hitbox.rightEdge()))
-                                        {
-                                            // Move it and make it bounce
-                                            this.location.y += this.hitbox.bottomEdge() - window.objects[i].hitbox.topEdge();
-                                            this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
-                                            this.elem.innerHTML += "<br />Up";
-                                        }
-                                        // This object is below the other
-                                        else if(this.hitbox.topEdge() > window.objects[i].hitbox.bottomEdge() &&
-                                                isOverlapping(window.objects[i].hitbox.leftEdge(), window.objects[i].hitbox.rightEdge(), 
-                                                              this.hitbox.leftEdge(), this.hitbox.rightEdge()))
-                                        {
-                                            this.location.y += this.hitbox.topEdge() - window.objects[i].hitbox.bottomEdge();
-                                            this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
-                                            this.elem.innerHTML += "<br />Down";
-                                        }
+                                        this.velocity.x *= -(this.bounciness + window.objects[i].bounciness);
+                                        this.velocity.y *= -(this.bounciness + window.objects[i].bounciness);
                                     }
                                 }
                             }
@@ -197,12 +185,13 @@ export default {
                     this.acceleration.x = 0;
                     this.acceleration.y = 0;
                 }
-                this.location.x += this.velocity.x / 40;
-                this.location.y += this.velocity.y / 40;
+                this.location.x += this.velocity.x / framerate;
+                this.location.y += this.velocity.y / framerate;
                 this.updateLocation();
-                this.velocity.x += this.acceleration.x / 40;
-                this.velocity.y += this.acceleration.y / 40;
+                this.velocity.x += this.acceleration.x / framerate;
+                this.velocity.y += this.acceleration.y / framerate;
             }, 1000/framerate);
+
             window.objects.push(this);
         }
     }
