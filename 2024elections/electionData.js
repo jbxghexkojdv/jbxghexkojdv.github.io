@@ -240,7 +240,7 @@ window.electionDeeta =
   "ny":
   {
     "senate": 0x1f,
-    "house": 0xfffffffff3ffffffffffffffffn,
+    "house": 0xffffffffffffffffffffffffffn,
     "president": 0x1cf,
     "governor": 0x1
   },
