@@ -50,13 +50,21 @@ export default {
                                 x: x, 
                                 y: y, 
                                 center: {
-                                    x: function()
+                                    get x()
                                     {
-                                        return this.x + (window[id].hitbox.width / 2);
+                                        return this.x + (window[id].hitbox.width/2);
                                     }, 
-                                    y: function()
+                                    get y()
                                     {
-                                        this.y + (window[id].hitbox.height / 2);
+                                        this.y + (window[id].hitbox.height/2);
+                                    },
+                                    set x(val)
+                                    {
+                                        this.x = val-(window[id].hitbox.width/2);
+                                    }, 
+                                    set y(val)
+                                    {
+                                        this.y = val-(window[id].hitbox.height/2);
                                     }
                                 }
                             };
@@ -176,6 +184,16 @@ export default {
                 this.elem.style.bottom = this.location.y + "%";
                 this.#hitboxElem.style.bottom = this.location.y + "%";
             };
+            /**
+             * Moves the Thing instantaneously
+             * @param {number} x
+             * @param {number} y
+             * @returns {void}
+             */
+            this.move = (x, y) =>
+            {
+                elemIn;
+            };
             setInterval(() => 
             {
                 if(!this.canMove)
@@ -191,6 +209,13 @@ export default {
                 this.velocity.x += this.acceleration.x / framerate;
                 this.velocity.y += this.acceleration.y / framerate;
             }, 1000/framerate);
+
+            
+
+            this.toString = (...args) =>
+            {
+                return "are you fucking crazy";
+            }
 
             window.objects.push(this);
         }

@@ -16,6 +16,7 @@ function zeroify(num, digits = 2)
 
 function updateBars()
 {
+  // debugger;
   fetch("./electionData.js", {cache: "no-cache"})
     .then((response) => response.text())
     .then((code) => {
@@ -55,7 +56,7 @@ function updateBars()
       displayObj[dataInner[candDeets[0]]].style.position = "absolute";
       displayObj[dataInner[candDeets[0]]].style.height = "100%";
       displayObj[dataInner[candDeets[0]]].style.width = 
-        `${dataInner[candDeets[0]]*100/total}%`;
+        `${Number(dataInner[candDeets[0]])*100/total}%`;
 
       displayObj[dataInner[candDeets[0]]].style.backgroundColor = candDeets[2];
       displayObj[dataInner[candDeets[0]]].style.color = 
@@ -66,7 +67,7 @@ function updateBars()
       displayObj[dataInner[candDeets[0]]].style.display = "block";
       displayObj[dataInner[candDeets[0]]].innerHTML = dataInner[candDeets[0]];
       displayObj[dataInner[candDeets[0]]].style.left = `${percentage}%`;
-      percentage += dataInner[candDeets[0]]*100/total;
+      percentage += Number(dataInner[candDeets[0]])*100/total;
     }
     percentage = 0; 
     for(let i = 0; i < electionDeeta.display.right.length; i++)
@@ -80,7 +81,7 @@ function updateBars()
       displayObj[dataInner[candDeets[0]]].style.position = "absolute";
       displayObj[dataInner[candDeets[0]]].style.height = "100%";
       displayObj[dataInner[candDeets[0]]].style.width = 
-        `${dataInner[candDeets[0]]*100/total}%`;
+        `${Number(dataInner[candDeets[0]])*100/total}%`;
 
       displayObj[dataInner[candDeets[0]]].style.backgroundColor = candDeets[2];
 
@@ -93,9 +94,9 @@ function updateBars()
       displayObj[dataInner[candDeets[0]]].style.display = "block";
       displayObj[dataInner[candDeets[0]]].innerHTML = dataInner[candDeets[0]];
       displayObj[dataInner[candDeets[0]]].style.left =
-        `${(100-percentage)-(dataInner[candDeets[0]]*100/total)}%`;
+        `${(100-percentage)-(Number(dataInner[candDeets[0]])*100/total)}%`;
 
-      percentage += dataInner[candDeets[0]]*100/total;
+      percentage += Number(dataInner[candDeets[0]])*100/total;
     }
   }
   updateOne(getSenateResults(), document.getElementById("senateBar"));
@@ -126,11 +127,6 @@ function thingThatGoesInInterval(timer)
   {
     updateBars();
     fillMap();
-    setTimeout(
-      function(){
-        location.replace(`${location.origin}${location.pathname}?slide=${slide}`);
-      },
-    60000);
   }
 }
 thingThatGoesInInterval(true);
@@ -159,7 +155,7 @@ function setSlide(num)
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "none";
     if (int != undefined) clearInterval(int);
-    let int2 = setInterval(thingThatGoesInInterval, 1000, false);
+    let int2 = setInterval(thingThatGoesInInterval, 10000, false);
     updateBars();
   }
   else if(num == 2)
@@ -173,7 +169,7 @@ function setSlide(num)
     document.getElementById("statesMap").style.display = "block";
     document.getElementById("districtsMap").style.display = "none";
     if (int != undefined) clearInterval(int);
-    let int2 = setInterval(thingThatGoesInInterval, 1000, false);
+    let int2 = setInterval(thingThatGoesInInterval, 10000, false);
   }
   else if(num == 3)
   {
@@ -186,7 +182,7 @@ function setSlide(num)
     document.getElementById("statesMap").style.display = "none";
     document.getElementById("districtsMap").style.display = "block";
     if (int != undefined) clearInterval(int);
-    let int2 = setInterval(thingThatGoesInInterval, 1000, false);
+    let int2 = setInterval(thingThatGoesInInterval, 10000, false);
   }
   slide = num;
 }
