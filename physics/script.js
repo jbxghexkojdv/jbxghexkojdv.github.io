@@ -31,20 +31,23 @@ export default {
             window[this.#id] = this;
             this.elem = elemIn;
             
-            this.#hitboxElem = document.createElement("div");
-            this.elem.parentElement.appendChild(this.#hitboxElem);
+            if(showHitbox)
+            {
+                this.#hitboxElem = document.createElement("div");
+                this.elem.parentElement.appendChild(this.#hitboxElem);
+                this.#hitboxElem.style.position = "absolute";
+                this.#hitboxElem.style.left = x + "%";
+                this.#hitboxElem.style.bottom = y + "%";
+                this.#hitboxElem.style.height = height + "%";
+                this.#hitboxElem.style.width = width + "%";
+                this.#hitboxElem.style.backgroundColor = "transparent";
+                this.#hitboxElem.style.border = "3px solid black";
+                this.#hitboxElem.style.display = showHitbox ? "block" : "none";
+            }
             
             this.elem.style.position = "absolute";
             this.elem.style.left = x + "%";
             this.elem.style.bottom = y + "%";
-            this.#hitboxElem.style.position = "absolute";
-            this.#hitboxElem.style.left = x + "%";
-            this.#hitboxElem.style.bottom = y + "%";
-            this.#hitboxElem.style.height = height + "%";
-            this.#hitboxElem.style.width = width + "%";
-            this.#hitboxElem.style.backgroundColor = "transparent";
-            this.#hitboxElem.style.border = "3px solid black";
-            this.#hitboxElem.style.display = showHitbox ? "block" : "none";
 
             this.location = {
                                 x: x, 
@@ -179,10 +182,16 @@ export default {
             };
             this.updateLocation = () =>
             {
-                this.elem.style.left = this.location.x + "%";
-                this.#hitboxElem.style.left = this.location.x + "%";
-                this.elem.style.bottom = this.location.y + "%";
-                this.#hitboxElem.style.bottom = this.location.y + "%";
+                if(moving)
+                {
+                    this.elem.style.left = this.location.x + "%";
+                    this.elem.style.bottom = this.location.y + "%";
+                }
+                if(moving && showHitbox)
+                {
+                    this.#hitboxElem.style.left = this.location.x + "%";
+                    this.#hitboxElem.style.bottom = this.location.y + "%";
+                }
             };
             /**
              * Moves the Thing instantaneously
