@@ -1,4 +1,4 @@
-const voteOptions = ["69", "420", "1337", "Y0URSC4MW0NTW0RK"];
+const voteOptions = ["A program that counts the amount of times Ava says \"Wjejdjrjfjnf\"", "A thing that converts between \"normal\" time and military time", "Clicker game", "Secret message encoder/decoder", "Snake", "Choose your own adventure", "Weather app", "A machine that can generate potentially infinite strings of as and bs without ever saying the same one twice", "Bot that you can use to Google Translate your message 20 times"];
 let ballot;
 
 function makeArray(num)
