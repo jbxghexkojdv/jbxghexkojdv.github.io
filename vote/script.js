@@ -1,5 +1,15 @@
-let voteOptions = ["Snowball", "Grassy", "Bell", "Robot Flower", "Basketball", "Foldy", "Eggy"];
+const voteOptions = ["69", "420", "1337", "Y0URSC4MW0NTW0RK"];
 let ballot;
+
+function makeArray(num)
+{
+  let retval = [];
+  for(let i = 0; i < num; i++)
+  {
+    retval.push(0);
+  }
+  return retval;
+}
 
 function ordinal(num)
 {
@@ -54,9 +64,6 @@ function createTable(rows = 0, cols = 0, parent = document.getElementsByTagName(
   };
   for(let i = 0; i < rows; i++)
   {
-    // It is a woman's right to have an abortion
-    // istg if Moore v Harper means we won't have free and fair elections
-    // Fuck the Supreme Court
     let roe = createElem("tr", table);
     retval.rows.push(roe);
     roe.style.border = "3px solid black";
@@ -82,7 +89,7 @@ function initBallot(options, system = null)
     case "approval":
       retval = createTable(options.length, 1);
       let vals = [[]];
-      for(let i if options)
+      for(let i of options)
       {
         vals[0].push(i);
       }
@@ -94,16 +101,16 @@ function initBallot(options, system = null)
       break;
     default:
       retval = createTable(options.length+1, options.length+1);
-      let vals = [[""]];
+      let vals2 = [[""]];
       for(let i = 1; i <= options.length; i++)
       {
-        vals[0].push(ordinal(i) + " choice");
+        vals2[0].push(ordinal(i) + " choice");
       }
       for(let i of options)
       {
-        vals.push([i]);
+        vals2.push([i]);
       }
-      retval.setText(vals);
+      retval.setText(vals2);
       for(let i in retval.cells)
       {
         for(let j in retval.cells[i])
@@ -138,6 +145,10 @@ function initBallot(options, system = null)
         }
       }
   }
+  let submit = document.createElement("button");
+  document.body.appendChild(submit);
+  submit.onclick = send;
+  submit.innerHTML = "Submit (will send you to email)"
   return retval;
 }
 
@@ -185,34 +196,9 @@ switch(optionsobj.system)
     rankedchoice();
 }
 
-let title = document.getElementsByTagName("title")[0];
-
-let month;
-let year;
-switch(Number(optionsobj.time) % 6)
+function send(e)
 {
-  case 0:
-    month = "September";
-    break;
-  case 1:
-    month = "November";
-    break;
-  case 2:
-    month = "January";
-    break;
-  case 3:
-    month = "March";
-    break;
-  case 4:
-    month = "May";
-    break;
-  case 5:
-    month = "July";
-}
-
-function send()
-{
-  let choices = [];
+  let choices = makeArray(voteOptions.length);
   switch(optionsobj.system)
   {
     case "approval":
@@ -220,16 +206,26 @@ function send()
     case "fptp":
       break;
     default:
-      for(let i of ballot.table.children)
+      for(let i in ballot.table.children)
       {
-        for(let j in i.children)
+        if(i > voteOptions.length || !parseInt(i))
         {
-          
+          continue;
+        }
+        for(let j in ballot.table.children[i].children)
+        {
+          if(j > voteOptions.length || !parseInt(j))
+          {
+            continue;
+          }
+          if(ballot.table.children[i].children[j].style.backgroundColor == "rgb(128, 255, 128)")
+          {
+            console.log(`Hit at i=${i}, j=${j}\nBefore: ${choices}`);
+            choices[j-1] = voteOptions[i-1];
+            console.log(`Putting \"${voteOptions[i-1]}\" at index ${j-1}\nAfter: ${choices}`);
+          }
         }
       }
   }
-  location.href = `mailto:jbxghexkojdv@gmail.com?subject=${title.innerHTML}&body=${choices.toString()}`;
+  location.href = `mailto:jbxghexkojdv@gmail.com?subject=Vote&body=${choices.toString()}`;
 }
-
-year = Math.floor((Number(optionsobj.time)-2)/6)+2022;
-title.innerHTML += " for the project of " + month + " " + year;
