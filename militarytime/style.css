@@ -1,0 +1,40 @@
+*
+{
+  font: 100px monospace;
+  color: white;
+}
+
+tr
+{
+  height: 50%;
+}
+
+input
+{
+  width: 100%;
+}
+
+td:first-child input
+{
+  text-align: right;
+}
+
+body
+{
+  background-color: black;
+}
+
+input
+{
+  background-color: black;
+}
+
+button
+{
+  background-color: #333;
+}
+
+button:hover
+{
+  background-color: #383838;
+}

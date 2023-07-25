@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Military Time Tool for People that Can't Do Basic Addition and Subtraction</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"  content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td><input type="number" min=1 max=12 step=1 value=12 /></td>
+        <td>:</td>
+        <td><input type="number" min=0 max=59 step=1 value=34 /></td>
+        <td><button onclick="toggleAM();">AM</button></td>
+      </tr>
+      <tr>
+        <td><input type="number" min=0 max=23 step=1 value=00 /></td>
+        <td>:</td>
+        <td><input type="number" min=0 max=59 step=1 value=34 /></td>
+      </tr>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>
