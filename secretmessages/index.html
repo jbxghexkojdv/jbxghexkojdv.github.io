@@ -4,9 +4,37 @@
     <title>SECRET MESSAGES!!!!!!!!!!1!11!111!1111!11111!111111!1111111!11111111</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      textarea
+      {
+        height: 40%;
+        width: 100%;
+        margin: 0;
+        background-color: black;
+        color: white;
+      }
+      body
+      {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: black;
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    Message:
+    <textarea rows="4"></textarea>
+    Cipher:
+    <textarea rows="32"></textarea>
     <script>
+      document.getElementsByTagName("textarea")[0].oninput = function(e)
+      {
+        document.getElementsByTagName("textarea")[1].value = encode(document.getElementsByTagName("textarea")[0].value);
+      };
+      document.getElementsByTagName("textarea")[1].oninput = function(e)
+      {
+        document.getElementsByTagName("textarea")[0].value = decode(BigInt(document.getElementsByTagName("textarea")[1].value));
+      };
       function encode(str)
       {
         let retval = 0n;
