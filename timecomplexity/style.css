@@ -1,0 +1,69 @@
+body,
+button
+{
+  font-family: monospace;
+}
+
+body div
+{
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  border: 3px solid black;
+}
+
+body div div
+{
+  border: 0 solid black;
+}
+
+p
+{
+  z-index: 10000000;
+}
+
+.r1
+{
+  top: 0;
+}
+
+.r2
+{
+  top: 50%;
+}
+
+.c1
+{
+  left: 0;
+}
+
+.c2
+{
+  left: 50%;
+}
+
+#timeDisplay,
+button
+{
+  font-size: 50px;
+}
+
+#timeDisplay
+{
+  margin: 0;
+  position: absolute;
+}
+
+button
+{
+  position: absolute;
+  top: 33.33333333333333%;
+  width: 24%;
+  left: 38%;
+}
+
+p
+{
+  width: 100%;
+  text-align: center;
+}
