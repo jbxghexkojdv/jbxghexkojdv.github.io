@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SECRET MESSAGES!!!!!!!!!!1!11!111!1111!11111!111111!1111111!11111111</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      textarea
+      {
+        height: 40%;
+        width: 100%;
+        margin: 0;
+        background-color: black;
+        color: white;
+      }
+      body
+      {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    Message:
+    <textarea rows="4"></textarea>
+    Cipher:
+    <textarea rows="32"></textarea>
+    <script>
+      document.getElementsByTagName("textarea")[0].oninput = function(e)
+      {
+        document.getElementsByTagName("textarea")[1].value = encode(document.getElementsByTagName("textarea")[0].value);
+      };
+      document.getElementsByTagName("textarea")[1].oninput = function(e)
+      {
+        document.getElementsByTagName("textarea")[0].value = decode(BigInt(document.getElementsByTagName("textarea")[1].value));
+      };
+      function encode(str)
+      {
+        let retval = 0n;
+        for(let i = str.length - 1; i > -1; i--)
+        {
+            retval += BigInt(str.charCodeAt(i));
+            retval <<= 32n;
+        }
+        retval >>= 32n;
+        retval *= BigInt(Math.floor(Date.now()/3600_000));
+        return retval;
+      }
+      function decode(num)
+      {
+        if(typeof(num) != "bigint")
+        num = BigInt(num);
+        let retval = "";
+        num /= BigInt(Math.floor(Date.now()/3600_000));
+        for(;num !== 0n; num >>= 32n)
+        {
+            retval += String.fromCharCode(Number(num % (2n ** 32n)));
+        }
+        return retval;
+      }
+    </script>
+  </body>
+</html>
