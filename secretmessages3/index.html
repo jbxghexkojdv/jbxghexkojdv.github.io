@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>the thing</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <input type="number" value="0" min="-21" step="1" />
+        <br />
+        <textarea></textarea>
+        <br />
+        <button onclick="toggleMode();">Encoding</button>
+        <button id="copy" onclick="navigator.clipboard.writeText(document.querySelector('p').innerHTML);">Copy</button>
+        <br />
+        <p></p>
+        <script src="./script.js"></script>
+    </body>
+</html>
